@@ -11,6 +11,6 @@ Practice task
 
 ## Start backend app
 - Clone repository 
-- run command **cd backend**
 - Install ASP.NET CORE 2.0 
+- run command **cd .backend/practice**
 - Run command **dotnet run**

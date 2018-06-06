@@ -1,0 +1,84 @@
+.Clock {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 7px 0px;
+    border-radius: 3px;
+}
+.Clock-primary {
+    padding: 25px;
+    height: 100%;
+}
+
+.Clock-title {
+    font-weight: bold;
+    font-size: 32px;
+}
+
+.Clock-container {
+    margin-top: 15px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.Clock-time {
+    padding: 5px 0px;
+    margin-right: 17px;
+    width: 56px;
+    text-align: center;
+    border-radius: 3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-image: initial;
+    font-size: 23px;
+    font-weight: bold;
+}
+
+.Clock-button {
+    text-decoration: none;
+    box-shadow: none;
+    width: 100%;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    vertical-align: middle;
+    background-size: 30px 30px;
+    cursor: pointer;
+    margin-top: 25px;
+    display: inline-block;
+    font-weight: bold;
+    background-color: rgb(243, 85, 74) !important;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-image: initial;
+    border-radius: 4px;
+    outline: none;
+    padding: 10px 25px;
+}
+.Clock-button:hover {
+    text-decoration: none;
+    background-size: 30px 30px;
+    background-color: rgb(28, 144, 243);
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent);
+    color: rgb(255, 255, 255);
+    animation: clock-button-animation 2.8s linear infinite;
+}
+
+@keyframes clock-button-animation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 30px 60px;
+    }
+}
+
+.Clock-price {
+    width: 100%;
+    clear: both;
+    font-size: 18px;
+    background: rgb(240, 240, 240, 0.5);
+    padding: 15px 25px;
+    text-align: left;
+    bottom: 0px;
+}

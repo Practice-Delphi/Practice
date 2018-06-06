@@ -1,0 +1,81 @@
+.Home-logo {
+    /* animation: Home-logo-spin infinite 20s linear; */
+    height: 80px;
+  }
+  
+  .Home-header {
+    position: relative;
+    z-index: 2;
+    top: 0px;
+    transition: all 0.3s ease;
+    background-color: #FF9F00;
+    height: 10%;
+    padding: 12px 12px;
+    color: #D0011B;
+  }
+  
+  .Home-navbar {
+    position: relative;
+    max-width: 1110px;
+    margin: auto;
+    padding: 0px 15px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .Home-brand {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;
+    padding: 10px 0px;
+  }
+  .Home-title {
+    padding-left: 5px;
+    font-size: 2.5em;
+    flex-grow: 1;
+    text-align: left;
+  }
+  
+  
+  /* @keyframes Home-logo-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+   */
+  .Home-link {
+    font-size: 14pt;
+    color: #F0211A;
+    margin: 5px 5px;
+    /* background-color: #F0B3BA */
+  }
+  .Home-link:hover {
+    color:  #D0011B;
+  }
+  
+  .fixed {
+    position: fixed;
+    top: 0px;
+    z-index: 2;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 5px 0px;
+    height: 3.64rem;
+    padding: 0.7rem;
+    transition: all 0.3s ease;
+    height: max-content;
+  }
+  
+  @media (max-width: 767px) {
+    .Home-navbar {
+      justify-content: center;
+      padding: 20px 0px 20px 0px;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .Home-brand {
+      flex: 1 1 100%;
+    }
+  }

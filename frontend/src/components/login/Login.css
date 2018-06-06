@@ -1,0 +1,131 @@
+.Login {
+    position: relative;
+    max-width: 900px;
+    clear: both;
+    margin: auto;
+}
+
+.Login-container {
+    box-shadow: rgba(0, 0, 0, 0.21) 0px 2px 18px 0px;
+    width: 100%;
+    background: rgb(255, 255, 255);
+    border-radius: 4px;
+    margin: 0px auto;
+}
+
+.Login-title {
+    text-align: center;
+    margin-bottom: 45px;
+    padding-bottom: 10px;
+    font-size: 28px;
+    border-bottom: 1px solid rgb(166, 166, 166);
+}
+
+.Login-form {
+    margin: 0px auto;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.Login-input {
+    width: 100%;
+    min-width: 100%;
+    color: rgb(128, 128, 128);
+    font-family: sans-serif;
+    margin-bottom: 1.4rem;
+    display: block;
+    padding: 0.7rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(217, 217, 217);
+    border-image: initial;
+}
+
+.Login-form-submit {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.Login-form-submit > button {
+    box-shadow: none;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    vertical-align: middle;
+    background-size: 30px 30px;
+    cursor: pointer;
+    background-color: rgb(255, 159, 0) !important;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-image: initial;
+    border-radius: 100px;
+    outline: none;
+    padding: 5px 35px;
+}
+
+.Login-form-submit > button:hover {
+    background-size: 30px 30px;
+    background-color: rgb(255, 159, 0);
+    background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent);
+    color: rgb(255, 255, 255);
+    animation: submitbutton-animation 2.8s linear infinite;
+}
+
+.Login-alert {
+    color: red;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.Login-links {
+    text-align: center;
+    font-size: 18px;
+    margin-top: 30px;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.Login-links > a {
+    box-shadow: none;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    text-decoration: none;
+}
+
+@keyframes submitbutton-animation {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 30px 60px;
+    }
+}
+
+
+@media (min-width: 320px) {
+    .Login {
+        padding: 50px 10px;
+    }
+    .Login-container {
+        padding: 50px 0px;
+    }
+}
+
+@media (min-width: 750px) {
+    .Login-container {
+        width: fit-content;
+        min-width: 550px;
+        padding: 75px 57px;
+    }
+    .Login-input {
+        max-width: 19.6rem;
+    }
+}
+
+@media (min-width: 1000px) {
+    .Login {
+        padding: 50px;
+    }
+}

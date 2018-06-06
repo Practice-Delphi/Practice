@@ -1,0 +1,212 @@
+.Firsthome {
+    padding: 60px 15px 0px 15px;
+    max-width: 1110px;
+    margin: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;    
+}
+.Firsthome-leftbar {
+    /* flex-grow: 1; */
+    width: 38%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.Firsthome-status-container {
+    margin-top: 10px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.Firsthome-status {
+    display: flex;
+    align-items: center;
+    margin-right: 25px;
+    margin-top: 10px;
+}
+
+.Firsthome-status-img {
+    width: 32px;
+}
+.Firsthome-status-img > img {
+    height: 25px;
+    width: auto;
+    margin: 0px;
+}
+.Firsthome-status-title {
+    text-align: left;
+    text-transform: uppercase;
+    margin-left: 15px;
+    font-weight: bold;
+    font-size: 14px;
+    width: 133px;
+}
+
+.Firsthome-rightbar {
+    /* flex-grow: 1; */
+    width: 50%;
+}
+
+.Firsthome-rightbartitle {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.Firsthome-rightbartitle > h1 {
+    font-weight: bold;
+    font-size: 55px;
+    margin: 0px;
+}
+
+.Firsthome-rightbartitle > h2 {
+    font-weight: normal;
+    padding-top: 15px;
+    font-size: 25px;
+    margin: 0px;
+}
+
+.Firsthome-title {
+    color: #D0011B;
+}
+
+.Firtshome-links {
+    margin-top: 1.4rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.Firtshome-links > a > img {
+    width: 24px;
+    height: 24px;
+}
+
+.Firtshome-links > a {
+    box-shadow: none;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    text-decoration: none;
+    padding: 0px 12px;
+}
+
+.Firtshome-links > a > span {
+    margin-left: 5px;
+    margin-top: -15px;
+    vertical-align: text-top;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+}
+
+.Firtshome-videos {
+    margin-top: 40px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.Firtshome-videos > div {
+    margin-right: 25px;
+    cursor: pointer;
+}
+
+.Firtshome-videos > div:hover {
+    opacity: 0.8;
+}
+
+.Firtshome-videos > div > img {
+    height: 120px;
+    width: auto;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px 0px;
+    margin: 0px;
+}
+
+.Firsthome-documents {
+    margin-left: 25px;
+    margin-top: 0rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: stretch;
+}
+
+.Firsthome-documents > div {
+    align-self: flex-end;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.Firsthome-documents-button {
+    text-decoration: none;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    color: rgb(255, 255, 255);
+    height: 52px;
+    font-size: 20px;
+    cursor: pointer;
+    text-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(255, 255, 255);
+    border-image: initial;
+    border-radius: 4px;
+    margin: 0px auto 15px;
+    padding: 8px 18px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+}
+.Firsthome-documents-button:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.Firsthome-documents-button > img {
+    width: 32px;
+    height: auto;
+}
+.Firsthome-documents-button > div {
+    cursor: pointer;
+    text-align: center;
+    margin-left: 5px;
+    color: rgb(255, 255, 255);
+    height: 52px;
+    font-size: 20px;
+    text-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px;
+}
+
+@media (max-width: 500px) {
+    .Firsthome {
+        padding: 60px 15px 0px 15px;
+        flex-flow: column nowrap;
+    }
+    .Firsthome-rightbar {
+        width: 100%;
+    }
+    .Firsthome-leftbar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1023px) {
+    .Firtshome-videos {
+        flex-flow: column nowrap;
+    }
+    .Firtshome-videos > div > img {
+        height: auto;
+        width: 100%;
+    }
+    .Firsthome-documents > div {
+        align-self: stretch;
+    }
+}
+
+@media (max-width: 769px) {
+    .Firtshome-videos > div {
+        margin-right: 0px;
+    }
+}
+
+@media (min-width: 1441px) {
+    
+  }

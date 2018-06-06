@@ -1,0 +1,23 @@
+  .Langselect-button {
+    font-size: 14pt;
+    color: #F0211A;
+    margin: 5px 5px;
+  }
+  
+  .Langselect-select {
+    position: absolute;
+    margin-top: 12px;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 5px 0px;
+    background: rgb(255, 255, 255);
+    border-radius: 4px;
+  }
+  
+  .Langselect-option {
+    border-bottom: 1px solid rgb(242, 242, 242);
+    padding: 5px 12px;
+  }
+  
+  .Langselect-option:hover {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }

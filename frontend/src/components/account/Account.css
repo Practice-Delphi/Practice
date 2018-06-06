@@ -1,0 +1,129 @@
+
+.Account-header {
+    height: 80px;
+    background: rgb(28, 144, 243);
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+}
+
+.Account-navbar {
+    flex-grow: 1;
+    position: relative;
+    max-width: 900px;
+    clear: both;
+    z-index: 2;
+    padding: 0px 15px;
+    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Account-brand {
+    height: 2.24rem;
+    cursor: pointer;
+    width: auto;
+    max-width: initial;
+    padding: 0px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 0px;
+}
+
+.Account-brand > img {
+    height: 64px;
+}
+
+.Account-title {
+    padding-left: 5px;
+    font-size: 2.5em;
+    flex-grow: 1;
+    text-align: left;
+    color: rgb(255,255,255);
+}
+
+.Account-button-container {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.Account-button-link {
+    color: rgb(255,255,255);
+    animation: button-link-animation 2s infinite;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.Account-footer {
+    background: rgb(6, 47, 79);
+    overflow: hidden;
+}
+
+.Account-footer-container {
+    position: relative;
+    max-width: 900px;
+    clear: both;
+    z-index: 1;
+    color: rgb(239, 243, 246);
+    padding: 50px 15px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Account-footer-copyright {
+    text-align: left;
+    width: 20%;
+}
+
+.Account-footer-link-container {
+    width: 80%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+}
+
+.Account-footer-link {
+    box-shadow: none;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(239, 243, 246);
+    margin-left: 15px;
+}
+
+.Account-footer-link:hover {
+    text-decoration: none;
+    color: rgb(239, 243, 246);
+    opacity: 0.7;
+}
+
+@keyframes button-link-animation {
+    0% {
+        color: rgb(255,255,255)
+    }
+    50% {
+        color: rgb(200, 200, 200);
+    }
+    100% {
+        color: rgb(255,255,255);
+    }
+}
+
+@media (max-width: 750px) {
+    .Account-button-link {
+        display: none;
+    }
+    .Account-title {
+        font-size: 1.5rem;
+    }
+}

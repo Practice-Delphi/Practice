@@ -1,0 +1,13 @@
+
+body {
+  color: #002133;
+  font-family: 'Futura PT','Spectral','Georgia','Times New Roman','Times',serif;
+  font-weight: normal;
+  word-wrap: break-word;
+  font-kerning: normal;
+  font-feature-settings: "kern", "liga", "clig", "calt";
+}
+
+.App {
+  /* text-align: center; */
+}

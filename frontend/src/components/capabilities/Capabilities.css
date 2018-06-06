@@ -1,0 +1,58 @@
+.Capabilities{
+    background-color: #033753;
+    color: azure;
+}
+.form{
+    max-width: 1110px;
+    margin: auto;
+    padding-top: 90px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+.main{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+.main-text-symbols{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap; 
+    justify-content: space-between;
+}
+.main-text{
+    width: 50%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    padding: 30px;
+    animation: item-start 4s linear ;
+}
+.text-symbol > img {
+    width: 80px;
+    height: 80px;
+}
+.main-picture > img{
+    width: 550px;
+    height: 550px;
+    animation: picture-start 2s linear ;
+}
+.secondary{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    margin-top:60px; 
+
+}
+.tip{
+    width: 30%;
+    animation: item-start 3s linear ;
+}
+.tip > strong {
+    font-size: 140%;
+}
+@keyframes picture-start{
+    from {    transform: translate3d(100%, 0px, 0px);}
+    to {      transform: none;}
+}
