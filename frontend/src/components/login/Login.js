@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 // connect component to redux
 import { connect } from 'react-redux';
 
-import { login, runDelete } from '../../actions/loginaction';
+import { login, logout } from '../../actions/loginaction';
 
-import { withRouter } from 'react-router-dom';
+// import { withRouter } from 'react-router-dom';
 
 //Import components
 
@@ -22,7 +22,7 @@ class Login extends Component {
         this.changeEmail = this.changeEmail.bind(this);
         this.changePassword = this.changePassword.bind(this);
         this.submit = this.submit.bind(this);
-        this.props.deleteData();
+        // this.props.deleteData();
     }
     changeEmail(event) {
         this.setState({ email: event.target.value });
@@ -85,7 +85,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
     // some action creators
     login: (email, password) => { dispatch(login(email, password)) },
-    deleteData: () => { dispatch(runDelete())}
+    deleteData: () => { dispatch(logout())}
 });
 
 

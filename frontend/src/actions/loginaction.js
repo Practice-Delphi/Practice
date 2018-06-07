@@ -42,14 +42,14 @@ const fetchUserSuccess = (user) => ({
 export const login = (email, password) => (dispatch, getState) => {
     dispatch(fetchStart());
     // Fetch to server
-    const fetchToken = () => (new Promise((resolve, reject) => {
-        const rand = Math.random();
-        if (rand < 0.2) {
-            reject("Error fetch to server");
-        } else {
-            resolve("MyToken");
-        }
-    }));
+    // const fetchToken = () => (new Promise((resolve, reject) => {
+    //     const rand = Math.random();
+    //     if (rand < 0.2) {
+    //         reject("Error fetch to server");
+    //     } else {
+    //         resolve("MyToken");
+    //     }
+    // }));
 
     const LoginData = {
         grant_type: "password",
@@ -72,36 +72,40 @@ export const login = (email, password) => (dispatch, getState) => {
     const headers = new Headers({
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
     });
-    console.log(headers.has('Content-Type'), headers.get('Content-Type'));
+    // console.log(headers.has('Content-Type'), headers.get('Content-Type'));
     window.fetch('http://localhost:58997/token', {
         method: 'POST',
         headers: headers,
         body: formBody
     })
         .then(data => data.json())
-        .then(token => console.log(token))
-        .catch(error => console.log(error));
-
-    const fetchUser = () => (new Promise((resolve, reject) => {
-        const rand = Math.random();
-        if (rand < 0.2) {
-            reject("Error fetch to server");
-        } else {
-            resolve({ email, tokens: 13.02, url: "/testurl", registers: 5, commission: 4.35 });
-        }
-    }));
-
-    fetchToken()
-        .then(token => {
-            dispatch(fetchSuccess(token));
-            dispatch(fetchUserStart());
-            return fetchUser();
+        .then(userData => {
+            dispatch(fetchSuccess(userData.access_token));
+            //console.log(token);
+            dispatch(fetchUserSuccess(userData));
         })
-        .then(user => dispatch(fetchUserSuccess(user)))
         .catch(error => dispatch(fetchError(error)));
+
+    // const fetchUser = () => (new Promise((resolve, reject) => {
+    //     const rand = Math.random();
+    //     if (rand < 0.2) {
+    //         reject("Error fetch to server");
+    //     } else {
+    //         resolve({ email, tokens: 13.02, url: "/testurl", registers: 5, commission: 4.35 });
+    //     }
+    // }));
+
+    // fetchToken()
+    //     .then(token => {
+    //         dispatch(fetchSuccess(token));
+    //         dispatch(fetchUserStart());
+    //         return fetchUser();
+    //     })
+    //     .then(user => dispatch(fetchUserSuccess(user)))
+    //     .catch(error => dispatch(fetchError(error)));
 }
 
-export const runDelete = () => (dispatch, getState) => {
+export const logout = () => (dispatch, getState) => {
     dispatch(deleteToken());
     dispatch(deleteUser());
 }

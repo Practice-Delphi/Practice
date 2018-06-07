@@ -35,10 +35,12 @@ class Account extends Component {
             </div>
           </div>
         </header>
-        <Route exact={true} path={"/account"} component={Profile} />
-        <Route exact={true} path={"/account/register"} component={Register} />
-        <Route exact={true} path={"/account/login"} component={Login} />
-        <Route exact={true} path={"/account/forgot_password"} component={Forgotpassword} />
+        <main className="Account-main">
+          <Route exact={true} path={"/account"} component={Profile} />
+          <Route exact={true} path={"/account/register"} component={Register} />
+          <Route exact={true} path={"/account/login"} component={Login} />
+          <Route exact={true} path={"/account/forgot_password"} component={Forgotpassword} />
+        </main>
         <footer className="Account-footer">
           <div className="Account-footer-container">
             <div className="Account-footer-copyright">

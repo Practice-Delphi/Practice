@@ -46,6 +46,9 @@ class Home extends Component {
       }
     }
   }
+  componentDidMount() {
+    window.onscroll();
+  }
   componentWillUnmount() {
     window.onscroll = () => { };
   }
@@ -88,7 +91,7 @@ class Home extends Component {
             }
           })()}
         </div>
-        <Benefits />
+        {/* <Benefits /> */}
         <Usecases />
         <Capabilities />
       </div>

@@ -1,3 +1,8 @@
+.Account-main {
+    min-height: fit-content;
+    height: 85vh;
+    background: rgb(239, 243, 246);
+}
 
 .Account-header {
     height: 80px;
@@ -63,6 +68,7 @@
 .Account-footer {
     background: rgb(6, 47, 79);
     overflow: hidden;
+    
 }
 
 .Account-footer-container {

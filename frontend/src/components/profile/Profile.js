@@ -3,15 +3,13 @@ import './Profile.css';
 import PropTypes from 'prop-types';
 // connect component to redux
 import { connect } from 'react-redux';
+import { logout } from '../../actions/loginaction';
 
 //Import components
 
 class Profile extends Component {
   constructor(props) {
     super(props);
-    if (!this.props.userData.user) {
-      this.props.history.push('/account/login');
-    }
     this.state = {
       isPatherLinkActive: false,
       isControlPanel: true,
@@ -29,6 +27,16 @@ class Profile extends Component {
     this.renderSettingsMain = this.renderSettingsMain.bind(this);
     this.changeToAddress = this.changeToAddress.bind(this);
     this.changeToProfile = this.changeToProfile.bind(this);
+  }
+  componentDidUpdate() {
+    if (!this.props.userData.user) {
+      this.props.history.push('/account/login');
+    }
+  }
+  componentDidMount() {
+    if (!this.props.userData.user) {
+      this.props.history.push('/account/login');
+    }
   }
   changePatherState() {
     if (!this.state.isPatherLinkActive) {
@@ -165,7 +173,7 @@ class Profile extends Component {
                 <div className="Profile-nav-email">
                   <span>Welcome <i>{this.props.userData.user.email}</i></span>
                 </div>
-                <div className="Profile-nav-exitbutton">
+                <div className="Profile-nav-exitbutton" onClick={this.props.logout}>
                   Log out
                 </div>
               </div>
@@ -183,7 +191,8 @@ class Profile extends Component {
 
 Profile.propTypes = {
   userData: PropTypes.object,
-  history: PropTypes.object
+  history: PropTypes.object,
+  logout: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
@@ -193,6 +202,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   // some action creators
+  logout: () => { dispatch(logout()) },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
