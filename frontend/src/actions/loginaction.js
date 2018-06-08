@@ -29,14 +29,25 @@ const deleteUser = () => ({
     type: DELETE_USER
 });
 
-const fetchUserStart = () => ({
-    type: FETCH_USER_START
-});
+// const fetchUserStart = () => ({
+//     type: FETCH_USER_START
+// });
 
 const fetchUserSuccess = (user) => ({
     type: FETCH_USER_SUCCESS,
     user
 });
+
+const encodedData = (data) => {
+    let formBody = [];
+    for (const [key, value] of Object.entries(data)) {
+        const encodedKey = encodeURIComponent(key);
+        const encodedValue = encodeURIComponent(value);
+        formBody.push(encodedKey + "=" + encodedValue);
+    }
+    formBody = formBody.join("&");
+    return formBody;
+}
 
 
 export const login = (email, password) => (dispatch, getState) => {
@@ -51,7 +62,7 @@ export const login = (email, password) => (dispatch, getState) => {
     //     }
     // }));
 
-    const LoginData = {
+    const loginData = {
         grant_type: "password",
         username: email,
         password: password
@@ -62,13 +73,13 @@ export const login = (email, password) => (dispatch, getState) => {
     //     LoginData.append('username', email);
     //     LoginData.append('password', password);
 
-    let formBody = [];
-    for (const [key, value] of Object.entries(LoginData)) {
-        const encodedKey = encodeURIComponent(key);
-        const encodedValue = encodeURIComponent(value);
-        formBody.push(encodedKey + "=" + encodedValue);
-    }
-    formBody = formBody.join("&");
+    // let formBody = [];
+    // for (const [key, value] of Object.entries(LoginData)) {
+    //     const encodedKey = encodeURIComponent(key);
+    //     const encodedValue = encodeURIComponent(value);
+    //     formBody.push(encodedKey + "=" + encodedValue);
+    // }
+    // formBody = formBody.join("&");
     const headers = new Headers({
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
     });
@@ -76,15 +87,25 @@ export const login = (email, password) => (dispatch, getState) => {
     window.fetch('http://localhost:58997/token', {
         method: 'POST',
         headers: headers,
-        body: formBody
+        body: encodedData(loginData)
     })
-        .then(data => data.json())
+        .then(res => {
+            if (res.status === 200) {
+                return res.json();
+            } else if (res.status === 400) {
+                throw new Error("Bad request");
+            } else if (res.status === 404) {
+                throw new Error("Not found");
+            } else {
+                throw new Error("Unknown error");
+            }
+        })
         .then(userData => {
             dispatch(fetchSuccess(userData.access_token));
             //console.log(token);
             dispatch(fetchUserSuccess(userData));
         })
-        .catch(error => dispatch(fetchError(error)));
+        .catch(error => dispatch(fetchError(error.toString())));
 
     // const fetchUser = () => (new Promise((resolve, reject) => {
     //     const rand = Math.random();
@@ -103,6 +124,41 @@ export const login = (email, password) => (dispatch, getState) => {
     //     })
     //     .then(user => dispatch(fetchUserSuccess(user)))
     //     .catch(error => dispatch(fetchError(error)));
+}
+
+export const register = (email, password) => (dispatch, getState) => {
+    const headers = new Headers({
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    });
+
+    const registerData = {
+        grant_type: "password",
+        username: email,
+        password: password
+    }
+
+    window.fetch('http://localhost:58997/token', {
+        method: 'POST',
+        headers: headers,
+        body: encodedData(registerData),
+    })
+        .then(res => {
+            if (res.status === 200) {
+                return res.json();
+            } else if (res.status === 400) {
+                throw new Error("Bad request");
+            } else if (res.status === 404) {
+                throw new Error("Not found");
+            } else {
+                throw new Error("Unknown error");
+            }
+        })
+        .then(userData => {
+            dispatch(fetchSuccess(userData.access_token));
+            //console.log(token);
+            dispatch(fetchUserSuccess(userData));
+        })
+        .catch(error =>  dispatch(fetchError(error.toString())));
 }
 
 export const logout = () => (dispatch, getState) => {

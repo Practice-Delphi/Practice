@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './Register.css';
+import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
-
+import { register } from '../../actions/loginaction';
 
 class Register extends Component {
     constructor(props) {
@@ -22,24 +23,58 @@ class Register extends Component {
         this.changeCheck1 = this.changeCheck1.bind(this);
         this.changeCheck2 = this.changeCheck2.bind(this);
         this.submit = this.submit.bind(this);
+        this.renderError = this.renderError.bind(this);
+        this.checkErrors = this.checkErrors.bind(this);
     }
     changeEmail(event) {
-        this.setState({email:event.target.value});
+        this.setState({ email: event.target.value });
     }
     changePassword(event) {
-        this.setState({password:event.target.value});
+        this.setState({ password: event.target.value });
     }
     changeConfirmPassword(event) {
-        this.setState({confirmpass:event.target.value});
+        this.setState({ confirmpass: event.target.value });
     }
     changeCheck1(event) {
-        this.setState({check1:event.target.checked});
+        this.setState({ check1: event.target.checked });
     }
     changeCheck2(event) {
-        this.setState({check2:event.target.checked});
+        this.setState({ check2: event.target.checked });
     }
     submit() {
+        this.props.register(this.state.email, this.state.password);
         alert(`Sorry it's not work now\nYou enter: \n Email: ${this.state.email} \n Password: ${this.state.password} \n ConfirmPassword: ${this.state.confirmpass} \n Check1: ${this.state.check1} \n Check2: ${this.state.check2}`);
+    }
+    checkErrors() {
+        if (this.state.password !== this.state.confirmpass) {
+            this.setState({ errorType: "Password not confirmed" });
+        } else if (!this.state.check1) {
+            this.setState({ errorType: "Please check Check1" });
+        } else if (!this.state.check2) {
+            this.setState({ errorType: "Please check Check2" });
+        } else if (this.props.userData.error) {
+            this.setState({ errorType: this.props.userData.error });
+        } else {
+            this.setState({ errorType: null });
+        }
+    }
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.errorType !== prevState.errorType || this.props.userData !== prevProps.userData) {
+            this.checkErrors();
+        } else if(this.props.userData.user) {
+            this.props.history.push('/account');
+        }
+    }
+    renderError() {
+        if (this.state.errorType) {
+            return (
+                <div className="Register-alert">
+                    {this.state.errorType}
+                </div>
+            );
+        } else {
+            return null;
+        }
     }
     render() {
         return (
@@ -47,21 +82,19 @@ class Register extends Component {
                 <div className="Register-container">
                     <div className="Register-title">
                         Register
-                </div>
+                    </div>
                     <form className="Register-form">
                         <input type="email" className="Register-input" placeholder="Email address" onChange={this.changeEmail} />
-                        <input type="password" className="Register-input" placeholder="Password" onChange={this.changePassword}/>
-                        <input type="password" className="Register-input" placeholder="Confirm password" onChange={this.changeConfirmPassword}/>
-                        <div className="Register-alert">
-                            Some alert
-                        </div>
+                        <input type="password" className="Register-input" placeholder="Password" onChange={this.changePassword} />
+                        <input type="password" className="Register-input" placeholder="Confirm password" onChange={this.changeConfirmPassword} />
+                        {this.renderError()}
                         <div className="Register-form-checkbox">
                             <div>
-                                <input type="checkbox" name="citizenCertification" value="on" onChange={this.changeCheck1}/>
+                                <input type="checkbox" name="citizenCertification" value="on" onChange={this.changeCheck1} />
                                 Check 1
                         </div>
                             <div>
-                                <input type="checkbox" name="termConfirm" value="on" onChange={this.changeCheck2}/>
+                                <input type="checkbox" name="termConfirm" value="on" onChange={this.changeCheck2} />
                                 <span> I agree with <a href="/"> Check 2</a></span>
                             </div>
                         </div>
@@ -78,11 +111,20 @@ class Register extends Component {
     }
 }
 
+Register.propTypes = {
+    userData: PropTypes.object,
+    history: PropTypes.object,
+    register: PropTypes.func,
+}
+
 const mapStateToProps = state => ({
     // some props
+    userData: state.userData,
+    history: state.historyData,
 });
 const mapDispatchToProps = dispatch => ({
     // some action creators
+    register: (email, password) => { dispatch(register(email, password)) }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register);

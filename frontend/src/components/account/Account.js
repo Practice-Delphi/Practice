@@ -16,17 +16,19 @@ import Forgotpassword from '../forgotpassword/Forgotpassword';
 
 
 class Account extends Component {
-  componentDidMount() {
-  }
   render() {
     return (
       <div className="Account">
+        {/* <div className="Loading-container">
+          <div className="Loading"></div>
+          <b>Load</b>
+        </div> */}
         <header className="Account-header">
           <div className="Account-navbar">
-            <div className="Account-brand">
+            <a href="/" className="Account-brand">
               <img src={logo} className="Account-logo" alt="logo" />
               <h1 className="Account-title">Site Title</h1>
-            </div>
+            </a>
             <div className="Account-button-container">
               <Langselect />
               <div className="Account-button-link">

@@ -23,6 +23,7 @@ class Login extends Component {
         this.changePassword = this.changePassword.bind(this);
         this.submit = this.submit.bind(this);
         // this.props.deleteData();
+        this.renderError = this.renderError.bind(this);
     }
     changeEmail(event) {
         this.setState({ email: event.target.value });
@@ -38,8 +39,19 @@ class Login extends Component {
 
         if (this.props.userData.user) {
             this.props.history.push("/account");
-            this.props.history.goForward();
-            console.log(this.props.history);
+            // this.props.history.goForward();
+            // console.log(this.props.history);
+        }
+    }
+    renderError() {
+        if (this.props.userData.error) {
+            return (
+                <div className="Login-alert">
+                    {this.props.userData.error}
+                </div>
+            )
+        } else {
+            return null;
         }
     }
     render() {
@@ -52,9 +64,7 @@ class Login extends Component {
                     <form className="Login-form">
                         <input type="email" className="Login-input" placeholder="Email address" onChange={this.changeEmail} />
                         <input type="password" className="Login-input" placeholder="Password" onChange={this.changePassword} />
-                        <div className="Login-alert">
-                            Some alert
-                    </div>
+                        { this.renderError() }
                         <div className="Login-form-submit">
                             <button type="button" onClick={this.submit}>Send</button>
                         </div>
