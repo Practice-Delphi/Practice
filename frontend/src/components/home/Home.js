@@ -15,6 +15,8 @@ import Quote from '../quote/Quote';
 import Benefits from '../benefits/Benefits';
 import Usecases from '../usecases/Usecases';
 import Capabilities from '../capabilities/Capabilities';
+import Facts from '../facts/Facts';
+import Connector from '../connector/Connector';
 
 
 class Home extends Component {
@@ -94,6 +96,8 @@ class Home extends Component {
         {/* <Benefits /> */}
         <Usecases />
         <Capabilities />
+        <Facts />
+        <Connector />
       </div>
     );
   }

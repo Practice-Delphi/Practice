@@ -1,0 +1,37 @@
+.Connector {
+    padding-bottom: 80px;
+}
+.left-video >img {
+    width: 300px;
+    height: 300px;
+    
+}
+.right{
+    font-size: 128%;
+}
+
+.left-text {
+    font-size: 280%;
+    
+}
+
+
+.git-link{
+    display: flex;
+    flex-flow: row wrap;
+    margin: 10px;
+}
+.git-img>a>img{
+    width: 50px;
+    height: 50px;
+    margin: 3px;
+}
+.text-link{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    font-style: normal;
+}
+.text-link > a{
+    color: #002133;
+}
