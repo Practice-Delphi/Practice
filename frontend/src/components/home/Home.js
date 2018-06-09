@@ -25,9 +25,17 @@ class Home extends Component {
     this.state = {
       quote: false,
       benefits: false,
+      usecases: false,
+      capabilities: false,
     }
     window.onscroll = () => {
-      this.setState({ scrollY: window.scrollY });
+      let newstate = {
+        quote: false,
+        benefits: false,
+        usecases: false,
+        capabilities: false,
+      }
+      // this.setState({ scrollY: window.scrollY });
       const header = document.getElementById('home-header');
       if (window.scrollY > 0) {
         header.classList.add("fixed");
@@ -36,16 +44,30 @@ class Home extends Component {
       }
       const quote = document.getElementById("Quote");
       if ((window.innerHeight - quote.getBoundingClientRect().top > -1) && quote) {
-        this.setState({ quote: true });
+        newstate.quote = true;
       } else {
-        this.setState({ quote: false });
+        newstate.quote = false;
       }
       const benefits = document.getElementById("Benefits");
       if ((window.innerHeight - benefits.getBoundingClientRect().top > -1) && benefits) {
-        this.setState({ benefits: true });
+        newstate.benefits = true;
       } else {
-        this.setState({ benefits: false });
+        newstate.benefits = false;
       }
+      const usecases = document.getElementById("Usecases");
+      console.log(window.innerHeight - usecases.getBoundingClientRect().top);
+      if ((window.innerHeight - usecases.getBoundingClientRect().top > -1) && usecases) {
+        newstate.usecases = true;
+      } else {
+        newstate.usecases = false;
+      }
+      const capabilities = document.getElementById("Capabilities");
+      if ((window.innerHeight - capabilities.getBoundingClientRect().top > -1) && capabilities) {
+        newstate.capabilities = true;
+      } else {
+        newstate.capabilities = false;
+      }
+      this.setState(newstate);
     }
   }
   componentDidMount() {
@@ -94,8 +116,26 @@ class Home extends Component {
           })()}
         </div>
         {/* <Benefits /> */}
-        <Usecases />
-        <Capabilities />
+        <div id="Usecases">
+          {(() => {
+            if (this.state.usecases) {
+              return <Usecases />
+            } else {
+              return null;
+            }
+          })()}
+        </div>
+        {/* <Usecases /> */}
+        <div id="Capabilities">
+          {(() => {
+            if (this.state.capabilities) {
+              return <Capabilities />
+            } else {
+              return null;
+            }
+          })()}
+        </div>
+        {/* <Capabilities /> */}
         <Facts />
         <Connector />
       </div>
