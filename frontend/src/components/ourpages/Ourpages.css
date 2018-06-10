@@ -18,3 +18,9 @@
 .Imagine{
     width: 100px;
 }
+@media screen and (max-width: 500px){
+    .Imagine{
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}

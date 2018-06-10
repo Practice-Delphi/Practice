@@ -8,7 +8,7 @@ class Benefits extends Component {
     render() {
         return (
             <div class="Benefits">
-                <div className="form">
+                <div className="ben-form">
                     <div className="topic">
                         <h1><strong><span className="problems">Проблемы</span> при <br/>
                         создании <br/>

@@ -9,15 +9,28 @@
     align-items: center;
     animation: appear 4s linear ;
 }
-.Quote-text      {
-
+.Quate-text    {
+      width: 54%;  
       text-align: left;
+      padding: 15px;
+      
 }
 .Writer {
     font-size: 68%;
+    padding: 15px;
 }
 
 @keyframes appear {
     from {color: aliceblue}
     to{color: black}
+}
+@media screen and (max-width: 500px){
+    .Quote{
+        font-size: 130%;
+    }
+    .Quate-text    {
+        width: 100%;  
+        text-align: left;
+        
+  }
 }

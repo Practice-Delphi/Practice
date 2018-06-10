@@ -1,6 +1,7 @@
 .Capabilities{
     background-color: #033753;
     color: azure;
+    padding-bottom: 60px;
 }
 .form{
     max-width: 1110px;
@@ -22,20 +23,30 @@
     justify-content: space-between;
 }
 .main-text{
-    width: 50%;
+    width: 55%;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     padding: 30px;
+    
     animation: item-start 4s linear ;
+}
+.main-text > div > h1{
+    font-size: 300%;
+    padding-bottom: 20px;
+}
+.main-text > div > p {
+    font-size: 130%;
 }
 .text-symbol > img {
     width: 80px;
     height: 80px;
+    margin-bottom: 20px;
 }
 .main-picture > img{
-    width: 550px;
-    height: 550px;
+    width: 450px;
+    height: 450px;
+    margin: 20px;
     animation: picture-start 2s linear ;
 }
 .secondary{
@@ -48,6 +59,7 @@
 .tip{
     width: 30%;
     animation: item-start 3s linear ;
+    padding: 15px;
 }
 .tip > strong {
     font-size: 140%;
@@ -55,4 +67,29 @@
 @keyframes picture-start{
     from {    transform: translate3d(100%, 0px, 0px);}
     to {      transform: none;}
+}
+@media screen and (max-width:500px){
+    .main-text{
+        width: 100%;
+        padding: 15px;
+        
+    }
+    .main-picture > img{
+        width: 290px;
+        height: 290px;
+        margin: 20px;
+        animation: picture-start 2s linear ;
+    }
+    .main-text > div > h1{
+        font-size: 130%;
+        padding-bottom: 20px;
+    }
+    .main-text > div > p{
+        font-size: 100%;
+        padding-bottom: 20px;
+    }
+    .tip{
+        width: 100%;
+        animation: item-start 3s linear ;
+    }
 }
