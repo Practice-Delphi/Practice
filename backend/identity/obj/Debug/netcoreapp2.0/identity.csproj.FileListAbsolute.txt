@@ -1,0 +1,11 @@
+D:\Praktika\identity\identity\obj\Debug\netcoreapp2.0\identity.csprojAssemblyReference.cache
+D:\Praktika\identity\identity\obj\Debug\netcoreapp2.0\identity.csproj.CoreCompileInputs.cache
+D:\Praktika\identity\identity\obj\Debug\netcoreapp2.0\identity.AssemblyInfoInputs.cache
+D:\Praktika\identity\identity\obj\Debug\netcoreapp2.0\identity.AssemblyInfo.cs
+D:\Praktika\identity\identity\bin\Debug\netcoreapp2.0\identity.deps.json
+D:\Praktika\identity\identity\bin\Debug\netcoreapp2.0\identity.runtimeconfig.json
+D:\Praktika\identity\identity\bin\Debug\netcoreapp2.0\identity.runtimeconfig.dev.json
+D:\Praktika\identity\identity\bin\Debug\netcoreapp2.0\identity.dll
+D:\Praktika\identity\identity\bin\Debug\netcoreapp2.0\identity.pdb
+D:\Praktika\identity\identity\obj\Debug\netcoreapp2.0\identity.dll
+D:\Praktika\identity\identity\obj\Debug\netcoreapp2.0\identity.pdb
