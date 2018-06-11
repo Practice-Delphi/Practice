@@ -1,0 +1,30 @@
+.Tokens{
+    background-color: black;
+    color: aliceblue;
+    padding-bottom: 60px;
+    margin-bottom: 1px;
+}
+.token-form{
+    font-size: 140%;
+    justify-content: left;
+    animation: item-start 2s linear ;
+
+}
+
+.token-img > img {
+    width: 590px;
+    height: 590px;
+    margin-left: 70px;
+}
+.token-text-img> img{
+    height: 100px;
+    width: 100px;
+    margin: 20px;
+}
+@media screen and (max-width:500px){
+    .token-img > img{
+        width: 300px;
+        height: 300px;
+        margin-left: 15px;
+    }
+}

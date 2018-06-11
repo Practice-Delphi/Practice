@@ -1,0 +1,18 @@
+.smart-form{
+    font-size: 60%;
+    width: 100%;
+}
+.smart-left{
+    width: 40%;
+}
+.smart-center{
+    width: 30%;
+    font-size: 80%;
+}
+.smart-right{
+    width: 30%;
+}
+.smart-img {
+    width: 200px;
+    height: 200px;
+}

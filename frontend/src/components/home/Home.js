@@ -17,7 +17,9 @@ import Usecases from '../usecases/Usecases';
 import Capabilities from '../capabilities/Capabilities';
 import Facts from '../facts/Facts';
 import Connector from '../connector/Connector';
-
+import Tokens from '../tokens/Tokens';
+import Tokeninfo from '../token-info/Token-info';
+import Smart from '../smart/Smart';
 
 class Home extends Component {
   constructor(props) {
@@ -138,6 +140,9 @@ class Home extends Component {
         {/* <Capabilities /> */}
         <Facts />
         <Connector />
+        <Tokens />
+        <Tokeninfo />
+        <Smart />
       </div>
     );
   }
