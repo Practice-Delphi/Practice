@@ -59,19 +59,19 @@ class Login extends Component {
             <div className="Login">
                 <div className="Login-container">
                     <div className="Login-title">
-                        Log in
+                        {this.props.lang.login.title}
                     </div>
                     <form className="Login-form">
-                        <input type="email" className="Login-input" placeholder="Email address" onChange={this.changeEmail} />
-                        <input type="password" className="Login-input" placeholder="Password" onChange={this.changePassword} />
+                        <input type="email" className="Login-input" placeholder={this.props.lang.email} onChange={this.changeEmail} />
+                        <input type="password" className="Login-input" placeholder={this.props.lang.password} onChange={this.changePassword} />
                         { this.renderError() }
                         <div className="Login-form-submit">
-                            <button type="button" onClick={this.submit}>Send</button>
+                            <button type="button" onClick={this.submit}>{this.props.lang.login.title}</button>
                         </div>
                     </form>
                     <div className="Login-links">
-                        <a href="/account/register">New account</a>
-                        <a href="/account/forgot_password">Forgot password</a>
+                        <a href="/account/register">{this.props.lang.login.notmember}</a>
+                        <a href="/account/forgot_password">{this.props.lang.login.forgotpass}</a>
                     </div>
                 </div>
             </div>
@@ -84,6 +84,7 @@ Login.propTypes = {
     history: PropTypes.object,
     userData: PropTypes.object,
     deleteData: PropTypes.func,
+    lang: PropTypes.object,
 }
 
 const mapStateToProps = state => ({
@@ -91,6 +92,7 @@ const mapStateToProps = state => ({
     userData: state.userData,
     tokenData: state.tokenData,
     history: state.historyData,
+    lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({
     // some action creators

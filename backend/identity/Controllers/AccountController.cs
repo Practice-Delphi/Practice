@@ -19,7 +19,7 @@ namespace identity.Controllers
         [HttpGet]
         public IActionResult Register()
         {
-            return View();
+            return RedirectToAction("Index", "Home"); // View();
         }
         [HttpPost]
         public async Task<IActionResult> Register(Register model)
@@ -48,7 +48,7 @@ namespace identity.Controllers
         [HttpGet]
         public IActionResult LoginVM(string returnUrl = null)
         {
-            return View(new LoginVM { ReturnUrl = returnUrl });
+            return RedirectToAction("Index", "Home"); // View(new LoginVM { ReturnUrl = returnUrl });
         }
 
         [HttpPost]

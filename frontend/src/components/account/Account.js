@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Account.css';
+import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -49,8 +50,8 @@ class Account extends Component {
               @ 2018 GGC
             </div>
             <div className="Account-footer-link-container">
-              <a href="/" className="Account-footer-link">White book</a>
-              <a href="/" className="Account-footer-link">Token rules</a>
+              <a href="/" className="Account-footer-link">{this.props.lang.account.whitepaper}</a>
+              <a href="/" className="Account-footer-link">{this.props.lang.account.terms}</a>
             </div>
           </div>
         </footer>
@@ -59,8 +60,12 @@ class Account extends Component {
   }
 }
 
+Account.propTypes = {
+  lang: PropTypes.object,
+}
 const mapStateToProps = state => ({
   // some props
+  lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({
   // some action creators

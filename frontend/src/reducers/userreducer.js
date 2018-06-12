@@ -1,4 +1,4 @@
-import { FETCH_USER_START, FETCH_USER_SUCCESS, FETCH_ERROR, DELETE_USER } from '../actions/loginaction';
+import { FETCH_USER_START, FETCH_USER_SUCCESS, FETCH_ERROR, DELETE_USER, FETCH_USER_UPDATE_SUCCESS } from '../actions/loginaction';
 
 const userData = (state = { user: null, error: null, loading: false }, action) => {
     switch (action.type) {
@@ -13,6 +13,9 @@ const userData = (state = { user: null, error: null, loading: false }, action) =
         }
         case DELETE_USER: {
             return { user: null, error: null, loading: false };
+        }
+        case FETCH_USER_UPDATE_SUCCESS: {
+            return { user: action.user, error: null, loading: false};
         }
         default: return state;
     }

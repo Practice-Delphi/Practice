@@ -1,5 +1,5 @@
 .Profile {
-    background: rgb(239, 243, 246);
+    /* background: rgb(239, 243, 246); */
 }
 
 .Profile-header {
@@ -87,11 +87,10 @@
 .Profile-tokens {
     padding-top: 1.05rem;
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
 }
 
 .Profile-text {
-    flex-grow: 1;
 }
 
 .Profile-tokens-field {
@@ -159,7 +158,7 @@
 
 .pather {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
 }
 
 .Profile-pather-left {
@@ -270,5 +269,8 @@
     }
     .Profile-settings-main {
         flex: 0 0 100%;
+    }
+    .Profile-tokens {
+        flex-flow: row wrap;
     }
 }

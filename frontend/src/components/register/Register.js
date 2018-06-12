@@ -43,7 +43,7 @@ class Register extends Component {
     }
     submit() {
         this.props.register(this.state.email, this.state.password);
-        alert(`Sorry it's not work now\nYou enter: \n Email: ${this.state.email} \n Password: ${this.state.password} \n ConfirmPassword: ${this.state.confirmpass} \n Check1: ${this.state.check1} \n Check2: ${this.state.check2}`);
+        // alert(`Sorry it's not work now\nYou enter: \n Email: ${this.state.email} \n Password: ${this.state.password} \n ConfirmPassword: ${this.state.confirmpass} \n Check1: ${this.state.check1} \n Check2: ${this.state.check2}`);
     }
     checkErrors() {
         if (this.state.password !== this.state.confirmpass) {
@@ -81,29 +81,29 @@ class Register extends Component {
             <div className="Register">
                 <div className="Register-container">
                     <div className="Register-title">
-                        Register
+                        {this.props.lang.register.title}
                     </div>
                     <form className="Register-form">
-                        <input type="email" className="Register-input" placeholder="Email address" onChange={this.changeEmail} />
-                        <input type="password" className="Register-input" placeholder="Password" onChange={this.changePassword} />
-                        <input type="password" className="Register-input" placeholder="Confirm password" onChange={this.changeConfirmPassword} />
+                        <input type="email" className="Register-input" placeholder={this.props.lang.email} onChange={this.changeEmail} />
+                        <input type="password" className="Register-input" placeholder={this.props.lang.password} onChange={this.changePassword} />
+                        <input type="password" className="Register-input" placeholder={this.props.lang.confirmpass} onChange={this.changeConfirmPassword} />
                         {this.renderError()}
                         <div className="Register-form-checkbox">
                             <div>
                                 <input type="checkbox" name="citizenCertification" value="on" onChange={this.changeCheck1} />
-                                Check 1
+                                {this.props.lang.register.check1}
                         </div>
                             <div>
                                 <input type="checkbox" name="termConfirm" value="on" onChange={this.changeCheck2} />
-                                <span> I agree with <a href="/"> Check 2</a></span>
+                                <span> {this.props.lang.register.check2} <a href="/"> {this.props.lang.account.terms}</a></span>
                             </div>
                         </div>
                         <div className="Register-form-submit">
-                            <button type="button" onClick={this.submit}>Send</button>
+                            <button type="button" onClick={this.submit}>{this.props.lang.register.send}</button>
                         </div>
                     </form>
                     <div className="Register-loginlink">
-                        <a href="/account/login">Already have account</a>
+                        <a href="/account/login">{this.props.lang.register.gotologin}</a>
                     </div>
                 </div>
             </div>
@@ -115,12 +115,14 @@ Register.propTypes = {
     userData: PropTypes.object,
     history: PropTypes.object,
     register: PropTypes.func,
+    lang: PropTypes.object,
 }
 
 const mapStateToProps = state => ({
     // some props
     userData: state.userData,
     history: state.historyData,
+    lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({
     // some action creators

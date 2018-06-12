@@ -6,6 +6,7 @@ import { tokenData } from './tokenreducer';
 import { userData } from './userreducer';
 import { historyData } from './historyreducer';
 import { langData } from './languagereducer';
+import { updateProfileStatus } from './updatereducer';
 
 // Here be all reducers combine
 export default combineReducers({
@@ -13,5 +14,6 @@ export default combineReducers({
     tokenData,
     userData,
     historyData,
-    langData
+    langData,
+    updateProfileStatus,
 });

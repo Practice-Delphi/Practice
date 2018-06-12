@@ -1,3 +1,6 @@
+import * as firebase from 'firebase';
+
+
 export const FETCH_TOKEN_START = "FETCH_TOKEN_START";
 export const FETCH_TOKEN_SUCCESS = "FETCH_TOKEN_SUCCESS";
 export const FETCH_ERROR = "FETCH_ERROR";
@@ -6,6 +9,11 @@ export const DELETE_USER = "DELETE_TOKEN";
 export const FETCH_USER_START = "FETCH_USER_START";
 export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
 
+export const FETCH_USER_UPDATE_START = "FETCH_USER_UPDATE_START";
+export const FETCH_USER_UPDATE_SUCCESS = "FETCH_USER_UPDATE_SUCCESS";
+export const FETCH_USER_UPDATE_ERROR = "FETCH_USER_UPDATE_ERROR";
+
+const siteurl = "http://localhost:3000";
 
 const fetchStart = () => ({
     type: FETCH_TOKEN_START
@@ -21,9 +29,9 @@ const fetchError = error => ({
     error
 });
 
-const deleteToken = () => ({
-    type: DELETE_TOKEN
-});
+// const deleteToken = () => ({
+//     type: DELETE_TOKEN
+// });
 
 const deleteUser = () => ({
     type: DELETE_USER
@@ -38,6 +46,20 @@ const fetchUserSuccess = (user) => ({
     user
 });
 
+const fetchUpdateStart = () => ({
+    type: FETCH_USER_UPDATE_START,
+})
+
+const fetchUpdateSucces = user => ({
+    type: FETCH_USER_UPDATE_SUCCESS,
+    user,
+})
+
+const fetchUpdateError = error => ({
+    type: FETCH_USER_UPDATE_ERROR,
+    error,
+})
+
 const encodedData = (data) => {
     let formBody = [];
     for (const [key, value] of Object.entries(data)) {
@@ -49,6 +71,15 @@ const encodedData = (data) => {
     return formBody;
 }
 
+export const userStatus = () => (dispatch, getState) => {
+    const user = firebase.auth().currentUser;
+    console.log(user);
+    if (user) {
+        dispatch(fetchUserSuccess(user));
+    } else {
+        dispatch(deleteUser());
+    }
+}
 
 export const login = (email, password) => (dispatch, getState) => {
     dispatch(fetchStart());
@@ -62,11 +93,11 @@ export const login = (email, password) => (dispatch, getState) => {
     //     }
     // }));
 
-    const loginData = {
-        grant_type: "password",
-        username: email,
-        password: password
-    }
+    // const loginData = {
+    //     grant_type: "password",
+    //     username: email,
+    //     password: password
+    // }
 
     // const LoginData = new FormData()
     //     LoginData.append('grant_type', 'password');
@@ -80,32 +111,32 @@ export const login = (email, password) => (dispatch, getState) => {
     //     formBody.push(encodedKey + "=" + encodedValue);
     // }
     // formBody = formBody.join("&");
-    const headers = new Headers({
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-    });
+    // const headers = new Headers({
+    //     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    // });
     // console.log(headers.has('Content-Type'), headers.get('Content-Type'));
-    window.fetch('http://localhost:58997/token', {
-        method: 'POST',
-        headers: headers,
-        body: encodedData(loginData)
-    })
-        .then(res => {
-            if (res.status === 200) {
-                return res.json();
-            } else if (res.status === 400) {
-                throw new Error("Bad request");
-            } else if (res.status === 404) {
-                throw new Error("Not found");
-            } else {
-                throw new Error("Unknown error");
-            }
-        })
-        .then(userData => {
-            dispatch(fetchSuccess(userData.access_token));
-            //console.log(token);
-            dispatch(fetchUserSuccess(userData));
-        })
-        .catch(error => dispatch(fetchError(error.toString())));
+    // window.fetch('http://localhost:59430/Account/LoginVM', {
+    //     method: 'POST',
+    //     headers: headers,
+    //     body: encodedData(loginData)
+    // })
+    //     .then(res => {
+    //         if (res.status === 200) {
+    //             return res.json();
+    //         } else if (res.status === 400) {
+    //             throw new Error("Bad request");
+    //         } else if (res.status === 404) {
+    //             throw new Error("Not found");
+    //         } else {
+    //             throw new Error("Unknown error");
+    //         }
+    //     })
+    //     .then(userData => {
+    //         dispatch(fetchSuccess(userData.access_token));
+    //         //console.log(token);
+    //         dispatch(fetchUserSuccess(userData));
+    //     })
+    //     .catch(error => dispatch(fetchError(error.toString())));
 
     // const fetchUser = () => (new Promise((resolve, reject) => {
     //     const rand = Math.random();
@@ -124,44 +155,138 @@ export const login = (email, password) => (dispatch, getState) => {
     //     })
     //     .then(user => dispatch(fetchUserSuccess(user)))
     //     .catch(error => dispatch(fetchError(error)));
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(userData => {
+            const ref = `/Users/${userData.user.uid}`;
+            return firebase.database().ref(ref).once('value');
+        })
+        .then(snapshot => dispatch(fetchUserSuccess(snapshot.val())))
+        .catch(error => dispatch(error.message));
 }
 
 export const register = (email, password) => (dispatch, getState) => {
-    const headers = new Headers({
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-    });
+    // const headers = new Headers({
+    //     'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    // });
 
-    const registerData = {
-        grant_type: "password",
-        username: email,
-        password: password
-    }
+    // const registerData = {
+    //     grant_type: "password",
+    //     username: email,
+    //     password: password
+    // }
 
-    window.fetch('http://localhost:58997/token', {
-        method: 'POST',
-        headers: headers,
-        body: encodedData(registerData),
-    })
-        .then(res => {
-            if (res.status === 200) {
-                return res.json();
-            } else if (res.status === 400) {
-                throw new Error("Bad request");
-            } else if (res.status === 404) {
-                throw new Error("Not found");
-            } else {
-                throw new Error("Unknown error");
-            }
-        })
+    // window.fetch('http://localhost:58997/token', {
+    //     method: 'POST',
+    //     headers: headers,
+    //     body: encodedData(registerData),
+    // })
+    //     .then(res => {
+    //         if (res.status === 200) {
+    //             return res.json();
+    //         } else if (res.status === 400) {
+    //             throw new Error("Bad request");
+    //         } else if (res.status === 404) {
+    //             throw new Error("Not found");
+    //         } else {
+    //             throw new Error("Unknown error");
+    //         }
+    //     })
+    //     .then(userData => {
+    //         dispatch(fetchSuccess(userData.access_token));
+    //         //console.log(token);
+    //         dispatch(fetchUserSuccess(userData));
+    //     })
+    //     .catch(error =>  dispatch(fetchError(error.toString())));
+    dispatch(fetchStart());
+    let user = null;
+    firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(userData => {
-            dispatch(fetchSuccess(userData.access_token));
-            //console.log(token);
-            dispatch(fetchUserSuccess(userData));
+            console.log(userData);
+            user = userData.user
+            const data = {
+                email: user.email,
+                ethaddress: null,
+                registers: Math.round(Math.random() * 10),
+                tokens: Math.round(Math.random() * 100),
+                url: `${siteurl}/register?q=${user.uid}`,
+                commission: Math.round(Math.random() * 15),
+            }
+            const ref = `/Users/${user.uid}`;
+            return firebase.database().ref(ref).set(data);
         })
-        .catch(error =>  dispatch(fetchError(error.toString())));
+        .then(() => {
+            return firebase.database().ref(`/Users/${user.uid}`).once("value");
+            //dispatch(fetchUserSuccess.data)
+        })
+        .then(snapshoot => dispatch(fetchUserSuccess(snapshoot.val())))
+        .catch(error => dispatch(fetchError(error.message)));
 }
 
 export const logout = () => (dispatch, getState) => {
-    dispatch(deleteToken());
-    dispatch(deleteUser());
+    firebase.auth().signOut()
+        .then(() => dispatch(deleteUser()))
+        .catch(error => dispatch(fetchError(error.message)));
+    // dispatch(deleteToken());
+    // dispatch(deleteUser());
+}
+
+export const updateUserEmailAndPassword = (newemail, newpassword, newpasswordconf) => (dispatch, getState) => {
+
+    dispatch(fetchUpdateStart());
+
+    const user = firebase.auth().currentUser;
+    console.log(firebase.auth().currentUser);
+    const ref = `/Users/${user.uid}`;
+    const updates = {};
+
+    if (newpassword && newpasswordconf && newpassword !== newpasswordconf) {
+        dispatch(fetchUpdateError("Password not confirmed"));
+    } else {
+        if (!newemail && !newpassword) {
+            dispatch(fetchUpdateError("One string must be not empty"));
+        } else if (newemail && !newpassword) {
+            user.updateEmail(newemail)
+                .then(() => {
+                    updates['/email'] = newemail;
+                    return firebase.database().ref(ref).update(updates);
+                })
+                .then(() => {
+                    const ref = `/Users/${user.uid}`;
+                    return firebase.database().ref(ref).once('value');
+                })
+                .then(snapshot => dispatch(fetchUpdateSucces(snapshot.val())))
+                .catch(error => dispatch(fetchUpdateError(error.message)));
+        } else if (!newemail && newpassword) {
+            user.updatePassword(newpassword)
+                .then(() => firebase.database().ref(ref).once('value'))
+                .then(snapshot => dispatch(fetchUpdateSucces(snapshot.val())))
+                .catch(error => dispatch(fetchUpdateError(error.message)));
+        } else {
+            user.updateEmail(newemail)
+                .then(() => user.updatePassword(newpassword))
+                .then(() => {
+                    updates['/email'] = newemail;
+                    return firebase.database().ref(ref).update(updates);
+                })
+                .then(() => firebase.database().ref(ref).once('value'))
+                .then(snapshot => dispatch(fetchUpdateSucces(snapshot.val())))
+                .catch(error => dispatch(fetchUpdateError(error.message)));
+        }
+    }
+}
+
+export const updateETHAddress = (address) => (dispatch, getState) => {
+    dispatch(fetchUpdateStart());
+    if (!address) {
+        dispatch(fetchUpdateError("Please enter not empty string"));
+    } else {
+        const user = firebase.auth().currentUser;
+        const ref = `/Users/${user.uid}`;
+        const updates = {};
+        updates['ethaddress'] = address;
+        firebase.database().ref(ref).update(updates)
+            .then(() => firebase.database().ref(ref).once('value'))
+            .then(snapshot => dispatch(fetchUpdateSucces(snapshot.val())))
+            .catch(error => dispatch(fetchUpdateError(error.message)));
+    }
 }

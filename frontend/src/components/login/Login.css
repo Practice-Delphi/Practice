@@ -3,8 +3,6 @@
     max-width: 900px;
     clear: both;
     margin: auto;
-    /* min-height: fit-content;
-    height: 85vh; */
 }
 
 .Login-container {
@@ -55,7 +53,7 @@
     vertical-align: middle;
     background-size: 30px 30px;
     cursor: pointer;
-    background-color: rgb(255, 159, 0) !important;
+    background-color:rgb(28, 144, 243) !important;
     border-width: 1px;
     border-style: solid;
     border-color: rgb(255, 255, 255);
@@ -67,7 +65,7 @@
 
 .Login-form-submit > button:hover {
     background-size: 30px 30px;
-    background-color: rgb(255, 159, 0);
+    background-color: rgb(28, 144, 243);
     background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent);
     color: rgb(255, 255, 255);
     animation: submitbutton-animation 2.8s linear infinite;
@@ -129,8 +127,5 @@
 @media (min-width: 1000px) {
     .Login {
         padding: 50px;
-    }
-    .Login {
-        
     }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Forgotpassword.css';
+import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -26,12 +27,15 @@ class Forgotpassword extends Component {
             <div className="Login">
                 <div className="Login-container">
                     <div className="Login-title">
-                        Forgot password
+                        {this.props.lang.forgotpass.title}
                     </div>
                     <form className="Login-form">
-                        <input type="email" className="Login-input" placeholder="Email address" onChange={this.changeEmail} />
+                        <input type="email" className="Login-input" placeholder={this.props.lang.email} onChange={this.changeEmail} />
+                        <div className="Login-alert">
+                            alert
+                        </div>
                         <div className="Login-form-submit">
-                            <button type="button" onClick={this.submit}>Send</button>
+                            <button type="button" onClick={this.submit}>{this.props.lang.forgotpass.send}</button>
                         </div>
                     </form>
                 </div>
@@ -40,8 +44,14 @@ class Forgotpassword extends Component {
     }
 }
 
+Forgotpassword.propTypes = {
+    lang: PropTypes.object,
+}
+
 const mapStateToProps = state => ({
     // some props
+    lang: state.langData,
+
 });
 const mapDispatchToProps = dispatch => ({
     // some action creators

@@ -44,7 +44,7 @@ namespace practice.Controllers
             string encodedJwt = null;
             try
             {
-                Console.WriteLine(identity.Name);
+                // Console.WriteLine(identity.Name);
                 var jwt = new JwtSecurityToken(
                                 issuer: AuthOptions.ISSUER,
                                 audience: AuthOptions.AUDIENCE,

@@ -14,16 +14,18 @@ import { runTestAction } from '../actions/testaction';
 import Home from './home/Home';
 import Account from './account/Account';
 import { addHistory } from '../actions/historyaction';
+import { userStatus } from '../actions/loginaction';
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state= {
+    this.state = {
       history: createBrowserHistory()
     }
   }
   componentDidMount() {
     this.props.runTest("TestPassed");
+    this.props.userStatus();
   }
   render() {
     this.props.addHistory(this.state.history);
@@ -34,7 +36,7 @@ class App extends Component {
           <Route exact={true} path={'/profile'} render={() => (<h1>This is Profile Page</h1>)} />
           <Route exact={true} path={'/profile/:id'} render={({ match }) => (<h1>This is Profile Page of {match.params.id} </h1>)} />
           <Route exact={true} path={'/photos'} render={() => (<h1>This is Photos Page</h1>)} />
-          <Route path={'/account'} component={Account}/>
+          <Route path={'/account'} component={Account} />
           <Route exact={true} path={'/login'} render={() => (<h1>This is login page</h1>)} />
         </div>
       </Router>
@@ -48,13 +50,15 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   runTest: (mess) => { dispatch(runTestAction(mess)) },
-  addHistory: (history) => { dispatch(addHistory(history)) }
+  addHistory: (history) => { dispatch(addHistory(history)) },
+  userStatus: () => { dispatch(userStatus()) },
 });
 
 App.propTypes = {
   runTest: PropTypes.func,
   addHistory: PropTypes.func,
   history: PropTypes.object,
+  userStatus: PropTypes.func,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

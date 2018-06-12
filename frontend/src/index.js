@@ -11,18 +11,17 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from "./reducers";
 // import firebase
-// import * as firebase from 'firebase';
+import * as firebase from 'firebase';
 
-// config firebase
-// let config = {
-//     apiKey: "AIzaSyCtsbd0_NsCFmiR21t2ns555EsuIWXAN0U",
-//     authDomain: "aboutme-c0b21.firebaseapp.com",
-//     databaseURL: "https://aboutme-c0b21.firebaseio.com",
-//     projectId: "aboutme-c0b21",
-//     storageBucket: "aboutme-c0b21.appspot.com",
-//     messagingSenderId: "690553828555"
-//   };
-// firebase.initializeApp(config);
+const config = {
+    apiKey: "AIzaSyCtsbd0_NsCFmiR21t2ns555EsuIWXAN0U",
+    authDomain: "aboutme-c0b21.firebaseapp.com",
+    databaseURL: "https://aboutme-c0b21.firebaseio.com",
+    projectId: "aboutme-c0b21",
+    storageBucket: "aboutme-c0b21.appspot.com",
+    messagingSenderId: "690553828555"
+  };
+  firebase.initializeApp(config);
 
 // config redux
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
