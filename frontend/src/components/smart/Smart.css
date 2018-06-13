@@ -1,18 +1,35 @@
 .smart-form{
     font-size: 60%;
     width: 100%;
+    
 }
 .smart-left{
     width: 40%;
+    padding: 10px;
 }
 .smart-center{
     width: 30%;
     font-size: 80%;
+    padding: 10px;
 }
 .smart-right{
     width: 30%;
+    padding: 10px;
 }
 .smart-img {
     width: 200px;
     height: 200px;
+    padding: 10px;
+}
+@media screen and (max-width:500px){
+    .smart-left{
+        width: 100%;
+    }
+    .smart-center{
+        width: 100%;
+        font-size: 80%;
+    }
+    .smart-right{
+        width: 100%;
+    }
 }

@@ -3,8 +3,12 @@
     background-color: black;
     padding-bottom: 70px; 
 }
+.info-form{
+    padding: 10px;
+}
 .distribution > div{
     width: 42%;
+    margin: 15px;
 }
 .distribution {
     display: flex;
@@ -45,4 +49,26 @@
 .income > div {
     display: flex;
     margin: 15px;
+}
+@media screen and (max-width:500px){
+    .info-elements > div{
+        width: 100%;
+        border-left: 1px blue solid; 
+        padding: 15px;
+    }
+    .first{
+        height: auto;
+    }
+    .second{
+        height:  auto;
+    }
+    .third{
+        height:  auto;
+    }
+    .distribution > h1{
+        font-size: 110%;
+    }
+    .distribution > div{
+        width: 100%;
+    }
 }
