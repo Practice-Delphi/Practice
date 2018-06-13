@@ -7,6 +7,7 @@ import { userData } from './userreducer';
 import { historyData } from './historyreducer';
 import { langData } from './languagereducer';
 import { updateProfileStatus } from './updatereducer';
+import { videoStatus } from './videoreducer';
 
 // Here be all reducers combine
 export default combineReducers({
@@ -16,4 +17,5 @@ export default combineReducers({
     historyData,
     langData,
     updateProfileStatus,
+    videoStatus,
 });

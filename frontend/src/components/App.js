@@ -13,6 +13,8 @@ import { runTestAction } from '../actions/testaction';
 //imports component
 import Home from './home/Home';
 import Account from './account/Account';
+import Video from './video/Video';
+
 import { addHistory } from '../actions/historyaction';
 import { userStatus } from '../actions/loginaction';
 
@@ -32,6 +34,7 @@ class App extends Component {
     return (
       <Router history={this.state.history}>
         <div className="App">
+          <Video />
           <Route exact={true} path={'/'} component={Home} />
           <Route exact={true} path={'/profile'} render={() => (<h1>This is Profile Page</h1>)} />
           <Route exact={true} path={'/profile/:id'} render={({ match }) => (<h1>This is Profile Page of {match.params.id} </h1>)} />
@@ -46,7 +49,8 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   test: state.isTestPass,
-  history: state.historyData
+  history: state.historyData,
+  //video: state.videoStatus,
 });
 const mapDispatchToProps = dispatch => ({
   runTest: (mess) => { dispatch(runTestAction(mess)) },
@@ -59,6 +63,7 @@ App.propTypes = {
   addHistory: PropTypes.func,
   history: PropTypes.object,
   userStatus: PropTypes.func,
+  //video: PropTypes.object,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

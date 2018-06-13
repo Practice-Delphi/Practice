@@ -1,0 +1,112 @@
+.Video {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    background-color: rgb(0,0,0,0.5);
+    /* cursor: pointer; */
+    animation-name: video-animation;
+    animation-timing-function: ease-out;
+    animation-duration: .3s;
+    transition: opacity .3s ease-out;
+}
+
+.Video-inner {
+    max-width: 940px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.Video-main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.Video-exit {
+    position: absolute;
+    right: -35px;
+    top: -35px;
+    width: 35px;
+    height: 35px;
+    overflow: hidden;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.Video-exit:hover {
+    opacity: 0.7;
+}
+
+.Video-exit::before {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    background: #fff;
+    margin-top: -6px;
+    border-radius: 5px;
+    transform: rotate(45deg);
+}
+.Video-exit::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    background: #fff;
+    margin-top: -6px;
+    border-radius: 5px;
+    transform: rotate(-45deg);
+}
+
+.Video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    background-color: #333;
+    animation-name: frame-animation;
+    animation-timing-function: ease-out;
+    animation-duration: .3s;
+    transition: transform .3s ease-out;
+}
+
+.Video-frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@keyframes video-animation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes frame-animation {
+    0% {
+        transform: translateY(100px);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+
+@media (max-width: 1000px) {
+    .Video-exit {
+        right: 0px;
+    }
+}
