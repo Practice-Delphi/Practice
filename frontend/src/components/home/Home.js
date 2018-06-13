@@ -29,6 +29,7 @@ class Home extends Component {
       benefits: false,
       usecases: false,
       capabilities: false,
+      elem: null,
     }
     window.onscroll = () => {
       let newstate = {
@@ -38,42 +39,55 @@ class Home extends Component {
         capabilities: false,
       }
       // this.setState({ scrollY: window.scrollY });
-      const header = document.getElementById('home-header');
+      //const header = document.getElementById('home-header');
       if (window.scrollY > 0) {
-        header.classList.add("fixed");
-      } else if (window.scrollY === 0 && header.classList.contains("fixed")) {
-        header.classList.remove("fixed");
+        this.state.elem.header.classList.add("fixed");
+      } else if (window.scrollY === 0 && this.state.elem.header.classList.contains("fixed")) {
+        this.state.elem.header.classList.remove("fixed");
       }
-      const quote = document.getElementById("Quote");
-      if ((window.innerHeight - quote.getBoundingClientRect().top > -1) && quote) {
+      //const quote = document.getElementById("Quote");
+      if ((window.innerHeight - this.state.elem.quote.getBoundingClientRect().top > -1) && this.state.elem.quote) {
         newstate.quote = true;
       } else {
         newstate.quote = false;
       }
-      const benefits = document.getElementById("Benefits");
-      if ((window.innerHeight - benefits.getBoundingClientRect().top > -1) && benefits) {
+      // const benefits = document.getElementById("Benefits");
+      if ((window.innerHeight - this.state.elem.benefits.getBoundingClientRect().top > -1) && this.state.elem.benefits) {
         newstate.benefits = true;
       } else {
         newstate.benefits = false;
       }
-      const usecases = document.getElementById("Usecases");
-      console.log(window.innerHeight - usecases.getBoundingClientRect().top);
-      if ((window.innerHeight - usecases.getBoundingClientRect().top > -1) && usecases) {
+      // const usecases = document.getElementById("Usecases");
+      // console.log(window.innerHeight - usecases.getBoundingClientRect().top);
+      if ((window.innerHeight - this.state.elem.usecases.getBoundingClientRect().top > -1) && this.state.elem.usecases) {
         newstate.usecases = true;
       } else {
         newstate.usecases = false;
       }
-      const capabilities = document.getElementById("Capabilities");
-      if ((window.innerHeight - capabilities.getBoundingClientRect().top > -1) && capabilities) {
+      // const capabilities = document.getElementById("Capabilities");
+      if ((window.innerHeight - this.state.elem.capabilities.getBoundingClientRect().top > -1) && this.state.elem.capabilities) {
         newstate.capabilities = true;
       } else {
         newstate.capabilities = false;
       }
       this.setState(newstate);
     }
+    // window.onscroll.bind(this);
   }
   componentDidMount() {
-    window.onscroll();
+    this.setState({
+      elem: {
+        header: document.getElementById('home-header'),
+        quote: document.getElementById('Quote'),
+        benefits: document.getElementById('Benefits'),
+        usecases: document.getElementById('Usecases'),
+        capabilities: document.getElementById('Capabilities'),
+      }
+    });
+    if (this.state.elem) {
+      console.log(this.state);
+      window.onscroll();
+    }
   }
   componentWillUnmount() {
     window.onscroll = () => { };
@@ -85,16 +99,17 @@ class Home extends Component {
           <nav className="Home-navbar">
             <div className="Home-brand">
               <img src={logo} className="Home-logo" alt="logo" />
-              <h1 className="Home-title">Site Title</h1>
+              <h1 className="Home-title">Squeezer</h1>
             </div>
-            <Link className='btn btn-outline-light Home-link' to={'/registration'}>Link1</Link>
-            <Link className='btn btn-outline-light Home-link' to={'/registration'}>Link2</Link>
-            <Link className='btn btn-outline-light Home-link' to={'/registration'}>Link3</Link>
-            <Link className='btn btn-outline-light Home-link' to={'/registration'}>Link4</Link>
-            <Link className='btn btn-outline-light Home-link' to={'/registration'}>Link5</Link>
+            <Link className='Home-link' to={'/registration'}>Link1</Link>
+            <Link className='Home-link' to={'/registration'}>Link2</Link>
+            <Link className='Home-link' to={'/registration'}>Link3</Link>
+            <Link className='Home-link' to={'/registration'}>Link4</Link>
+            <Link className='Home-link' to={'/registration'}>Link5</Link>
             <Langselect />
-            <Link className='btn btn-outline-light Home-link' to={'/account/login'}>Log in</Link>
-            <Link className='btn btn-outline-light Home-link' to={'/account/register'}>Sign in</Link>
+            <Link className="Home-link account-link" to={'/account'}>My account</Link>
+            {/* <Link className='Home-link' to={'/account/login'}>Log in</Link>
+            <Link className='Home-link' to={'/account/register'}>Sign in</Link> */}
           </nav>
         </header>
         <Firsthome />

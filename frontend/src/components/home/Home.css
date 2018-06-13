@@ -7,11 +7,13 @@
     position: relative;
     z-index: 2;
     top: 0px;
-    transition: all 0.3s ease;
-    background-color: #FF9F00;
+    /* transition: all 0.3s ease; */
+    background-color: white;
     height: 10%;
     padding: 12px 12px;
-    color: #D0011B;
+    color: rgb(28, 144, 243);
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 5px 0px;
+    transform: none;
   }
   
   .Home-navbar {
@@ -38,21 +40,30 @@
     flex-grow: 1;
     text-align: left;
   }
-  
-  
+
+
+
   /* @keyframes Home-logo-spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
    */
   .Home-link {
-    font-size: 14pt;
-    color: #F0211A;
-    margin: 5px 5px;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 35px;
+    text-decoration: none;
     /* background-color: #F0B3BA */
   }
   .Home-link:hover {
-    color:  #D0011B;
+    opacity: 0.7;
+    text-decoration: none;
+  }
+
+  .account-link {
+    padding: 7px 12px;
+    border: 1px solid rgb(28, 144, 243);
+    border-radius: 4px;
   }
   
   .fixed {
@@ -63,7 +74,8 @@
     box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 5px 0px;
     height: 3.64rem;
     padding: 0.7rem;
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */
+    transform: none;
     height: max-content;
   }
   
@@ -77,5 +89,9 @@
   @media (max-width: 500px) {
     .Home-brand {
       flex: 1 1 100%;
+    }
+    .Home-link {
+      margin-left: 15px;
+      font-size: 14px;
     }
   }

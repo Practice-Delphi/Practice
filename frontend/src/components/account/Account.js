@@ -28,7 +28,7 @@ class Account extends Component {
           <div className="Account-navbar">
             <a href="/" className="Account-brand">
               <img src={logo} className="Account-logo" alt="logo" />
-              <h1 className="Account-title">Site Title</h1>
+              <h1 className="Account-title">Squeezer</h1>
             </a>
             <div className="Account-button-container">
               <Langselect />

@@ -68,6 +68,11 @@ export const EN = {
         h: "h",
         m: "m",
         s: "s",
+    },
+    lang: {
+        EN: "english",
+        UA: "ukrainian",
+        RU: "russian",
     }
 }
 
@@ -141,6 +146,11 @@ export const UA = {
         h: "h",
         m: "m",
         s: "s",
+    },
+    lang: {
+        EN: "english",
+        UA: "ukrainian",
+        RU: "russian",
     }
 }
 
@@ -214,5 +224,10 @@ export const RU = {
         h: "ч",
         m: "м",
         s: "с",
+    },
+    lang: {
+        EN: "английский",
+        UA: "украинский",
+        RU: "русский",
     }
 }

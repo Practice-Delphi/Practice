@@ -24,15 +24,18 @@ class Langselect extends Component {
     if (select) {
       return (
         <div className="Langselect-select">
-            <option className="Langselect-option" value="EN" onClick={this.props.changeLang}>
-            EN
-            </option>
-            <option className="Langselect-option" value="UA" onClick={this.props.changeLang}>
-            UA
-            </option>
-            <option className="Langselect-option" value="RU" onClick={this.props.changeLang}>
-            RU
-            </option>
+          <div className="Langselect-option"  onClick={ () => { this.props.changeLang("EN")} }>
+            <img src="https://unpkg.com/react-flag-kit/assets/GB.svg" alt="" />
+            {this.props.lang.lang.EN}
+          </div>
+          <div className="Langselect-option"  onClick={ () => { this.props.changeLang("UA")} }>
+            <img src="https://unpkg.com/react-flag-kit/assets/UA.svg" alt="" />
+            {this.props.lang.lang.UA}
+          </div>
+          <div className="Langselect-option"  onClick={ () => { this.props.changeLang("RU")} }>
+            <img src="https://unpkg.com/react-flag-kit/assets/RU.svg" alt="" />
+            {this.props.lang.lang.RU}
+          </div>
         </div>
       )
     } else {
@@ -41,8 +44,9 @@ class Langselect extends Component {
   }
   render() {
     return (
-      <div className='btn btn-outline-light Langselect-button' onClick={this.changeLangSelect.bind(this)}>{this.props.lang.type}
-            {this.renderSelect(this.state.langselect)}
+      <div className='Langselect-button' onClick={this.changeLangSelect.bind(this)}>
+        <img src={ (this.props.lang.type === "EN") ? "https://unpkg.com/react-flag-kit/assets/GB.svg" : `https://unpkg.com/react-flag-kit/assets/${this.props.lang.type}.svg`} alt="" />
+        {this.renderSelect(this.state.langselect)}
       </div>
     );
   }
@@ -59,7 +63,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
   // some action creators
-  changeLang: (event) => { console.log(event.target); dispatch(changeLanguage(event.target.value)) }
+  changeLang: (lang) => { dispatch(changeLanguage(lang)) }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Langselect);

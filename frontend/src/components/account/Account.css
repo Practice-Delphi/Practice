@@ -109,6 +109,9 @@
     cursor: pointer;
     display: flex;
     align-items: center;
+    margin-left: 25px;
+    font-size: 18pt;
+    font-weight: bold;
 }
 
 .Account-footer {
