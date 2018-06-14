@@ -7,6 +7,9 @@ import { logout, updateETHAddress, updateUserEmailAndPassword } from '../../acti
 
 //Import components
 
+// import assets
+import etheriumicon from '../../assets/etheriumicon.png';
+
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -109,7 +112,7 @@ class Profile extends Component {
             <div className="Profile-text"><span>{this.props.lang.profile.controlPanel.text1}</span></div>
           </div>
           <div className="Profile-address">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXj2g0wORU9otjUkPh1ywjb_F-HYwNZQyHANGbXhrwWMoABaVA" alt="" />
+            <img src={etheriumicon} alt="" />
             <span>{this.props.lang.profile.ethaddress}:</span>
             <button className="Profile-button" onClick={this.changeToSettings}>{this.props.lang.profile.controlPanel.configure}</button>
           </div>

@@ -65,6 +65,32 @@
     animation: clock-button-animation 2.8s linear infinite;
 }
 
+.Clock-contact {
+    margin-top: 15px;
+}
+
+.Clock-contact > a {
+    text-decoration: none;
+    color: rgb(28, 144, 243);
+}
+
+.Clock-contact > a:hover {
+    text-decoration: none;
+    opacity: 0.7;
+}
+
+.Clock-img-container {
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 15px;
+}
+
+.Clock-img-container > img{
+    height: 23px;
+    width: auto;
+    margin: 5px 10px;
+}
+
 @keyframes clock-button-animation {
     0% {
         background-position: 0 0;

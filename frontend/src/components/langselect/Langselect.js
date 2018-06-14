@@ -6,6 +6,9 @@ import { connect } from 'react-redux';
 import { changeLanguage } from '../../actions/languageaction';
 import PropTypes from 'prop-types';
 
+// import assets
+import arrow from '../../assets/arrow.svg';
+
 class Langselect extends Component {
   constructor(props) {
     super(props);
@@ -45,6 +48,7 @@ class Langselect extends Component {
   render() {
     return (
       <div className='Langselect-button' onClick={this.changeLangSelect.bind(this)}>
+        <img src={arrow}/>
         <img src={ (this.props.lang.type === "EN") ? "https://unpkg.com/react-flag-kit/assets/GB.svg" : `https://unpkg.com/react-flag-kit/assets/${this.props.lang.type}.svg`} alt="" />
         {this.renderSelect(this.state.langselect)}
       </div>

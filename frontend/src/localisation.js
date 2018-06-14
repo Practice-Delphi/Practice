@@ -68,6 +68,8 @@ export const EN = {
         h: "h",
         m: "m",
         s: "s",
+        contact: "For private sales and other inquiries please contact us at",
+        contacturl: "info@squeezer.io",
     },
     lang: {
         EN: "english",
@@ -146,6 +148,8 @@ export const UA = {
         h: "h",
         m: "m",
         s: "s",
+        contact: "For private sales and other inquiries please contact us at",
+        contacturl: "info@squeezer.io",
     },
     lang: {
         EN: "english",
@@ -224,6 +228,8 @@ export const RU = {
         h: "ч",
         m: "м",
         s: "с",
+        contact: "Для частных продаж и других запросов, пожалуйста, свяжитесь с нами по адресу",
+        contacturl: "info@squeezer.io",
     },
     lang: {
         EN: "английский",

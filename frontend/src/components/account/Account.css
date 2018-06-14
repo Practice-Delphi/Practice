@@ -69,9 +69,7 @@
 }
 
 .Account-brand {
-    height: 2.24rem;
     cursor: pointer;
-    width: auto;
     max-width: initial;
     padding: 0px;
     display: flex;
@@ -86,7 +84,8 @@
 }
 
 .Account-brand > img {
-    height: 64px;
+    height: 2.24rem;
+    width: auto;
 }
 
 .Account-title {
@@ -104,14 +103,18 @@
 
 .Account-button-link {
     color: rgb(255,255,255);
-    animation: button-link-animation 2s infinite;
-    text-align: center;
     cursor: pointer;
     display: flex;
     align-items: center;
     margin-left: 25px;
-    font-size: 18pt;
-    font-weight: bold;
+}
+
+.Account-button-link > img {
+    height: 1.68rem;
+    width: auto;
+}
+.Account-button-link > img:hover {
+    opacity: 0.7;
 }
 
 .Account-footer {
@@ -160,18 +163,6 @@
     text-decoration: none;
     color: rgb(239, 243, 246);
     opacity: 0.7;
-}
-
-@keyframes button-link-animation {
-    0% {
-        color: rgb(255,255,255)
-    }
-    50% {
-        color: rgb(200, 200, 200);
-    }
-    100% {
-        color: rgb(255,255,255);
-    }
 }
 
 @media (max-width: 750px) {

@@ -1,6 +1,7 @@
 .Home-logo {
     /* animation: Home-logo-spin infinite 20s linear; */
-    height: 80px;
+    height: 2.24rem;
+    width: auto;
   }
   
   .Home-header {
@@ -29,7 +30,7 @@
   .Home-brand {
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     flex-grow: 1;
     padding: 10px 0px;

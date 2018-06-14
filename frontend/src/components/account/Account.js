@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import { Route } from 'react-router-dom';
-import logo from '../logo.jpg';
 
 //Import components
 import Register from '../register/Register';
@@ -15,6 +14,9 @@ import Langselect from '../langselect/Langselect';
 import Profile from '../profile/Profile';
 import Forgotpassword from '../forgotpassword/Forgotpassword';
 
+// import assets
+import tokensale from '../../assets/tokensale.png';
+import logo2 from '../../assets/logo2.png';
 
 class Account extends Component {
   render() {
@@ -27,13 +29,12 @@ class Account extends Component {
         <header className="Account-header">
           <div className="Account-navbar">
             <a href="/" className="Account-brand">
-              <img src={logo} className="Account-logo" alt="logo" />
-              <h1 className="Account-title">Squeezer</h1>
+              <img src={logo2} className="Account-logo" alt="logo" />
             </a>
             <div className="Account-button-container">
               <Langselect />
               <div className="Account-button-link">
-                Token Sale
+                <img src={tokensale} />
               </div>
             </div>
           </div>
@@ -47,11 +48,11 @@ class Account extends Component {
         <footer className="Account-footer">
           <div className="Account-footer-container">
             <div className="Account-footer-copyright">
-              @ 2018 GGC
+              @ 2018 Squeezer
             </div>
             <div className="Account-footer-link-container">
-              <a href="/" className="Account-footer-link">{this.props.lang.account.whitepaper}</a>
-              <a href="/" className="Account-footer-link">{this.props.lang.account.terms}</a>
+              <a href="https://tokensale.squeezer.io/docs/white-paper-final-ru-RU.pdf" target="_blank" className="Account-footer-link">{this.props.lang.account.whitepaper}</a>
+              <a href="https://tokensale.squeezer.io/docs/token-terms.pdf" target="_blank" className="Account-footer-link">{this.props.lang.account.terms}</a>
             </div>
           </div>
         </footer>

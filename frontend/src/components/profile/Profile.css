@@ -57,9 +57,11 @@
 }
 
 .Profile-nav-exitbutton {
+    padding: 0px 5px 12px 5px;
     font-weight: bold;
     cursor: pointer;
     color: rgb(28, 144, 243);
+    margin-left:auto;
 }
 
 .Profile-nav-exitbutton:hover {
@@ -90,8 +92,6 @@
     flex-flow: row nowrap;
 }
 
-.Profile-text {
-}
 
 .Profile-tokens-field {
     background: rgb(28, 144, 243);
@@ -227,7 +227,17 @@
 
 .Profile-form {
     margin-top: 25px;
-    width: fit-content;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.Profile-form > h4 {
+    font-weight: bold;
+}
+
+.Profile-form > button {
+    align-self: center;
 }
 
 .set-active {

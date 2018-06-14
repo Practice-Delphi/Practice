@@ -5,7 +5,7 @@ import './Home.css';
 import { connect } from 'react-redux';
 
 import { Link } from 'react-router-dom';
-import logo from '../logo.jpg';
+import logo from '../../assets/logo.png';
 import Langselect from '../langselect/Langselect';
 
 //Import components
@@ -97,10 +97,10 @@ class Home extends Component {
       <div>
         <header id="home-header" className="Home-header">
           <nav className="Home-navbar">
-            <div className="Home-brand">
+            <a href="/" className="Home-brand">
               <img src={logo} className="Home-logo" alt="logo" />
-              <h1 className="Home-title">Squeezer</h1>
-            </div>
+              {/* <h1 className="Home-title">Squeezer</h1> */}
+            </a>
             <Link className='Home-link' to={'/registration'}>Link1</Link>
             <Link className='Home-link' to={'/registration'}>Link2</Link>
             <Link className='Home-link' to={'/registration'}>Link3</Link>
