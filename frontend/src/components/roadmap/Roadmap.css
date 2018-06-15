@@ -1,0 +1,57 @@
+.Roadmap{
+    background-color: rgb(239, 243, 246);
+    border-top: 1px darkgray solid;   
+    padding-bottom: 70px;
+}
+#road {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    text-align: center;
+    
+}
+#header{
+    margin-bottom: 25px;
+    border-bottom: 2px blue solid;
+    text-align: center;
+    width: 360px;
+}
+#header-form{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+.road-form{
+    justify-content: center;
+    display: flex;
+    flex-flow: column nowrap;
+    width: 680px;
+    
+}
+.road-line{
+    display: flex;
+    flex-flow: row wrap;
+    animation: line-start 2s linear ;
+}
+.road-item{
+    width: 300px;
+    height: 124px;
+}
+@keyframes line-start {
+    from{    transform: translate3d(0px, 200%, 0px);}
+    to{ transform: none;}
+}
+@media screen and (max-width:500px){
+    .aditional{
+        width: 0px;
+    }
+    .aditional > img{
+        width: 0px;
+    }    
+    #header {
+        width: 270px;
+    }
+    #header > h1{
+        font-size: 190%;
+    }
+}

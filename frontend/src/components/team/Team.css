@@ -1,0 +1,39 @@
+.Consultants{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    text-align: center;
+}
+.Teammates{
+    width: 80%;
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+}
+.Person{
+    margin: 25px;
+    animation: item-start 2s linear ;
+}
+.Person > img{
+    width: 225px;
+    height: 225px;
+}
+.Consul-head{
+    margin-left: 340px;
+    margin-right: 340px;
+    border-bottom: 2px blue solid;
+}
+@media screen and (max-width:500px){
+    .Teammates{
+        width: 100%;
+        margin-left: 0%;
+        margin-right:0%;
+    }
+    .Consul-head{
+        margin-left: 0px;
+        margin-right:0px;
+    }
+}

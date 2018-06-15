@@ -20,6 +20,11 @@ import Connector from '../connector/Connector';
 import Tokens from '../tokens/Tokens';
 import Tokeninfo from '../token-info/Token-info';
 import Smart from '../smart/Smart';
+import Roadmap from '../roadmap/Roadmap';
+import Team from '../team/Team';
+import Media from '../media/Media';
+import Clients from '../clients/Clients';
+import Share from '../share/Share';
 
 class Home extends Component {
   constructor(props) {
@@ -158,6 +163,11 @@ class Home extends Component {
         <Tokens />
         <Tokeninfo />
         <Smart />
+        <Roadmap />
+        <Team />
+        <Media />
+        <Clients />
+        <Share />
       </div>
     );
   }

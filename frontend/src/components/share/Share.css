@@ -1,0 +1,46 @@
+.Share{
+    background-color: dodgerblue;
+    color: aliceblue;
+    padding-bottom: 70px;
+}
+.Share-img{
+    width: 100px;
+    height: 100px;
+    margin: 15px;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+.Share-form{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+}
+.register-link{
+    padding: 7px 12px;
+    color: aliceblue;
+    border: 1px solid aliceblue;
+    border-radius: 4px;
+    font-size: 150%;
+    
+  }
+.Share-link{
+    margin: 25px;
+}  
+.register-link:hover{
+    text-decoration: none;
+    color: aliceblue;
+    opacity: 0.7;
+} 
+@media screen and (max-width:500px){
+    .Share-text > h1 {
+        font-size: 120%;
+    }
+} 
+@keyframes pulse {
+    0% {       box-shadow: 0 0 0 0  rgba(255, 255, 255, 1) ;}
+                 
+    80% {      box-shadow: 0 0 0 20px rgba(255, 255, 255, 0) ;}
+                 
+    100% {     box-shadow: 0 0 0 0  rgba(255, 255, 255, 0) ;}
+                 
+}

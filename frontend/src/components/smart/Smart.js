@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 class Smart extends Component{
     render(){
         return(
-            <div className= "Quote">
+            <div className= "Smart ">
                 <div className="form smart-form">
                     <div className="smart-left">
                         <h1><strong>СМАРТ КОНТРАКТ</strong></h1>
