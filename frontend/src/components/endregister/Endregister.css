@@ -1,0 +1,136 @@
+.Endregister{
+    background-color: rgb(6, 47, 79);
+    color: aliceblue;
+    padding-bottom: 70px;
+}
+.Endregister-form{
+    display: flex;
+    flex-flow: row wrap;
+}
+.Endregister-left{
+    width: 50%;
+    padding: 20px;    
+    font-size: 130%;
+}
+.Endregister-left > img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+.Endregister-left>img:hover{
+    animation: pulse 0s infinite;
+}
+.emailfiller{
+    display: flex;
+    flex-flow: row wrap;
+    margin: 20px 0 30px  0;
+}
+.Endregister-input{
+    width: 280px;
+    height: 40px;
+}
+.Endregister-button {
+    background-color: dodgerblue;
+    color: aliceblue;
+    border: 1px aliceblue solid;
+    width: 190px;
+    height: 40px;
+    text-align: center;
+}
+.Endregister-button:hover{
+    text-decoration: none;
+    color: aliceblue;
+    opacity: 0.9;
+}
+.Endregister-right{
+    width: 50%;
+    padding: 20px;    
+    font-size: 130%;
+    display: flex;
+    flex-flow: row wrap;
+}
+.Endregister-account{
+    padding: 7px 12px;
+    color: aliceblue;
+    border: 1px solid aliceblue;
+    border-radius: 4px;
+    font-size: 100%;
+    margin-right: 30px; 
+}    
+.Endregister-account:hover{
+    text-decoration: none;
+    color: aliceblue;
+    opacity: 0.7;
+}
+.Endregister-register{
+    padding: 7px 12px;
+    color: rgb(44, 148, 240);
+    background-color: aliceblue;
+    border: 1px solid aliceblue;
+    border-radius: 4px;
+    font-size: 100%;
+    margin-top: 70px; 
+}
+.Endregister-register:hover{
+    text-decoration: none;
+    color: none;
+    opacity: 0.9;
+}
+.footer-text{
+    background-color: rgb(6, 47, 79);
+    color: aliceblue;
+    padding-bottom: 70px;
+    display: flex;
+    flex-flow: row wrap;
+    border-top: 1px aliceblue solid;
+}
+.footer-text-form{
+    width: 100%;
+    padding-right: 40px;
+}
+.footer-text-article{
+    width: 100%;
+    color: rgb(44, 148, 240);
+    
+}
+.footer-text-item{
+    width: 50%;
+    padding-bottom: 25px;
+    padding-right: 25px; 
+    padding-left: 10px;
+    
+}
+.footer-links{
+    background-color: rgb(6, 47, 79);
+    color: aliceblue;
+    border-top: 1px  aliceblue solid;
+    justify-content: left;
+    padding-bottom: 30px;
+}
+
+
+.footer-links-3{
+    display: flex;
+    flex-flow: row wrap;
+}
+.footer-links-3 > div{
+    margin: 30px 20px 10px 0;
+}
+@media screen and (max-width:500px){
+    .Endregister-left{
+        width: 100%;
+    }
+    .Endregister-right{
+        width: 100%;
+    }
+    .End-register{
+        margin-top: 20px;
+
+    }
+    .footer-text-item{
+        width: 100%;
+        
+    
+    }
+}

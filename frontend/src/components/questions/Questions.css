@@ -1,0 +1,49 @@
+.Questions-form{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    width: 90%;
+    font-size: 120%;
+    padding-bottom: 70px;
+}
+.FAQ{
+    width: 50%;
+    padding: 30px;
+    
+}
+.FAQ1{
+    color: dodgerblue;
+}
+.FAQ2{
+    color: dodgerblue;
+}
+.FAQ3{
+    color: dodgerblue;
+}
+.FAQ4{
+    color: dodgerblue;
+}
+.FAQ-link:hover{
+    text-decoration: none;
+    color: dodgerblue;
+    opacity: 0.7;
+}
+
+.Links{
+    width: 50%;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 30px;
+}
+
+@media screen and (max-width:500px){
+    .Links{
+        width: 100%;
+    }
+    .FAQ{
+        width: 100%;
+    }
+    .FAQ > h1{
+        font-size: 170%;
+    }
+}

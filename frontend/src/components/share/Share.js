@@ -21,7 +21,7 @@ class Share extends Component{
                         </strong></h1>
                     </div>
                     <div className="Share-link">
-                        <Link className='register-link' to={'/registration'}>Присоединиться</Link>
+                        <Link className='register-link' to={'/account/login'}>Присоединиться</Link>
                     </div>
 
                 </div>

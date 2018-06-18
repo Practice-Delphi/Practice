@@ -25,6 +25,8 @@ import Team from '../team/Team';
 import Media from '../media/Media';
 import Clients from '../clients/Clients';
 import Share from '../share/Share';
+import Questions from '../questions/Questions';
+import Endregister from '../endregister/Endregister';
 
 class Home extends Component {
   constructor(props) {
@@ -168,6 +170,8 @@ class Home extends Component {
         <Media />
         <Clients />
         <Share />
+        <Questions />
+        <Endregister />
       </div>
     );
   }
