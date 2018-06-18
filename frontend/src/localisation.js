@@ -75,6 +75,17 @@ export const EN = {
         EN: "english",
         UA: "ukrainian",
         RU: "russian",
+    },
+    header: {
+        warning: "IMPORTANT! Our website is the only platform authorized to sell SQR tokens. We will never use Telegram Messenger or other channels to conduct sales.",
+        account: "My Account",
+        solution: "Solution",
+        features: "Features",
+        token: "Token",
+        roadmap: "Roadmap",
+        team: "Team",
+        careers: "Careers",
+        mvp: "MVP",
     }
 }
 
@@ -155,6 +166,17 @@ export const UA = {
         EN: "english",
         UA: "ukrainian",
         RU: "russian",
+    },
+    header: {
+        warning: "IMPORTANT! Our website is the only platform authorized to sell SQR tokens. We will never use Telegram Messenger or other channels to conduct sales.",
+        account: "My Account",
+        solution: "Solution",
+        features: "Features",
+        token: "Token",
+        roadmap: "Roadmap",
+        team: "Team",
+        careers: "Careers",
+        mvp: "MVP",
     }
 }
 
@@ -235,5 +257,16 @@ export const RU = {
         EN: "английский",
         UA: "украинский",
         RU: "русский",
+    },
+    header: {
+        warning: "ВАЖНО! Наш веб-сайт является единственной платформой, имеющей разрешение на продажу токенов SQR. Мы никогда не используем Telegram Messenger или другие каналы для проведения торгов.",
+        account: "Счет",
+        solution: "Решение",
+        features: "Черты",
+        token: "Токен",
+        roadmap: "Дорожная карта",
+        team: "Команда",
+        careers: "Карьера",
+        mvp: "MVP",
     }
 }

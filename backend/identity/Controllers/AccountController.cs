@@ -22,8 +22,9 @@ namespace identity.Controllers
             return RedirectToAction("Index", "Home"); // View();
         }
         [HttpPost]
-        public async Task<IActionResult> Register(Register model)
+        public async Task<IActionResult> Register([FromBody] Register model)
         {
+            System.Console.WriteLine(ModelState.IsValid);
             if (ModelState.IsValid)
             {
                 User user = new User { Email = model.Email, UserName = model.Email, Year = model.Year };
@@ -33,7 +34,7 @@ namespace identity.Controllers
                 {
                     // установка куки
                     await _signInManager.SignInAsync(user, false);
-                    return RedirectToAction("Index", "Home");
+                    return Json(new {message = "You are register"}); // RedirectToAction("Index", "Home");
                 }
                 else
                 {
@@ -41,9 +42,12 @@ namespace identity.Controllers
                     {
                         ModelState.AddModelError(string.Empty, error.Description);
                     }
+                    return Json(new {message = result.Errors});
                 }
+            } else {
+                return Json(new {message = "Model is unvalid"+ModelState.IsValid});
             }
-            return View(model);
+           // return Json(new {message = "Error"}); //View(model);
         }
         [HttpGet]
         public IActionResult LoginVM(string returnUrl = null)

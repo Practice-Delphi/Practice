@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Cors;
 
+using Microsoft.EntityFrameworkCore;
+using practice.Models;
+
 namespace practice
     { 
     public class Startup
@@ -16,10 +19,13 @@ namespace practice
                 options => {
                 options.AddPolicy("AllowSpecificOrigin", 
                 builder => {
+                    builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
                     // builder.WithOrigins("localhost:3000");
-                    builder.WithOrigins("http://localhost:3000")
-                           .AllowAnyMethod()
-                           .AllowAnyHeader();
+                    // builder.WithOrigins("http://localhost:3000")
+                    //        .AllowAnyMethod()
+                    //        .AllowAnyHeader();
                 });
             });
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -48,6 +54,8 @@ namespace practice
                     });
 
             services.AddMvc();
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.AspNetCore.NewDb;Trusted_Connection=True;ConnectRetryCount=0";
+            services.AddDbContext<PersonContext>(options => options.UseSqlServer(connection));
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -55,8 +63,12 @@ namespace practice
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
+            app.UseCors("AllowSpecificOrigin");
+
             app.UseAuthentication();
             app.UseMvc();
+
+            
         }
     }
 }

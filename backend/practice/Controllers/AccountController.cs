@@ -23,13 +23,13 @@ namespace practice.Controllers
         };
 
         [HttpPost("/token")]
-        [EnableCors("AllowSpecificOrigin")]
+        // [EnableCors("AllowSpecificOrigin")]
         // [DisableCors]
-        public async Task Token()
+        public async Task Token([FromBody] TokenForm form)
         {
-            Console.WriteLine(Request.Form);
-            var username = Request.Form["username"];
-            var password = Request.Form["password"];
+            Console.WriteLine(form.Password);
+            var username = form.Email; // Request.Form["username"];
+            var password = form.Password; // Request.Form["password"];
 
             var identity = GetIdentity(username, password);
             if (identity == null)

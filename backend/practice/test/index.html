@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="index.css">
+    <title>Test API App</title>
+  </head>
+  <body>
+    <script src="index.js" async defer></script>
+    <div class="main">
+        <div class="container">
+            <p id="result"></p>
+        </div>
+        <div class="container">
+            <h3>Register</h3>
+            <input type="email" id="reg_email"class="input" placeholder="Email"/>
+            <input type="password" id="reg_pass"class="input" placeholder="Password"/>
+            <input type="password" id="reg_confpass"class="input" placeholder="Confirm Password"/>
+            <button class="button" onclick="Register()">OK</button>
+        </div>
+        <div class="container">
+            <h3>Login</h3>
+            <input type="email" id="reg_email"class="input" placeholder="Email"/>
+            <input type="password" id="reg_pass"class="input" placeholder="Password"/>
+            <input type="checkbox" id="reg_rememder"/>
+            <button class="button" onclick="Login()">OK</button>
+        </div>
+    </div>
+  </body>
+</html>

@@ -14,6 +14,7 @@ import { runTestAction } from '../actions/testaction';
 import Home from './home/Home';
 import Account from './account/Account';
 import Video from './video/Video';
+import Notfound from './notfound/Notfound';
 
 import { addHistory } from '../actions/historyaction';
 import { userStatus } from '../actions/loginaction';
@@ -36,11 +37,8 @@ class App extends Component {
         <div className="App">
           <Video />
           <Route exact={true} path={'/'} component={Home} />
-          <Route exact={true} path={'/profile'} render={() => (<h1>This is Profile Page</h1>)} />
-          <Route exact={true} path={'/profile/:id'} render={({ match }) => (<h1>This is Profile Page of {match.params.id} </h1>)} />
-          <Route exact={true} path={'/photos'} render={() => (<h1>This is Photos Page</h1>)} />
           <Route path={'/account'} component={Account} />
-          <Route exact={true} path={'/login'} render={() => (<h1>This is login page</h1>)} />
+          <Route path={'*'} component={Notfound} />
         </div>
       </Router>
     );

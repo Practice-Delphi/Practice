@@ -81,11 +81,10 @@ class Firsthome extends Component {
                         <a href="https://telegram.me/squeezerio" target="_blank" title="Telegram"><img src={telegram} alt="Telegram" /><span>22k+</span></a>
                     </div>
                     <div className="Firtshome-videos">
-                        <div onClick={() => { this.props.open("https://www.youtube.com/embed/VPbS_lyrF9Q?autoplay=1&cc_load_policy=1&controls=1&disablekb=0&enablejsapi=0&fs=1&iv_load_policy=1&loop=0&rel=0&showinfo=1&start=0&wmode=transparent&theme=dark") }}>
+                        <div onClick={() => { this.props.open("https://www.youtube.com/embed/VPbS_lyrF9Q") }}>
                             <img src={videologo1} alt="" />
-
                         </div>
-                        <div onClick={() => { this.props.open("https://www.youtube.com/embed/egtTeDTV-FM?autoplay=1&cc_load_policy=1&controls=1&disablekb=0&enablejsapi=0&fs=1&iv_load_policy=1&loop=0&rel=0&showinfo=1&start=0&wmode=transparent&theme=dark") }}>
+                        <div onClick={() => { this.props.open("https://www.youtube.com/embed/egtTeDTV-FM") }}>
                             <img src={videologo2} alt="" />
                         </div>
                     </div>

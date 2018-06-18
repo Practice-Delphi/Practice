@@ -18,6 +18,20 @@ namespace identity
 
         public void ConfigureServices(IServiceCollection services)
         {
+             services.AddCors(
+                options => {
+                options.AddPolicy("AllowSpecificOrigin", 
+                builder => {
+                    builder.AllowAnyOrigin()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                    // builder.WithOrigins("localhost:3000");
+                    // builder.WithOrigins("http://localhost:3000")
+                    //        .AllowAnyMethod()
+                    //        .AllowAnyHeader();
+                });
+            });
+            // System.Console.WriteLine(Configuration.GetConnectionString("DefaultConnection"));
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -32,7 +46,7 @@ namespace identity
             app.UseStaticFiles();
 
             app.UseAuthentication();
-
+            app.UseCors("AllowSpecificOrigin");
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
