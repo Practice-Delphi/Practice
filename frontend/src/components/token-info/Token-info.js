@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Token-info.css';
+import infoimg1 from './infoimg.png'
+import infoimg2 from './infoimg2.png'
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -106,8 +108,10 @@ class Tokeninfo extends Component{
                                     </div>
                                 </div>
                         </div>  
-                        <div>
-                            <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg"/> 
+                        <div className="info-img">
+                            <div>187,500,000<br />
+                                 SQR
+                            </div>
                         </div>  
                     </div>
                     <div className="income">
@@ -152,6 +156,7 @@ class Tokeninfo extends Component{
                                 Другие операционные расходы :<strong> 7%</strong>
                             </div>
                         </div>
+                        <img className="info-img-line" src={infoimg2} />
                     </div>
                 </div>
             </div>

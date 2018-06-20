@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Share.css';
+import hands from './hands.png';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -10,7 +11,7 @@ class Share extends Component{
         return(
             <div className= "Share">
                 <div className="form Share-form">
-                    <img  className="Share-img" src="https://cdn.icon-icons.com/icons2/1091/PNG/512/handshake_78379.png"/>
+                    <img  className="Share-img" src={hands}/>
                     <div className="Share-text">
                         <h1><strong>
                             Присоединяйтесь к <br />

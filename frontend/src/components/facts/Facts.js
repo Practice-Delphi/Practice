@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import './Facts.css';
+import facts1 from './facts1.png';
+import facts2 from './facts2.png';
+import facts3 from './facts3.png';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -11,8 +14,8 @@ class Facts extends Component{
                 <div className="form">
                     <div className="fact-item">
                         <div >
-                            <div className="symbol">
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg"/> 
+                            <div className="Facts-symbol1">
+                                <img class="" src={facts1} /> 
                             </div>
                             <div className="text-item">
                                 <strong>
@@ -22,8 +25,8 @@ class Facts extends Component{
                             </div>
                         </div>
                         <div>
-                            <div className="symbol"> 
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg"/>
+                            <div className="facts-symbol"> 
+                                01
                             </div>
                             <div className="text-item">
                                 Наша система получила <br/> 
@@ -37,8 +40,8 @@ class Facts extends Component{
                     </div>
                     <div className="fact-item">
                         <div>
-                            <div className="symbol">
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg"/> 
+                            <div className="Facts-symbol">
+                                <img class="" src={facts2}/> 
                             </div>
                             <div className="text-item">
                             <strong>
@@ -47,8 +50,8 @@ class Facts extends Component{
                             </div>
                         </div>
                         <div>
-                            <div className="symbol"> 
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg"/>
+                            <div className="facts-symbol"> 
+                                02
                             </div>
                             <div className="text-item">
                                 Наше масштабируемое <br/> 
@@ -59,22 +62,22 @@ class Facts extends Component{
                             </div>
                         </div>
                     </div>
-                    <div className="fact-item">
+                    <div className="fact-item1">
                         <div>
-                            <div className="symbol">
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg"/> 
+                            <div className="Facts-symbol">
+                                <img class="" src={facts3} /> 
                             </div>
                             <div className="text-item">
                                 <strong>
                                 Запланировано более <br/>
                                 40 миллионов <br/>
-                                разработчиков<br/>
+                                разработчиков
                                 </strong>
                             </div>
                         </div>
                         <div>
-                            <div className="symbol"> 
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg"/>
+                            <div className="facts-symbol"> 
+                                03
                             </div>
                             <div className="text-item">
                                 Многие разработчики ПО <br/> 

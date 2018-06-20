@@ -1,5 +1,17 @@
 import React, { Component } from 'react';
 import './Capabilities.css';
+import capa1 from './capa1.png';
+import capa2 from './capa2.png';
+import capa3 from './capa3.png';
+import capa4 from './capa4.png';
+import capa5 from './capa5.png';
+import capa6 from './capa6.png';
+import capa7 from './capa7.png';
+import capa8 from './capa8.png';
+import capa9 from './capa9.png';
+import capa10 from './capa10.png';
+import capa11 from './capa11.png';
+
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -8,7 +20,7 @@ class Capabilities extends Component {
     render() {
         return (
             <div class="Capabilities">
-                <div className="form">
+                <div className="form ">
                     <div className="main">
                         <div className="main-text">
                             <div className="text">
@@ -33,27 +45,27 @@ class Capabilities extends Component {
                             </div>
                             <div className="main-text-symbols">
                                 <div className="text-symbol"> 
-                                    <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                    <img class="" src={ capa2 } />
                                 </div>
                                 <div className="text-symbol"> 
-                                    <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                    <img class="" src={ capa3 } />
                                 </div>
                                 <div className="text-symbol"> 
-                                    <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                    <img class="" src={ capa4 } />
                                 </div>
                                 <div className="text-symbol"> 
-                                    <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                    <img class="" src={ capa5 } />
                                 </div>
                             </div>
                         </div>
                         <div className="main-picture">                            
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img class="" src={capa1} />
                         </div>
                     </div>
                     <div className="secondary">
                       <div className="administration tip">
                             <div className="symbol"> 
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img class="" src={capa6} />
                             </div>
                             <strong>Нулевое <br/> администрирование</strong>
                             <p>
@@ -68,7 +80,7 @@ class Capabilities extends Component {
                       </div>
                       <div className="resize tip">
                             <div className="symbol"> 
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img class="" src={capa7} />
                             </div>
                             <strong>Автомасштаб</strong>
                             <p>
@@ -87,7 +99,7 @@ class Capabilities extends Component {
                       </div>
                       <div className="payment tip">
                             <div className="symbol"> 
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img class="" src={capa8} />
                             </div>
                             <strong>Оплата по мере <br/> использования</strong>
                             <p>
@@ -105,7 +117,7 @@ class Capabilities extends Component {
                       </div>
                       <div className="conditions tip">
                             <div className="symbol"> 
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img class="" src={capa9} />
                             </div>
                             <strong>Условия разработки</strong>
                             <p>
@@ -121,7 +133,7 @@ class Capabilities extends Component {
                       </div>
                       <div className="block tip">
                              <div className="symbol"> 
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img class="" src={capa10} />
                             </div>
                             <strong>Блокчейн</strong>
                             <p>
@@ -137,7 +149,7 @@ class Capabilities extends Component {
                       </div>
                       <div className="token tip">
                             <div className="symbol"> 
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img class="" src={capa11} />
                             </div>
                             <strong>Токен</strong>
                             <p>

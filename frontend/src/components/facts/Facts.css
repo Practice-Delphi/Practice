@@ -8,12 +8,39 @@
     display: flex;
     flex-flow: row wrap;
 }
+.fact-item1{
+    padding-top: 40px;
+}
+.fact-item1 > div{
+    display: flex;
+    flex-flow: row wrap;
+}
+.text-item{
+    margin-top: 10px;
+}
 .fact-item > div > div{
     display: flex;
     flex-flow: row wrap;
     margin-top: 50px;
     margin-left: 5px;
 
+}
+
+.facts-symbol{
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 166%;
+    margin: 10px;
+    color: rgb(91, 171, 224);
+}
+.Facts-symbol1>img{
+    height: 28px;
+    width: auto;
+}
+.Facts-symbol>img{
+    height: 50px;
+    width: auto;
+    margin-right: 15px;
 }
 @media screen and (max-width:500px){
     

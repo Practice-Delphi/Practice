@@ -3,6 +3,7 @@
     color: aliceblue;
     padding-bottom: 60px;
     margin-bottom: 1px;
+    padding-top: 80px;
 }
 .token-form{
     font-size: 140%;
@@ -18,8 +19,8 @@
     margin-left: 70px;
 }
 .token-text-img> img{
-    height: 100px;
-    width: 100px;
+    height: 50px;
+    width: auto;
     margin: 20px;
 }
 @media screen and (max-width:500px){

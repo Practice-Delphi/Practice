@@ -14,3 +14,24 @@
     text-align: center;
     padding-bottom: 70px;   
 }
+.Clin-item {
+    -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  filter: grayscale(100%);
+  
+  filter: gray; /* IE 6-9 */
+  -webkit-filter: grayscale(1);
+  height: 80px;  
+  width: auto;
+  margin: 25px;
+}
+.Clin-item:hover{
+    -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  filter: none;
+  -webkit-filter: grayscale(0);
+}

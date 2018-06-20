@@ -7,10 +7,16 @@
   
   filter: gray; /* IE 6-9 */
   -webkit-filter: grayscale(1);
-  width: 100px;
-  height: 100px;
+  height: 50px;  
+  width: auto;
   margin: 25px;
 }
+.Big{
+  height: 35px;  
+}
+.Big1{
+    height: 20px;  
+  }
 .Media-item:hover{
     -webkit-filter: grayscale(0%);
   -moz-filter: grayscale(0%);

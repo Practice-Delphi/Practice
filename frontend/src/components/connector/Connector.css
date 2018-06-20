@@ -1,10 +1,15 @@
 .Connector {
     padding-bottom: 80px;
     padding-left: 15px;
+    background-color: rgb(239, 243, 246);
 }
-.left-video >img {
-    width: 300px;
-    height: 300px;
+.left-video  {
+    width: auto;
+    height: 150px;
+    
+}
+.left-video:hover  {
+    opacity: 0.7;
     
 }
 .right{
@@ -15,7 +20,9 @@
     font-size: 280%;
     
 }
-
+.connection-exeple> img{
+    height: 160px;
+}
 
 .git-link{
     display: flex;
@@ -23,9 +30,10 @@
     margin: 10px;
 }
 .git-img>a>img{
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     margin: 3px;
+    margin-right: 15px;
 }
 .text-link{
     display: flex;
@@ -35,4 +43,15 @@
 }
 .text-link > a{
     color: #002133;
+}
+.text-link > a:hover{
+    color: #002133;
+    text-decoration: none;
+    opacity: 0.7;
+}
+@media screen and (max-width:500px){
+    .connection-exeple> img{
+        width: 80%;
+        height: auto;
+    }
 }

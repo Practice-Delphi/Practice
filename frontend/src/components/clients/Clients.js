@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import './Clients.css';
+import clin1 from './clin1.png';
+import clin2 from './clin2.png';
+import clin3 from './clin3.png';
+import clin4 from './clin4.png';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -12,16 +16,16 @@ class Clients extends Component{
                     <div id="Clients-head"><h1><strong>Партнеры и клиенты</strong></h1></div>
                     <div className="Clients-list">
                         <div className="">
-                            <a href="https://ambisafe.com/" target="_blank"><img class="Media-item" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" /></a>
+                            <a href="https://ambisafe.com/" target="_blank"><img class="Clin-item" src={clin1} /></a>
                         </div>
                         <div className="">
-                            <a href="https://www.biscalex.com/" target="_blank"><img class="Media-item" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" /></a>
+                            <a href="https://www.biscalex.com/" target="_blank"><img class="Clin-item" src={clin2} /></a>
                         </div>
                         <div className="">
-                            <a href="http://www.centurionco.com/" target="_blank"><img class="Media-item" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" /></a>
+                            <a href="http://www.centurionco.com/" target="_blank"><img class="Clin-item" src={clin3} /></a>
                         </div>
                         <div className="">
-                            <a href="https://mcro.tech/" target="_blank"><img class="Media-item" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" /></a>
+                            <a href="https://mcro.tech/" target="_blank"><img class="Clin-item" src={clin4} /></a>
                         </div>
                     </div>
                 </div>

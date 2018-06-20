@@ -39,16 +39,21 @@
     font-size: 130%;
 }
 .text-symbol > img {
-    width: 80px;
-    height: 80px;
+    width: auto;
+    height: 40px;
     margin-bottom: 20px;
 }
-.main-picture > img{
+.main-picture {
     width: 450px;
-    height: 450px;
-    margin: 20px;
+    height: 400px;
+}
+.main-picture > img{
+    width:auto;
+    height: 350px;
+    margin: 20px 0 20px 20px;
     animation: picture-start 2s linear ;
 }
+
 .secondary{
     width: 100%;
     display: flex;
@@ -63,6 +68,10 @@
 }
 .tip > strong {
     font-size: 140%;
+}
+.tip > div > img{
+    height: 50px;
+    width: auto;
 }
 @keyframes picture-start{
     from {    transform: translate3d(100%, 0px, 0px);}

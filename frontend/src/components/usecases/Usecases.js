@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import './Usecases.css';
+import use1 from './use1.png';
+import use2 from './use2.png';
+import use3 from './use3.png';
+import use4 from './use4.png';
+import use5 from './use5.png';
+import use6 from './use6.png';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -15,9 +21,9 @@ class Usecases extends Component {
                     <div className="count-cases">
                         <div className="payment item">
                             <div className="symbol"> 
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img class="" src={use1} />
                             </div>
-                            <strong>Payment</strong> 
+                            <h5><strong>Payment</strong></h5> 
                             <p>
                                 Online retail choose to integrate<br/>
                                 blockchain payments support <br/>
@@ -27,9 +33,9 @@ class Usecases extends Component {
                         </div>
                         <div className="voting item"> 
                             <div className="symbol"> 
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img class="" src={use2} />
                             </div>
-                            <strong>Voting</strong> 
+                            <h5><strong>Voting</strong> </h5>
                             <p>
                             Government of a country needs to<br/>
                              provide a blockchain voting system for<br/>
@@ -39,9 +45,9 @@ class Usecases extends Component {
                         </div>
                         <div className="healthcare item"> 
                             <div className="symbol"> 
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img class="" src={use3} />
                             </div>
-                            <strong>Healthcare</strong>
+                            <h5><strong>Healthcare</strong></h5>
                             <p>
                             Store patient sensitive health data on <br/>
                             blockchain and make it available for <br/>
@@ -51,9 +57,9 @@ class Usecases extends Component {
                         </div>
                         <div className="gaming item"> 
                             <div className="symbol"> 
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img class="" src={use4} />
                             </div>
-                            <strong>Gaming</strong>
+                            <h5><strong>Gaming</strong></h5>
                             <p>
                                 Store gaming online statistics data, <br/>
                                 tournaments results and user profile for <br/>
@@ -63,9 +69,9 @@ class Usecases extends Component {
                         </div>
                         <div className="banking item">
                             <div className="symbol"> 
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img class="" src={use5} />
                             </div> 
-                            <strong>Banking</strong>
+                            <h5><strong>Banking</strong></h5>
                             <p>
                             Keep & access immutable client <br/>
                             information, bad credit and fraud <br/>
@@ -75,9 +81,9 @@ class Usecases extends Component {
                         </div>
                         <div className="security item"> 
                             <div className="symbol"> 
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img class="" src={use6} />
                             </div>
-                            <strong>Security</strong>
+                            <h5><strong>Security</strong></h5>
                             <p>
                                 Access trough popular security <br/>
                                 features like iris or fingerprint backed-<br/>

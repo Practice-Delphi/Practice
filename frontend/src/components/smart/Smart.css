@@ -1,5 +1,6 @@
 .Smart{
         background-color: rgb(239, 243, 246); 
+        padding-bottom: 50px;
 
 }
 .smart-form{
@@ -11,6 +12,14 @@
     width: 40%;
     padding: 10px;
 }
+.smart-left-link{
+    color: rgb(190, 21, 21);
+}
+.smart-left-link:hover{
+    color: rgb(190, 21, 21);
+    text-decoration: none;
+    opacity: 0.7;
+}
 .smart-center{
     width: 30%;
     font-size: 80%;
@@ -21,8 +30,8 @@
     padding: 10px;
 }
 .smart-img {
-    width: 200px;
-    height: 200px;
+    width: auto;
+    height: 100px;
     padding: 10px;
 }
 @media screen and (max-width:500px){

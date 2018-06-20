@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './Tokens.css';
+import token1 from './token1.png'
+import token2 from './token2.png'
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -32,11 +34,11 @@ class Tokens extends Component{
                             купим 40% всех SQR.<br/>
                         </p>
                         <div className="token-text-img">
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg"/> 
+                                <img class="" src={token1} /> 
                         </div>
                     </div>
                     <div className="token-img">
-                        <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg"/>
+                        <img class="" src={token2} />
                     </div>
                 </div>
             </div>
