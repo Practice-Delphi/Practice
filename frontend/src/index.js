@@ -11,7 +11,8 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import reducer from "./reducers";
 // import firebase
-import * as firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/app';
 
 const config = {
     apiKey: "AIzaSyCtsbd0_NsCFmiR21t2ns555EsuIWXAN0U",

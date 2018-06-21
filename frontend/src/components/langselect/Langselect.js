@@ -48,7 +48,7 @@ class Langselect extends Component {
   render() {
     return (
       <div className='Langselect-button' onClick={this.changeLangSelect.bind(this)}>
-        <img src={arrow}/>
+        <img src={arrow} alt=""/>
         <img src={ (this.props.lang.type === "EN") ? "https://unpkg.com/react-flag-kit/assets/GB.svg" : `https://unpkg.com/react-flag-kit/assets/${this.props.lang.type}.svg`} alt="" />
         {this.renderSelect(this.state.langselect)}
       </div>

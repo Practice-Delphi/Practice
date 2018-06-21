@@ -9,7 +9,7 @@
 .FAQ{
     width: 50%;
     padding: 30px;
-    
+    cursor: pointer;
 }
 .FAQ1{
     color: dodgerblue;
@@ -36,9 +36,42 @@
     padding: 30px;
 }
 
+.Links-img {
+    margin-top: 1.4rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+}
+
+.Links-img > a > img {
+    width: 24px;
+    height: 24px;
+}
+
+.Links-img > a {
+    box-shadow: none;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    text-decoration: none;
+    padding: 0px 12px;
+}
+
+.Links-img > a > span {
+    margin-left: 5px;
+    margin-top: -15px;
+    vertical-align: text-top;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+}
+
 @media screen and (max-width:500px){
     .Links{
         width: 100%;
+    }
+    .Links-img {
+        flex: 1 1 100%;
     }
     .FAQ{
         width: 100%;

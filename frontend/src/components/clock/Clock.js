@@ -60,9 +60,9 @@ class Clock extends Component {
                         {this.props.lang.clock.contact}  <a href="https://tokensale.squeezer.io/mailto:info@squeezer.io">{this.props.lang.clock.contacturl}</a>
                     </div>
                     <div className="Clock-img-container">
-                        <img src={etheriumicon} />
-                        <img src={visa} />
-                        <img src={mastercard} />
+                        <img src={etheriumicon} alt=""/>
+                        <img src={visa} alt=""/>
+                        <img src={mastercard} alt=""/>
                     </div>
                 </div>
 

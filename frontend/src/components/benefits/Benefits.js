@@ -4,6 +4,9 @@ import './Benefits.css';
 // connect component to redux
 import { connect } from 'react-redux';
 
+import wrong from './wrong.svg';
+import correct from './correct.svg';
+
 class Benefits extends Component {
     render() {
         return (
@@ -18,7 +21,7 @@ class Benefits extends Component {
                     <div className="tegs">
                         <div className="line">
                             <div className="img">
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img className="" src={wrong} alt=""/>
                             </div>
                             <div className="text">
                                 Настройка среды разработки блокчейн является<br/>
@@ -29,7 +32,7 @@ class Benefits extends Component {
                         </div>
                         <div className="line">
                             <div className="img">
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img className="" src={wrong} alt="" />
                             </div>
                             <div className="text">
                                 Тысячи новых транзакций блокчейн, как правило,<br/> 
@@ -39,7 +42,7 @@ class Benefits extends Component {
                         </div>
                         <div className="line">
                             <div className="img">
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img className="" src={wrong} alt="" />
                             </div>
                             <div className="text">
                                 Разработчики ПО, мало знакомые с технологией <br/>
@@ -56,7 +59,7 @@ class Benefits extends Component {
                     <div className="tegs">
                         <div className="line">
                             <div className="img">
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img className="" src={correct} alt="" />
                             </div>
                             <div className="text">
                                 Создать единый универсальный соединитель <br/>
@@ -68,7 +71,7 @@ class Benefits extends Component {
                         </div>
                         <div className="line">
                             <div className="img">
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img className="" src={correct} alt="" />
                             </div>
                             <div className="text">
                                 Приложения Squeezer основаны на микроуслугах, <br/>
@@ -81,7 +84,7 @@ class Benefits extends Component {
                         </div>
                         <div className="line">
                             <div className="img">
-                                <img class="" src="http://statici.behindthevoiceactors.com/behindthevoiceactors/_img/chars/kanna-kamui-miss-kobayashis-dragon-something-2.98.jpg" />
+                                <img className="" src={correct} alt="" />
                             </div>
                             <div className="text">
                                 Платформа Squeezer будет создавать и внедрять <br/>

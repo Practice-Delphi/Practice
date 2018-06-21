@@ -4,9 +4,10 @@
 
 }
 .smart-form{
+    display: flex;
+    flex-flow: row wrap;
     font-size: 135%;
     width: 100%;
-    
 }
 .smart-left{
     width: 40%;
@@ -44,5 +45,15 @@
     }
     .smart-right{
         width: 100%;
+    }
+    .smart-img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .smart-form {
+        flex-flow: column nowrap;
     }
 }

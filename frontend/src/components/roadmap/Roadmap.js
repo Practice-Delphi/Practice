@@ -22,7 +22,7 @@ class Roadmap extends Component{
                             <div className="road-item aditional">
                             </div>
                             <div className="road-img aditional">
-                                <img className="roadpoint" src={roadpoint} />
+                                <img className="roadpoint" src={roadpoint} alt=""/>
                             </div>
                             <div className="road-item">
                                     <h4><strong>Февраль 2016</strong></h4>
@@ -44,14 +44,14 @@ class Roadmap extends Component{
                                 </p>
                             </div>
                             <div className="road-img aditional">
-                                <img className="roadpoint" src={roadpoint} />
+                                <img className="roadpoint" src={roadpoint} alt=""/>
                             </div>
                             <div className="road-item aditional"></div>
                         </div>
                         <div className="road-line">
                             <div className="road-item aditional" ></div>
                             <div className="road-img aditional">
-                                <img className="roadpoint" src={roadpoint} />
+                                <img className="roadpoint" src={roadpoint} alt=""/>
                             </div>
                             <div className="road-item">
                             <h4><strong>Октябрь 2017</strong></h4>
@@ -71,14 +71,14 @@ class Roadmap extends Component{
                                 </p>
                             </div>
                             <div className="road-img aditional">
-                                <img className="roadpoint " src={roadpoint} />
+                                <img className="roadpoint " src={roadpoint} alt=""/>
                             </div>
                             <div className="road-item aditional"></div>
                         </div>
                         <div className="road-line">
                             <div className="road-item aditional"></div>
                             <div className="road-img aditional">
-                                <img className="roadpoint" src={roadpoint} />
+                                <img className="roadpoint" src={roadpoint} alt=""/>
                             </div>
                             <div className="road-item">
                             <h4><strong>Июнь 2018</strong></h4>
@@ -98,14 +98,14 @@ class Roadmap extends Component{
                                 </p>
                             </div>
                             <div className="road-img aditional">
-                                <img className="roadpoint" src={roadpoint2} />
+                                <img className="roadpoint" src={roadpoint2} alt=""/>
                             </div>
                             <div className="road-item aditional"></div>
                         </div>
                         <div className="road-line">
                             <div className="road-item aditional"></div>
                             <div className="road-img aditional">
-                                <img className="roadpoint" src={roadpoint2} />
+                                <img className="roadpoint" src={roadpoint2} alt=""/>
                             </div>
                             <div className="road-item">
                             <h4><strong>Февраль 2019</strong></h4>
@@ -128,7 +128,7 @@ class Roadmap extends Component{
                                 </p>
                             </div>
                             <div className="road-img aditional">
-                                <img className="roadpoint" src={roadpoint2} />
+                                <img className="roadpoint" src={roadpoint2} alt=""/>
                             </div>
                             <div className="road-item aditional"></div>
                         </div>

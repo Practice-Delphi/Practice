@@ -19,7 +19,7 @@ import { connect } from 'react-redux';
 class Capabilities extends Component {
     render() {
         return (
-            <div class="Capabilities">
+            <div className="Capabilities">
                 <div className="form ">
                     <div className="main">
                         <div className="main-text">
@@ -45,27 +45,27 @@ class Capabilities extends Component {
                             </div>
                             <div className="main-text-symbols">
                                 <div className="text-symbol"> 
-                                    <img class="" src={ capa2 } />
+                                    <img className="" src={ capa2 } alt=""/>
                                 </div>
                                 <div className="text-symbol"> 
-                                    <img class="" src={ capa3 } />
+                                    <img className="" src={ capa3 } alt=""/>
                                 </div>
                                 <div className="text-symbol"> 
-                                    <img class="" src={ capa4 } />
+                                    <img className="" src={ capa4 } alt=""/>
                                 </div>
                                 <div className="text-symbol"> 
-                                    <img class="" src={ capa5 } />
+                                    <img className="" src={ capa5 } alt=""/>
                                 </div>
                             </div>
                         </div>
                         <div className="main-picture">                            
-                                <img class="" src={capa1} />
+                                <img className="" src={capa1} alt=""/>
                         </div>
                     </div>
                     <div className="secondary">
                       <div className="administration tip">
                             <div className="symbol"> 
-                                <img class="" src={capa6} />
+                                <img className="" src={capa6} alt=""/>
                             </div>
                             <strong>Нулевое <br/> администрирование</strong>
                             <p>
@@ -80,7 +80,7 @@ class Capabilities extends Component {
                       </div>
                       <div className="resize tip">
                             <div className="symbol"> 
-                                <img class="" src={capa7} />
+                                <img className="" src={capa7} alt=""/>
                             </div>
                             <strong>Автомасштаб</strong>
                             <p>
@@ -99,7 +99,7 @@ class Capabilities extends Component {
                       </div>
                       <div className="payment tip">
                             <div className="symbol"> 
-                                <img class="" src={capa8} />
+                                <img className="" src={capa8} alt=""/>
                             </div>
                             <strong>Оплата по мере <br/> использования</strong>
                             <p>
@@ -117,7 +117,7 @@ class Capabilities extends Component {
                       </div>
                       <div className="conditions tip">
                             <div className="symbol"> 
-                                <img class="" src={capa9} />
+                                <img className="" src={capa9} alt=""/>
                             </div>
                             <strong>Условия разработки</strong>
                             <p>
@@ -133,7 +133,7 @@ class Capabilities extends Component {
                       </div>
                       <div className="block tip">
                              <div className="symbol"> 
-                                <img class="" src={capa10} />
+                                <img className="" src={capa10} alt=""/>
                             </div>
                             <strong>Блокчейн</strong>
                             <p>
@@ -149,7 +149,7 @@ class Capabilities extends Component {
                       </div>
                       <div className="token tip">
                             <div className="symbol"> 
-                                <img class="" src={capa11} />
+                                <img className="" src={capa11} alt=""/>
                             </div>
                             <strong>Токен</strong>
                             <p>

@@ -34,11 +34,11 @@ class Tokens extends Component{
                             купим 40% всех SQR.<br/>
                         </p>
                         <div className="token-text-img">
-                                <img class="" src={token1} /> 
+                                <img className="" src={token1} alt=""/> 
                         </div>
                     </div>
                     <div className="token-img">
-                        <img class="" src={token2} />
+                        <img className="" src={token2} alt=""/>
                     </div>
                 </div>
             </div>

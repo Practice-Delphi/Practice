@@ -6,11 +6,10 @@
 .left-video  {
     width: auto;
     height: 150px;
-    
+    cursor: pointer;
 }
 .left-video:hover  {
     opacity: 0.7;
-    
 }
 .right{
     font-size: 128%;
@@ -18,7 +17,6 @@
 
 .left-text {
     font-size: 280%;
-    
 }
 .connection-exeple> img{
     height: 160px;
@@ -53,5 +51,8 @@
     .connection-exeple> img{
         width: 80%;
         height: auto;
+    }
+    .left-text {
+        max-width: 100%;
     }
 }

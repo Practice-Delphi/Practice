@@ -29,12 +29,12 @@ class Connector extends Component{
                          без необходимости использования генезис кода <br/>
                          блокчейн или создания сложных компонентов.<br/>
                         <div className="connection-exeple">
-                            <img className="" src={con1} />
+                            <img className="" src={con1} alt=""/>
                         </div>
                         <div className="git-link" >
                             
                                 <div className="git-img">
-                                    <a href="https://i.pinimg.com/originals/0b/e5/40/0be540433c15a6f783fd06e91cb02c96.jpg" title="to git"><img class="" src={smart1} /></a>
+                                    <a href="https://i.pinimg.com/originals/0b/e5/40/0be540433c15a6f783fd06e91cb02c96.jpg" title="to git"><img className="" src={smart1} alt=""/></a>
                                 </div>
                                 <div className="text-link">
                                     <a href="https://i.pinimg.com/originals/0b/e5/40/0be540433c15a6f783fd06e91cb02c96.jpg" title="to git"> See the code at GitHab</a>

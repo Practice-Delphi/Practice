@@ -16,16 +16,16 @@ class Clients extends Component{
                     <div id="Clients-head"><h1><strong>Партнеры и клиенты</strong></h1></div>
                     <div className="Clients-list">
                         <div className="">
-                            <a href="https://ambisafe.com/" target="_blank"><img class="Clin-item" src={clin1} /></a>
+                            <a href="https://ambisafe.com/" target="_blank" rel='noopener noreferrer'><img className="Clin-item" src={clin1} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://www.biscalex.com/" target="_blank"><img class="Clin-item" src={clin2} /></a>
+                            <a href="https://www.biscalex.com/" target="_blank" rel='noopener noreferrer'><img className="Clin-item" src={clin2} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="http://www.centurionco.com/" target="_blank"><img class="Clin-item" src={clin3} /></a>
+                            <a href="http://www.centurionco.com/" target="_blank" rel='noopener noreferrer'><img className="Clin-item" src={clin3} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://mcro.tech/" target="_blank"><img class="Clin-item" src={clin4} /></a>
+                            <a href="https://mcro.tech/" target="_blank" rel='noopener noreferrer'><img className="Clin-item" src={clin4} alt=""/></a>
                         </div>
                     </div>
                 </div>

@@ -50,6 +50,9 @@
     display: flex;
     flex-flow: row wrap;
 }
+.Endregister-right > h2 {
+   max-width: 100%;
+}
 .Endregister-account{
     padding: 7px 12px;
     color: aliceblue;

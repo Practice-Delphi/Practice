@@ -21,7 +21,7 @@ class Usecases extends Component {
                     <div className="count-cases">
                         <div className="payment item">
                             <div className="symbol"> 
-                                <img class="" src={use1} />
+                                <img className="" src={use1} alt=""/>
                             </div>
                             <h5><strong>Payment</strong></h5> 
                             <p>
@@ -33,7 +33,7 @@ class Usecases extends Component {
                         </div>
                         <div className="voting item"> 
                             <div className="symbol"> 
-                                <img class="" src={use2} />
+                                <img className="" src={use2} alt=""/>
                             </div>
                             <h5><strong>Voting</strong> </h5>
                             <p>
@@ -45,7 +45,7 @@ class Usecases extends Component {
                         </div>
                         <div className="healthcare item"> 
                             <div className="symbol"> 
-                                <img class="" src={use3} />
+                                <img className="" src={use3} alt=""/>
                             </div>
                             <h5><strong>Healthcare</strong></h5>
                             <p>
@@ -57,7 +57,7 @@ class Usecases extends Component {
                         </div>
                         <div className="gaming item"> 
                             <div className="symbol"> 
-                                <img class="" src={use4} />
+                                <img className="" src={use4} alt=""/>
                             </div>
                             <h5><strong>Gaming</strong></h5>
                             <p>
@@ -69,7 +69,7 @@ class Usecases extends Component {
                         </div>
                         <div className="banking item">
                             <div className="symbol"> 
-                                <img class="" src={use5} />
+                                <img className="" src={use5} alt=""/>
                             </div> 
                             <h5><strong>Banking</strong></h5>
                             <p>
@@ -81,7 +81,7 @@ class Usecases extends Component {
                         </div>
                         <div className="security item"> 
                             <div className="symbol"> 
-                                <img class="" src={use6} />
+                                <img className="" src={use6} alt=""/>
                             </div>
                             <h5><strong>Security</strong></h5>
                             <p>
@@ -91,7 +91,7 @@ class Usecases extends Component {
                             </p>
                             <p>Keys:  <span className="keywords">Quick integration, Scalability, Security</span></p>
                         </div>
-                    </div>    
+                    </div>
                 </div>
             </div>
 

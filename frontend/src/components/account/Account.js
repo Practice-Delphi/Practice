@@ -45,7 +45,7 @@ class Account extends Component {
             <div className="Account-button-container">
               <Langselect />
               <div className="Account-button-link">
-                <img src={tokensale} />
+                <img src={tokensale} alt=""/>
               </div>
             </div>
           </div>
@@ -62,8 +62,8 @@ class Account extends Component {
               @ 2018 Squeezer
             </div>
             <div className="Account-footer-link-container">
-              <a href="https://tokensale.squeezer.io/docs/white-paper-final-ru-RU.pdf" target="_blank" className="Account-footer-link">{this.props.lang.account.whitepaper}</a>
-              <a href="https://tokensale.squeezer.io/docs/token-terms.pdf" target="_blank" className="Account-footer-link">{this.props.lang.account.terms}</a>
+              <a href="https://tokensale.squeezer.io/docs/white-paper-final-ru-RU.pdf" target="_blank" rel='noopener noreferrer' className="Account-footer-link">{this.props.lang.account.whitepaper}</a>
+              <a href="https://tokensale.squeezer.io/docs/token-terms.pdf" target="_blank" rel='noopener noreferrer' className="Account-footer-link">{this.props.lang.account.terms}</a>
             </div>
           </div>
         </footer>

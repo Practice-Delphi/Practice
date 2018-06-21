@@ -27,49 +27,49 @@ class Media extends Component{
                     <div id="head"><h1><strong>Мультимедиа</strong></h1></div>
                     <div className="media-list">
                         <div className="">
-                            <a href="https://www.icoalert.com/" target="_blank"><img class="Media-item" src={media1} /></a>
+                            <a href="https://www.icoalert.com/" target="_blank" rel='noopener noreferrer'><img className="Media-item" src={media1} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://icorating.com/ico/squeezer/" target="_blank"><img class="Media-item" src={media2} /></a>
+                            <a href="https://icorating.com/ico/squeezer/" target="_blank" rel='noopener noreferrer'><img className="Media-item" src={media2} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://www.icocountdown.com/" target="_blank"><img class="Media-item" src={media3} /></a>
+                            <a href="https://www.icocountdown.com/" target="_blank" rel='noopener noreferrer'><img className="Media-item" src={media3} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://www.ccn.com/squeezer-connects-blockchain-world-class-clouds/" target="_blank"><img class="Media-item" src={media4} /></a>
+                            <a href="https://www.ccn.com/squeezer-connects-blockchain-world-class-clouds/" target="_blank" rel='noopener noreferrer'><img className="Media-item" src={media4} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://bitcointalk.org/index.php?topic=3169422" target="_blank"><img class="Media-item" src={media5} /></a>
+                            <a href="https://bitcointalk.org/index.php?topic=3169422" target="_blank" rel='noopener noreferrer'><img className="Media-item" src={media5} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://medium.com/@nickchisiu/microservices-on-blockchain-4ccf3623a08f" target="_blank"><img class="Media-item" src={media6} /></a>
+                            <a href="https://medium.com/@nickchisiu/microservices-on-blockchain-4ccf3623a08f" target="_blank" rel='noopener noreferrer'><img className="Media-item" src={media6} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://www.coinschedule.com/ico/squeezer-token#event1892" target="_blank"><img class="Media-item Big" src={media7} /></a>
+                            <a href="https://www.coinschedule.com/ico/squeezer-token#event1892" target="_blank" rel='noopener noreferrer'><img className="Media-item Big" src={media7} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://icobench.com/ico/squeezer" target="_blank"><img class="Media-item" src={media8} /></a>
+                            <a href="https://icobench.com/ico/squeezer" target="_blank" rel='noopener noreferrer'><img className="Media-item" src={media8} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://bitcoinchaser.com/ico-hub/squeezer" target="_blank"><img class="Media-item Big1" src={media9} /></a>
+                            <a href="https://bitcoinchaser.com/ico-hub/squeezer" target="_blank" rel='noopener noreferrer'><img className="Media-item Big1" src={media9} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://steemit.com/bitcoin/@hennessy/ico-overview-squeezer-apps-development-with-blockchain" target="_blank"><img class="Media-item" src={media10} /></a>
+                            <a href="https://steemit.com/bitcoin/@hennessy/ico-overview-squeezer-apps-development-with-blockchain" target="_blank" rel='noopener noreferrer'><img className="Media-item" src={media10} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://one2crypto.com/reviews/ico-review/ico-squeezer-review-whitepaper-analysis/" target="_blank"><img class="Media-item Big1" src={media11} /></a>
+                            <a href="https://one2crypto.com/reviews/ico-review/ico-squeezer-review-whitepaper-analysis/" target="_blank" rel='noopener noreferrer'><img className="Media-item Big1" src={media11} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://icocrunch.io/ico/squeezer/" target="_blank"><img class="Media-item" src={media12} /></a>
+                            <a href="https://icocrunch.io/ico/squeezer/" target="_blank" rel='noopener noreferrer'><img className="Media-item" src={media12} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://www.coinazure.com/icos/squeezer" target="_blank"><img class="Media-item" src={media13} /></a>
+                            <a href="https://www.coinazure.com/icos/squeezer" target="_blank" rel='noopener noreferrer'><img className="Media-item" src={media13} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://icostock24.com/" target="_blank"><img class="Media-item" src={media14} /></a>
+                            <a href="https://icostock24.com/" target="_blank" rel='noopener noreferrer'><img className="Media-item" src={media14} alt=""/></a>
                         </div>
                         <div className="">
-                            <a href="https://www.icodata.io/coin/squeezer" target="_blank"><img class="Media-item" src={media15} /></a>
+                            <a href="https://www.icodata.io/coin/squeezer" target="_blank" rel='noopener noreferrer'><img className="Media-item" src={media15} alt=""/></a>
                         </div>
                        
                     </div>

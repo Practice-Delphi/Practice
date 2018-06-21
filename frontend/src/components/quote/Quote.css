@@ -10,7 +10,8 @@
     animation: appear 4s linear ;
 }
 .Quate-text    {
-      width: 54%;  
+      /* width: 54%;  */
+      max-width: 750px; 
       text-align: left;
       padding: 15px;
       

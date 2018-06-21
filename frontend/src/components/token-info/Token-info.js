@@ -46,7 +46,7 @@ class Tokeninfo extends Component{
                             <div className="">
                                 <div>
                                     <div>    
-                                        <img class="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png"/> 
+                                        <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                                     </div>
                                     <div>
                                     <strong>Продажа токенов:</strong><br/>
@@ -59,7 +59,7 @@ class Tokeninfo extends Component{
                                 </div>
                                 <div>
                                     <div>
-                                        <img class="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png"/> 
+                                        <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                                     </div>
                                     <div>
                                     <strong>Платформа Squeezer:</strong><br/>
@@ -74,7 +74,7 @@ class Tokeninfo extends Component{
                                 </div>
                                 <div>    
                                     <div>
-                                        <img class="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png"/> 
+                                        <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                                     </div>
                                     <div>
                                     <strong>Команда:  </strong><br/>
@@ -87,7 +87,7 @@ class Tokeninfo extends Component{
                                 </div>
                                 <div>
                                     <div>
-                                        <img class="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png"/> 
+                                        <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                                     </div>
                                     <div>
                                     <strong>Консультанты:   </strong><br/>
@@ -100,7 +100,7 @@ class Tokeninfo extends Component{
                                 </div>
                                 <div>
                                     <div>
-                                        <img class="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png"/> 
+                                        <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                                     </div>
                                     <div>
                                     <strong>Маркетинг и партнеры:</strong><br/>
@@ -118,7 +118,7 @@ class Tokeninfo extends Component{
                         <h2><strong>Распределение токенов</strong></h2>
                         <div>
                             <div >
-                                <img class="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png"/> 
+                                <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                             </div>
                             <div>
                             Техническая разработка: <strong>45%</strong>
@@ -126,7 +126,7 @@ class Tokeninfo extends Component{
                         </div>
                         <div>
                             <div>
-                                <img class="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png"/> 
+                                <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                             </div>
                             <div>
                                 Не технический персонал:<strong> 30%</strong>
@@ -134,7 +134,7 @@ class Tokeninfo extends Component{
                         </div>
                         <div>
                             <div>
-                                <img class="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png"/> 
+                                <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                             </div>
                             <div>
                                 Расходы на маркетинг: <strong> 10%</strong>
@@ -142,7 +142,7 @@ class Tokeninfo extends Component{
                         </div>
                         <div>
                             <div>
-                                <img class="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png"/> 
+                                <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                             </div>
                             <div>
                                 Расходы на инфраструктуру: <strong> 8%</strong>
@@ -150,13 +150,13 @@ class Tokeninfo extends Component{
                         </div>
                         <div>                            
                             <div>
-                                <img class="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png"/> 
+                                <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                             </div>
                             <div>
                                 Другие операционные расходы :<strong> 7%</strong>
                             </div>
                         </div>
-                        <img className="info-img-line" src={infoimg2} />
+                        <img className="info-img-line" src={infoimg2} alt=""/>
                     </div>
                 </div>
             </div>

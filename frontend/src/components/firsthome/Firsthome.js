@@ -73,12 +73,12 @@ class Firsthome extends Component {
                         <h2>{this.props.lang.firsthome.title2}</h2>
                     </div>
                     <div className="Firtshome-links">
-                        <a href="https://twitter.com/SqueezerIO" target="_blank" title="@squeezerio"><img src={twiter} alt="Twiter" /></a>
-                        <a href="https://www.facebook.com/Squeezer.IO" target="_blank" title="Facebook"><img src={facebook} alt="Facebook" /></a>
-                        <a href="https://github.com/SqueezerIO" target="_blank" title="GitHub"><img src={github} alt="GitHub" /></a>
-                        <a href="https://bitcointalk.org/index.php?topic=3169422" target="_blank" title="BitCoin Talk"><img src={bitcoin} alt="BitCoin Talk" /></a>
-                        <a href="https://medium.com/@squeezer" target="_blank" title="Medium"><img src={medium} alt="Medium" /></a>
-                        <a href="https://telegram.me/squeezerio" target="_blank" title="Telegram"><img src={telegram} alt="Telegram" /><span>22k+</span></a>
+                        <a href="https://twitter.com/SqueezerIO" target="_blank" rel='noopener noreferrer' title="@squeezerio"><img src={twiter} alt="Twiter" /></a>
+                        <a href="https://www.facebook.com/Squeezer.IO" target="_blank" rel='noopener noreferrer' title="Facebook"><img src={facebook} alt="Facebook" /></a>
+                        <a href="https://github.com/SqueezerIO" target="_blank" rel='noopener noreferrer' title="GitHub"><img src={github} alt="GitHub" /></a>
+                        <a href="https://bitcointalk.org/index.php?topic=3169422" rel='noopener noreferrer' target="_blank" title="BitCoin Talk"><img src={bitcoin} alt="BitCoin Talk" /></a>
+                        <a href="https://medium.com/@squeezer" target="_blank" rel='noopener noreferrer' title="Medium"><img src={medium} alt="Medium" /></a>
+                        <a href="https://telegram.me/squeezerio" target="_blank" rel='noopener noreferrer' title="Telegram"><img src={telegram} alt="Telegram" /><span>22k+</span></a>
                     </div>
                     <div className="Firtshome-videos">
                         <div onClick={() => { this.props.open("https://www.youtube.com/embed/VPbS_lyrF9Q") }}>
@@ -91,13 +91,13 @@ class Firsthome extends Component {
                     <div className="Firsthome-documents">
                         <div>
 
-                            <a href="https://tokensale.squeezer.io/docs/white-paper-final.pdf" target="_blank" className="Firsthome-documents-button">
+                            <a href="https://tokensale.squeezer.io/docs/white-paper-final.pdf" target="_blank" rel='noopener noreferrer' className="Firsthome-documents-button">
                                 <img src="https://cdn0.iconfinder.com/data/icons/document-file-types/512/doc-512.png" alt="" />
                                 <div>
                                     {this.props.lang.firsthome.doc1}
                                 </div>
                             </a>
-                            <a href="https://tokensale.squeezer.io/docs/token-terms.pdf" target="_blank" className="Firsthome-documents-button">
+                            <a href="https://tokensale.squeezer.io/docs/token-terms.pdf" target="_blank" rel='noopener noreferrer' className="Firsthome-documents-button">
                                 <img src="https://cdn0.iconfinder.com/data/icons/document-file-types/512/doc-512.png" alt="" />
                                 <div>
                                     {this.props.lang.firsthome.doc2}

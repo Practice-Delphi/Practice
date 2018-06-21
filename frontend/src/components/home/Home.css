@@ -72,9 +72,10 @@
     box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 5px 0px;
     height: 3.64rem;
     padding: 0.7rem;
-    /* transition: all 0.3s ease; */
+    transition: all 0.3s ease;
     transform: none;
-    height: max-content;
+    min-height: max-content;
+    height:auto;
   }
 
   .shadow {
@@ -95,7 +96,7 @@
     margin: auto;
     padding: 0px 15px;
   }
-  
+
   @media (max-width: 767px) {
     .Home-navbar {
       /* justify-content: center; */

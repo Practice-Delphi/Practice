@@ -16,14 +16,14 @@ class Endregister extends Component{
                         <div className="Endregister-left">
                             <h3><strong>Не пропустите последние новости и обновления</strong></h3>
                             <div className="emailfiller">
-                            <input type="email" className="Endregister-input" placeholder={""} onChange={""} />
+                            <input type="email" className="Endregister-input" placeholder="Email" onChange={() =>{}} />
                             <Link className='Endregister-button' to={'/account/login'}><strong>Подписаться</strong></Link>
                             </div>
                             <p>
                             Программный интерфейс продажи токенов 
                             полностью обеспечивается Системой Squeezer
                             </p>
-                            <img className="" src={uptime} />
+                            <img className="" src={uptime} alt=""/>
 
                         </div>
                         <div className="Endregister-right">

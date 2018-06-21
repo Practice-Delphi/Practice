@@ -15,80 +15,77 @@ import team11 from './team11.png';
 // connect component to redux
 import { connect } from 'react-redux';
 
-class Team extends Component{
-    render(){
-        return(
-            <div className= "Team">
+class Team extends Component {
+    render() {
+        return (
+            <div className="Team">
                 <div className="form">
                     <div className="Consultants">
-                            <div className="Consul-head" >
-                                <h1><strong>Консультанты</strong></h1>
-                            </div>
+                        <div className="Consul-head" >
+                            <h1><strong>Консультанты</strong></h1>
+                        </div>
 
                         <div className="Person">
-                            <img class="" src={team1} />
+                            <img src={team1} alt=""/>
                             <div className="name"><strong>Jeffrey Liu</strong></div>
                             <div className="job">Technical Advisor</div>
                         </div>
                         <div className="Person">
-                            <img class="" src={team2} />
+                            <img src={team2} alt=""/>
                             <div className="name"><strong>James Sowers</strong></div>
                             <div className="job">Blockchain Advisor</div>
                         </div>
                         <div className="Person">
-                            <img class="" src={team3} />
+                            <img src={team3} alt=""/>
                             <div className="name"><strong>Ali Kassab</strong></div>
                             <div className="job">Growth Partner - FINTECH</div>
                         </div>
                         <div className="Person">
-                            <img class="" src={team4} />
+                            <img src={team4} alt=""/>
                             <div className="name"><strong>Igor Karavaev</strong></div>
                             <div className="job">Advisor, Marketing</div>
                         </div>
                         <div className="Person">
-                            <img class="" src={team5} />
+                            <img src={team5} alt=""/>
                             <div className="name"><strong>Mofassair Hossain</strong></div>
                             <div className="job">Advisor, Marketing & PR</div>
                         </div>
                     </div>
                     <div className="Teammates">
-                            <div className="Consul-head" >
-                                <h1><strong>Команда Squeezer</strong></h1>
-                            </div>
+                        <div className="Consul-head" >
+                            <h1><strong>Команда Squeezer</strong></h1>
+                        </div>
                         <div className="Person">
-                            <img class="" src={team6} />
+                            <img src={team6} alt=""/>
                             <div className="name"><strong>Nick Chisiu</strong></div>
                             <div className="job">Tech Lead & CEO</div>
                         </div>
                         <div className="Person">
-                            <img class="" src={team7} />
+                            <img src={team7} alt=""/>
                             <div className="name"><strong>Flavius Fulea</strong></div>
                             <div className="job">Marketing Chief</div>
                         </div>
                         <div className="Person">
-                            <img class="" src={team8} />
+                            <img src={team8} alt=""/>
                             <div className="name"><strong>Vlad Tarmure</strong></div>
                             <div className="job">Communications Chief</div>
                         </div>
                         <div className="Person">
-                            <img class="" src={team9} />
+                            <img src={team9} alt=""/>
                             <div className="name"><strong>Ionut Vaida</strong></div>
                             <div className="job">Blockchain Developer</div>
                         </div>
                         <div className="Person">
-                            <img class="" src={team10} />
+                            <img src={team10} alt=""/>
                             <div className="name"><strong>Tia Chisiu</strong></div>
                             <div className="job">Support Manager</div>
                         </div>
                         <div className="Person">
-                            <img class="" src={team11} />
+                            <img src={team11} alt=""/>
                             <div className="name"><strong>Odi Onyejekwe</strong></div>
                             <div className="job">Business Developer</div>
                         </div>
-                        
-                        
                     </div>
-
                 </div>
             </div>
         );
@@ -98,7 +95,7 @@ const mapStateToProps = state => ({
     // some props
 });
 const mapDispatchToProps = dispatch => ({
-  // some action creators
+    // some action creators
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Team);

@@ -15,7 +15,7 @@ class Facts extends Component{
                     <div className="fact-item">
                         <div >
                             <div className="Facts-symbol1">
-                                <img class="" src={facts1} /> 
+                                <img className="" src={facts1} alt=""/> 
                             </div>
                             <div className="text-item">
                                 <strong>
@@ -41,7 +41,7 @@ class Facts extends Component{
                     <div className="fact-item">
                         <div>
                             <div className="Facts-symbol">
-                                <img class="" src={facts2}/> 
+                                <img className="" src={facts2} alt=""/> 
                             </div>
                             <div className="text-item">
                             <strong>
@@ -65,7 +65,7 @@ class Facts extends Component{
                     <div className="fact-item1">
                         <div>
                             <div className="Facts-symbol">
-                                <img class="" src={facts3} /> 
+                                <img className="" src={facts3} alt=""/> 
                             </div>
                             <div className="text-item">
                                 <strong>

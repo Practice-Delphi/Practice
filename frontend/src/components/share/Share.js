@@ -11,7 +11,7 @@ class Share extends Component{
         return(
             <div className= "Share">
                 <div className="form Share-form">
-                    <img  className="Share-img" src={hands}/>
+                    <img  className="Share-img" src={hands} alt=""/>
                     <div className="Share-text">
                         <h1><strong>
                             Присоединяйтесь к <br />
