@@ -1,0 +1,11 @@
+D:\Praktika\practice\practice\obj\Debug\netcoreapp2.0\practice.csprojAssemblyReference.cache
+D:\Praktika\practice\practice\obj\Debug\netcoreapp2.0\practice.csproj.CoreCompileInputs.cache
+D:\Praktika\practice\practice\obj\Debug\netcoreapp2.0\practice.AssemblyInfoInputs.cache
+D:\Praktika\practice\practice\obj\Debug\netcoreapp2.0\practice.AssemblyInfo.cs
+D:\Praktika\practice\practice\bin\Debug\netcoreapp2.0\practice.deps.json
+D:\Praktika\practice\practice\bin\Debug\netcoreapp2.0\practice.runtimeconfig.json
+D:\Praktika\practice\practice\bin\Debug\netcoreapp2.0\practice.runtimeconfig.dev.json
+D:\Praktika\practice\practice\bin\Debug\netcoreapp2.0\practice.dll
+D:\Praktika\practice\practice\bin\Debug\netcoreapp2.0\practice.pdb
+D:\Praktika\practice\practice\obj\Debug\netcoreapp2.0\practice.dll
+D:\Praktika\practice\practice\obj\Debug\netcoreapp2.0\practice.pdb

@@ -1,107 +1,238 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using Newtonsoft.Json;
 using System.Security.Claims;
-using practice.Models;
-// CORS
-using Microsoft.AspNetCore.Cors;
+using practice.ViewModels; 
+using practice.Models; 
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.IdentityModel.Tokens.Jwt;
+using System;
+using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+using System.Linq;
 
 namespace practice.Controllers
 {
     public class AccountController : Controller
     {
-        private List<Person> people = new List<Person>
+        private UserContext db;
+        public AccountController(UserContext context)
         {
-            new Person { Login="admin@gmail.com", Password="12345", Role = "admin", Tokens = 4.2, PersonalUrl="http://localhost?q=admin@gmail.com", ETHAdrress = "myETHAddress", Registers = 3, Commision = 2.5 },
-            new Person { Login="qwerty", Password="55555", Role = "user", Tokens = 6.3, PersonalUrl="http://localhost?q=qwerty", ETHAdrress = "myETHAddress2", Registers = 1, Commision = 1.5 }
-        };
+            db = context;
+        }
 
-        [HttpPost("/token")]
-        // [EnableCors("AllowSpecificOrigin")]
-        // [DisableCors]
-        public async Task Token([FromBody] TokenForm form)
+        [HttpGet]
+        public IActionResult Login()
         {
-            Console.WriteLine(form.Password);
-            var username = form.Email; // Request.Form["username"];
-            var password = form.Password; // Request.Form["password"];
+            return View();
+        }
 
-            var identity = GetIdentity(username, password);
-            if (identity == null)
+        [HttpPost]
+         // ToDo: Подивитись чи воно взагалі підходить для даної функції.
+        public async Task<IActionResult> Login([FromBody]LoginVM model) // ToDo: Вертати лише token(можливо ще якісь поля, якщо необхідно) в форматі JSON
+        {
+            if (ModelState.IsValid)
             {
-                Response.StatusCode = 400;
-                await Response.WriteAsync("Invalid username or password.");
-                return;
+                // ToDo: Взяти дані з моделі, яка прийшла в тілі запиту(зі змінної Model).
+                var username = model.Email;
+                var password = model.Password;
+
+                var identity = GetIdentity(username, password);// У тебе тут приходить "закодована" інфа про цього чувака 
+
+                if (identity != null) //і тут ти маєш перевірити чи найшло такого чувака ToDo: Переписати даний блок ближче до прикладу з JWT-токенами.
+                {
+                    var now = DateTime.UtcNow;
+                    var jwt = new JwtSecurityToken(
+                            issuer: AuthOptions.ISSUER,
+                            audience: AuthOptions.AUDIENCE,
+                            notBefore: now,
+                            claims: identity.Claims,
+                            expires: now.Add(TimeSpan.FromMinutes(AuthOptions.LIFETIME)),
+                            signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
+                    var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
+
+                    var response = new
+                    {
+                        access_token = encodedJwt,
+                        user = model.Email,
+                        password = model.Password,
+                    };
+
+                    Response.ContentType = "application/json";
+                    //  await Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));
+                    return Json(response);
+
+                }
+
+
+                return Json(new { Error = "Wrong Email or Password" });
+
             }
 
-            var now = DateTime.UtcNow;
-            // создаем JWT-токен
-            string encodedJwt = null;
-            try
-            {
-                // Console.WriteLine(identity.Name);
-                var jwt = new JwtSecurityToken(
-                                issuer: AuthOptions.ISSUER,
-                                audience: AuthOptions.AUDIENCE,
-                                notBefore: now,
-                                claims: identity.Claims,
-                                expires: now.Add(TimeSpan.FromMinutes(AuthOptions.LIFETIME)),
-                                signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
-
-                encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-
-            Person person = GetPersonByClaims(identity);
-            var response = new
-            {
-                access_token = encodedJwt,
-                email = identity.Name,
-                tokens = person.Tokens,
-                url = person.PersonalUrl,
-                registers = person.Registers,
-                commission = person.Commision
-            };
-
-            // сериализация ответа
-            Response.ContentType = "application/json";
-            await Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));
+            return Json(new { Error = "Bad requsest" });
         }
 
         private ClaimsIdentity GetIdentity(string username, string password)
         {
-            Person person = people.FirstOrDefault(x => x.Login == username && x.Password == password);
-            if (person != null)
+            User user = db.Users.FirstOrDefault(x => x.Email == username && x.Password == password);
+            if (user != null)
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimsIdentity.DefaultNameClaimType, person.Login),
-                    new Claim(ClaimsIdentity.DefaultRoleClaimType, person.Role),
+                    new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email),
+
                 };
                 ClaimsIdentity claimsIdentity =
                 new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
-                ClaimsIdentity.DefaultRoleClaimType);
+                    ClaimsIdentity.DefaultRoleClaimType);
                 return claimsIdentity;
             }
 
             // если пользователя не найдено
             return null;
         }
-        private Person GetPersonByClaims(ClaimsIdentity identity) { 
-            if (identity == null) {
-                throw new ArgumentNullException("No identity");
-            }
-             Person person = null;
-             person = people.FirstOrDefault(x => x.Login == identity.Name);
-             return person;
+
+
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
         }
+
+        [HttpPost]
+       
+        public async Task<IActionResult> Register([FromBody]RegisterVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+                if (user == null)
+                {
+
+                    db.Users.Add(new User { Email = model.Email, Password = model.Password });
+
+                    await db.SaveChangesAsync();
+
+
+                    return RedirectToAction("Index", "Home"); ;
+                }
+                else
+                    return Json(new { Error = "Login is already used"});
+            }
+            return View(model);
+        }
+
+        /* ToDo: Register method
+         * 1. Перевірити чи прийшли валідні дані в об'єкті(як в Login)
+         * 2. Перевірити чи користувач з таким емейлом не зареєстрований
+         * 3. Якщо ні -- зареєструвати користувача, інакше повернути помилку з повідомленням про те, що він вже існує
+         * 4. Викликати логінізацію зареєстрованого користувача або повернути код 302(переадресація) з URL логіна*/
+
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Edit(int id)
+        {
+           
+            if (id != null)
+            {
+                User user = await db.Users.FirstOrDefaultAsync(p => p.Id == id);
+                if (user != null)
+                    return View(user);
+            }
+            return NotFound();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Edit([FromBody]User user)
+        {
+            db.Users.Update(user);
+            await db.SaveChangesAsync();
+            return RedirectToAction("Index");
+        }
+        /* ToDo: UpdateUserData() [HttpGet] method [Authorize]
+         * 1. Знайдемо користувача з User.Identity.Name;
+         * 2. Вертаєш дані про цього користувача.*/
+
+        /* ToDo: UpdateUserData(User user) [HttpPost] method [Authorize]
+         * 1. Апдейт даних https://metanit.com/sharp/aspnet5/12.3.php 
+         * 2. Сейв результатів в базі. */
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> Logout()
+        {
+            return Json(new { Name = User.Identity.Name });
+            //await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            //return RedirectToAction("Login", "Account");
+        }
+       
+        #region Working
+        //[HttpGet]
+        //public IActionResult Register()
+        //{
+        //    return View();
+        //}
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Register(RegisterVM model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+        //        if (user == null)
+        //        {
+        //            // добавляем пользователя в бд
+        //            db.Users.Add(new User { Email = model.Email, Password = model.Password });
+        //            await db.SaveChangesAsync();
+
+        //            await Authenticate(model.Email); // аутентификация
+
+        //            return RedirectToAction("Index", "Home");
+        //        }
+        //        else
+        //            ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+        //    }
+        //    return View(model);
+        //}
+        //[HttpGet]
+        //public IActionResult Edit()
+        //{
+        //    return View();
+        //}
+        //public async Task<IActionResult> Edit(EditVM model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+
+        //    }
+        //    return View(model);
+        //}
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+
+        //private async Task Authenticate(string userName)
+        //{
+        //    // создаем один claim
+        //    var claims = new List<Claim>
+        //    {
+        //        new Claim(ClaimsIdentity.DefaultNameClaimType, userName)
+        //    };
+        //    // создаем объект ClaimsIdentity
+        //    ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
+        //    // установка аутентификационных куки
+        //    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+        //}
+
+        //public async Task<IActionResult> Logout()
+        //{
+        //    await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        //    return RedirectToAction("Login", "Account");
+        //}
+        #endregion
     }
-}
+    }
