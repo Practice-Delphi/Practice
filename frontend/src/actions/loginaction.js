@@ -5,7 +5,7 @@ export const FETCH_TOKEN_START = "FETCH_TOKEN_START";
 export const FETCH_TOKEN_SUCCESS = "FETCH_TOKEN_SUCCESS";
 export const FETCH_ERROR = "FETCH_ERROR";
 export const DELETE_TOKEN = "DELETE_TOKEN";
-export const DELETE_USER = "DELETE_TOKEN";
+export const DELETE_USER = "DELETE_USER";
 export const FETCH_USER_START = "FETCH_USER_START";
 export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
 
@@ -15,14 +15,14 @@ export const FETCH_USER_UPDATE_ERROR = "FETCH_USER_UPDATE_ERROR";
 
 const siteurl = "http://localhost:3000";
 
-const fetchStart = () => ({
-    type: FETCH_TOKEN_START
-});
+// const fetchStart = () => ({
+//     type: FETCH_TOKEN_START
+// });
 
-const fetchSuccess = token => ({
-    type: FETCH_TOKEN_SUCCESS,
-    token
-});
+// const fetchSuccess = token => ({
+//     type: FETCH_TOKEN_SUCCESS,
+//     token
+// });
 
 const fetchError = error => ({
     type: FETCH_ERROR,
@@ -37,9 +37,9 @@ const deleteUser = () => ({
     type: DELETE_USER
 });
 
-// const fetchUserStart = () => ({
-//     type: FETCH_USER_START
-// });
+const fetchUserStart = () => ({
+    type: FETCH_USER_START
+});
 
 const fetchUserSuccess = (user) => ({
     type: FETCH_USER_SUCCESS,
@@ -60,29 +60,44 @@ const fetchUpdateError = error => ({
     error,
 })
 
-const encodedData = (data) => {
-    let formBody = [];
-    for (const [key, value] of Object.entries(data)) {
-        const encodedKey = encodeURIComponent(key);
-        const encodedValue = encodeURIComponent(value);
-        formBody.push(encodedKey + "=" + encodedValue);
-    }
-    formBody = formBody.join("&");
-    return formBody;
-}
+// const encodedData = (data) => {
+//     let formBody = [];
+//     for (const [key, value] of Object.entries(data)) {
+//         const encodedKey = encodeURIComponent(key);
+//         const encodedValue = encodeURIComponent(value);
+//         formBody.push(encodedKey + "=" + encodedValue);
+//     }
+//     formBody = formBody.join("&");
+//     return formBody;
+// }
 
-export const userStatus = () => (dispatch, getState) => {
-    const user = firebase.auth().currentUser;
-    console.log(user);
-    if (user) {
-        dispatch(fetchUserSuccess(user));
-    } else {
-        dispatch(deleteUser());
-    }
+export const checkUserStatus = () => (dispatch, getState) => {
+    firebase.auth().onAuthStateChanged((user) => {
+        dispatch(fetchUserStart());
+        if (user) {
+            const ref = `/Users/${user.uid}`;
+            firebase.database().ref(ref).once('value')
+                .then(snapshot => dispatch(fetchUserSuccess(snapshot.val())))
+                .catch(() => dispatch(deleteUser()));
+        } else {
+            dispatch(deleteUser());
+        }
+    });
+    // const user = firebase.auth().currentUser;
+    // console.log(user);
+    // if (user) {
+    //     dispatch(fetchUserStart());
+    //     const ref = `/Users/${user.uid}`;
+    //     firebase.database().ref(ref).once('value')
+    //         .then(snapshot => dispatch(fetchUserSuccess(snapshot.val())))
+    //         .catch(() => dispatch(deleteUser()));
+    // } else {
+    //     dispatch(deleteUser());
+    // }
 }
 
 export const login = (email, password) => (dispatch, getState) => {
-    dispatch(fetchStart());
+    dispatch(fetchUserStart());
     // Fetch to server
     // const fetchToken = () => (new Promise((resolve, reject) => {
     //     const rand = Math.random();
@@ -155,13 +170,17 @@ export const login = (email, password) => (dispatch, getState) => {
     //     })
     //     .then(user => dispatch(fetchUserSuccess(user)))
     //     .catch(error => dispatch(fetchError(error)));
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then(userData => {
-            const ref = `/Users/${userData.user.uid}`;
-            return firebase.database().ref(ref).once('value');
-        })
-        .then(snapshot => dispatch(fetchUserSuccess(snapshot.val())))
-        .catch(error => dispatch(error.message));
+    if (!email) {
+        dispatch(fetchError("Email must be not empty"));
+    } else {
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then(userData => {
+                const ref = `/Users/${userData.user.uid}`;
+                return firebase.database().ref(ref).once('value');
+            })
+            .then(snapshot => dispatch(fetchUserSuccess(snapshot.val())))
+            .catch(error => dispatch(fetchError(error.message)));
+    }
 }
 
 export const register = (email, password) => (dispatch, getState) => {
@@ -197,11 +216,11 @@ export const register = (email, password) => (dispatch, getState) => {
     //         dispatch(fetchUserSuccess(userData));
     //     })
     //     .catch(error =>  dispatch(fetchError(error.toString())));
-    dispatch(fetchStart());
+    dispatch(fetchUserStart());
     let user = null;
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then(userData => {
-            console.log(userData);
+            // console.log(userData);
             user = userData.user
             const data = {
                 email: user.email,
@@ -235,7 +254,7 @@ export const updateUserEmailAndPassword = (newemail, newpassword, newpasswordcon
     dispatch(fetchUpdateStart());
 
     const user = firebase.auth().currentUser;
-    console.log(firebase.auth().currentUser);
+    // console.log(firebase.auth().currentUser);
     const ref = `/Users/${user.uid}`;
     const updates = {};
 

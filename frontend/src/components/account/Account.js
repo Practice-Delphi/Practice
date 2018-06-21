@@ -19,13 +19,24 @@ import tokensale from '../../assets/tokensale.png';
 import logo2 from '../../assets/logo2.png';
 
 class Account extends Component {
+  
+  renderLoading() {
+    if (this.props.userData.loading) {
+      return (
+        <div className="Loading-container">
+          <div className="Loading"></div>
+          <b>Load</b>
+        </div>
+      );
+    } else {
+      return null;
+    }
+  }
+  
   render() {
     return (
       <div className="Account">
-        {/* <div className="Loading-container">
-          <div className="Loading"></div>
-          <b>Load</b>
-        </div> */}
+        {this.renderLoading()}
         <header className="Account-header">
           <div className="Account-navbar">
             <a href="/" className="Account-brand">
@@ -63,9 +74,11 @@ class Account extends Component {
 
 Account.propTypes = {
   lang: PropTypes.object,
+  userData: PropTypes.object,
 }
 const mapStateToProps = state => ({
   // some props
+  userData: state.userData,
   lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({

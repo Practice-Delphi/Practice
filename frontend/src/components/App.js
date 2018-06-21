@@ -17,7 +17,9 @@ import Video from './video/Video';
 import Notfound from './notfound/Notfound';
 
 import { addHistory } from '../actions/historyaction';
-import { userStatus } from '../actions/loginaction';
+import { checkUserStatus } from '../actions/loginaction';
+
+import Switch from 'react-router-dom/Switch';
 
 class App extends Component {
   constructor(props) {
@@ -26,9 +28,12 @@ class App extends Component {
       history: createBrowserHistory()
     }
   }
+  // componentDidUpdate() {
+  //   this.props.checkUserStatus();
+  // }
   componentDidMount() {
+    this.props.checkUserStatus();
     this.props.runTest("TestPassed");
-    this.props.userStatus();
   }
   render() {
     this.props.addHistory(this.state.history);
@@ -36,9 +41,11 @@ class App extends Component {
       <Router history={this.state.history}>
         <div className="App">
           <Video />
-          <Route exact={true} path={'/'} component={Home} />
-          <Route path={'/account'} component={Account} />
-          <Route path={'*'} component={Notfound} />
+          <Switch>
+            <Route exact={true} path={'/'} component={Home} />
+            <Route path={'/account'} component={Account} />
+            <Route path={'*'} component={Notfound} />
+          </Switch>
         </div>
       </Router>
     );
@@ -48,20 +55,18 @@ class App extends Component {
 const mapStateToProps = state => ({
   test: state.isTestPass,
   history: state.historyData,
-  //video: state.videoStatus,
 });
 const mapDispatchToProps = dispatch => ({
   runTest: (mess) => { dispatch(runTestAction(mess)) },
   addHistory: (history) => { dispatch(addHistory(history)) },
-  userStatus: () => { dispatch(userStatus()) },
+  checkUserStatus: () => { dispatch(checkUserStatus()) },
 });
 
 App.propTypes = {
   runTest: PropTypes.func,
   addHistory: PropTypes.func,
   history: PropTypes.object,
-  userStatus: PropTypes.func,
-  //video: PropTypes.object,
+  checkUserStatus: PropTypes.func,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

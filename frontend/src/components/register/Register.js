@@ -42,7 +42,9 @@ class Register extends Component {
         this.setState({ check2: event.target.checked });
     }
     submit() {
-        this.props.register(this.state.email, this.state.password);
+        if (this.props.userData.loading) {
+            this.props.register(this.state.email, this.state.password);
+        }
         // alert(`Sorry it's not work now\nYou enter: \n Email: ${this.state.email} \n Password: ${this.state.password} \n ConfirmPassword: ${this.state.confirmpass} \n Check1: ${this.state.check1} \n Check2: ${this.state.check2}`);
     }
     checkErrors() {

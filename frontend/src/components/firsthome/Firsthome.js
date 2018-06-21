@@ -123,7 +123,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
     // some action creators
-    open: (url) => { console.log(openVideo); dispatch(openVideo(url)); }
+    open: (url) => { dispatch(openVideo(url)); }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Firsthome);

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 // connect component to redux
 import { connect } from 'react-redux';
 import { logout, updateETHAddress, updateUserEmailAndPassword } from '../../actions/loginaction';
+// import { checkUserStatus } from '../../actions/loginaction';
 
 //Import components
 
@@ -38,13 +39,13 @@ class Profile extends Component {
     this.changeToProfile = this.changeToProfile.bind(this);
   }
   componentDidUpdate() {
-    if (!this.props.userData.user) {
-      this.props.history.push('/account/login');
+    if (!this.props.userData.user && !this.props.userData.loading) {
+      this.props.history.replace('/account/login');
     }
   }
   componentDidMount() {
-    if (!this.props.userData.user) {
-      this.props.history.push('/account/login');
+    if (!this.props.userData.user && !this.props.userData.loading) {
+      this.props.history.replace('/account/login');
     }
   }
   changePatherState() {
@@ -242,6 +243,7 @@ Profile.propTypes = {
   updateUser: PropTypes.func,
   updateAddress: PropTypes.func,
   updateStatus: PropTypes.object,
+  // checkUserStatus: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
@@ -256,6 +258,7 @@ const mapDispatchToProps = dispatch => ({
   logout: () => { dispatch(logout()) },
   updateAddress: (address) => { dispatch(updateETHAddress(address)) },
   updateUser: (email, pass, passconf) => { dispatch(updateUserEmailAndPassword(email, pass, passconf)) },
+  // checkUserStatus: () => { dispatch(checkUserStatus())}
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

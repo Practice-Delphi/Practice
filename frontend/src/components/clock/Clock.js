@@ -15,16 +15,23 @@ class Clock extends Component {
         super(props);
         this.state = {
             targetDate: new Date(2018, 6, 30, 12, 0, 0),
-            currentDate: new Date()
+            currentDate: new Date(),
+            timer: null
         }
-        let timer = null;
-        let tick = () => {
-            this.setState({ currentDate: new Date() });
-            timer = setTimeout(tick, 1000);
-        }
-        timer = setTimeout(tick, 1000);
+        // let timer = null;
+        // let tick = () => {
+        //     this.setState({ currentDate: new Date() });
+        //     timer = setTimeout(tick, 1000);
+        // }
+        this.timer = setTimeout(this.tick, 1000);
     }
-
+    componentWillUnmount() {
+        clearTimeout(this.timer);
+    }
+    tick = () => {
+        this.setState({ currentDate: new Date() });
+        this.timer = setTimeout(this.tick, 1000);
+    }
     render() {
         const date = new Date(this.state.targetDate.getTime() - this.state.currentDate.getTime());
         // console.log(date);

@@ -32,15 +32,14 @@ class Login extends Component {
         this.setState({ password: event.target.value });
     }
     submit() {
-        this.props.login(this.state.email, this.state.password);
+        if (!this.props.userData.loading) {
+            this.props.login(this.state.email, this.state.password);
+        }
         // alert(`Sorry it's not work now\nYou enter: \n Email: ${this.state.email} \n Password: ${this.state.password}`);
     }
     componentDidUpdate() {
-
         if (this.props.userData.user) {
             this.props.history.push("/account");
-            // this.props.history.goForward();
-            // console.log(this.props.history);
         }
     }
     renderError() {
@@ -99,7 +98,5 @@ const mapDispatchToProps = dispatch => ({
     login: (email, password) => { dispatch(login(email, password)) },
     deleteData: () => { dispatch(logout())}
 });
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
