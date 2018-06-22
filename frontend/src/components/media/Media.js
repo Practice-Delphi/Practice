@@ -15,6 +15,7 @@ import media12 from './media12.png';
 import media13 from './media13.png';
 import media14 from './media14.png';
 import media15 from './media15.png';
+import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -24,7 +25,7 @@ class Media extends Component{
         return(
             <div className= "Media">
                 <div className="form" >
-                    <div id="head"><h1><strong>Мультимедиа</strong></h1></div>
+                    <div id="head"><h1><strong>{this.props.lang.media.head}</strong></h1></div>
                     <div className="media-list">
                         <div className="">
                             <a href="https://www.icoalert.com/" target="_blank" rel='noopener noreferrer'><img className="Media-item" src={media1} alt=""/></a>
@@ -79,8 +80,14 @@ class Media extends Component{
         );
     }
 }
+Media.propTypes = {
+    lang: PropTypes.object,
+    open: PropTypes.func,
+}
+
 const mapStateToProps = state => ({
     // some props
+    lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({
   // some action creators

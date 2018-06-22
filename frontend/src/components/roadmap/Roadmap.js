@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Roadmap.css';
 import roadpoint from './roadpoint.png';
 import roadpoint2 from './roadpoint2.png';
+import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -15,7 +16,7 @@ class Roadmap extends Component{
                     <div className="road-form">
                         <div id="header-form">
                         <div className="road-line" id="header">
-                            <h1><strong>Дорожная карта</strong></h1>
+                            <h1><strong>{this.props.lang.roadmap.head}</strong></h1>
                         </div>
                         </div>
                         <div className="road-line">
@@ -25,22 +26,17 @@ class Roadmap extends Component{
                                 <img className="roadpoint" src={roadpoint} alt=""/>
                             </div>
                             <div className="road-item">
-                                    <h4><strong>Февраль 2016</strong></h4>
+                                    <h4><strong>{this.props.lang.roadmap.roadmapdata1}</strong></h4>
                                     <p>
-                                    Создать общие принципы и<br />
-                                    добавить базовые <br />
-                                    функциональные <br />
-                                    возможности<br /> 
+                                        {this.props.lang.roadmap.roadmapgoal1}
                                     </p>
                             </div>
                         </div>
                         <div className="road-line">
                             <div className="road-item">
-                            <h4><strong>Сентябрь 2016</strong></h4>
+                            <h4><strong>{this.props.lang.roadmap.roadmapdata2}</strong></h4>
                                 <p>
-                                Проверка концепции и 
-                                интеграция подключаемых 
-                                модулей
+                                {this.props.lang.roadmap.roadmapgoal2}
                                 </p>
                             </div>
                             <div className="road-img aditional">
@@ -54,20 +50,17 @@ class Roadmap extends Component{
                                 <img className="roadpoint" src={roadpoint} alt=""/>
                             </div>
                             <div className="road-item">
-                            <h4><strong>Октябрь 2017</strong></h4>
+                            <h4><strong>{this.props.lang.roadmap.roadmapdata3}</strong></h4>
                                 <p>
-                                Стабильная версия и 
-                                поставщики облачных 
-                                сервисов
+                                {this.props.lang.roadmap.roadmapgoal3}
                                 </p>
                             </div>
                         </div>
                         <div className="road-line">
                             <div className="road-item">
-                            <h4><strong>Май 2018</strong></h4>
+                            <h4><strong>{this.props.lang.roadmap.roadmapdata4}</strong></h4>
                                 <p>
-                                Этап краудфандинга 
-                                предпродажи токенов
+                                {this.props.lang.roadmap.roadmapgoal4}
                                 </p>
                             </div>
                             <div className="road-img aditional">
@@ -81,20 +74,17 @@ class Roadmap extends Component{
                                 <img className="roadpoint" src={roadpoint} alt=""/>
                             </div>
                             <div className="road-item">
-                            <h4><strong>Июнь 2018</strong></h4>
+                            <h4><strong>{this.props.lang.roadmap.roadmapdata5}</strong></h4>
                                 <p>
-                                Публичная продажа токенов
+                                {this.props.lang.roadmap.roadmapgoal5}
                                 </p>
                             </div>
                         </div>
                         <div className="road-line">
                             <div className="road-item">
-                            <h4><strong>Июль 2018</strong></h4>
+                            <h4><strong>{this.props.lang.roadmap.roadmapdata6}</strong></h4>
                                 <p>
-                                Нанять дополнительных 
-                                разработчиков для 
-                                построения облачных 
-                                соединителей блокчейн
+                                {this.props.lang.roadmap.roadmapgoal6}
                                 </p>
                             </div>
                             <div className="road-img aditional">
@@ -108,23 +98,17 @@ class Roadmap extends Component{
                                 <img className="roadpoint" src={roadpoint2} alt=""/>
                             </div>
                             <div className="road-item">
-                            <h4><strong>Февраль 2019</strong></h4>
+                            <h4><strong>{this.props.lang.roadmap.roadmapdata7}</strong></h4>
                                 <p>
-                                Обеспечить облачные 
-                                компоненты блокчейн и 
-                                соединители
+                                {this.props.lang.roadmap.roadmapgoal7}
                                 </p>
                             </div>
                         </div>
                         <div className="road-line">
                             <div className="road-item ">
-                            <h4><strong>Апрель 2019</strong></h4>
+                            <h4><strong>{this.props.lang.roadmap.roadmapdata8}</strong></h4>
                                 <p>
-                                Разрешить покупку подписки 
-                                с помощью токена SQR. 
-                                Начните создавать 
-                                приложения, связанные с
-                                блокчейн
+                                {this.props.lang.roadmap.roadmapgoal8}
                                 </p>
                             </div>
                             <div className="road-img aditional">
@@ -139,8 +123,14 @@ class Roadmap extends Component{
         );
     }
 }
+Roadmap.propTypes = {
+    lang: PropTypes.object,
+    open: PropTypes.func,
+}
+
 const mapStateToProps = state => ({
     // some props
+    lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({
   // some action creators

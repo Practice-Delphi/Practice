@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Share.css';
 import hands from './hands.png';
+import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -14,15 +15,11 @@ class Share extends Component{
                     <img  className="Share-img" src={hands} alt=""/>
                     <div className="Share-text">
                         <h1><strong>
-                            Присоединяйтесь к <br />
-                            нашей Партнерской <br />
-                            программе  сегодня и <br />
-                            заработайте 10%  комиссии <br />
-                            в ETH <br />
+                            {this.props.lang.share.Sharetext}
                         </strong></h1>
                     </div>
                     <div className="Share-link">
-                        <Link className='register-link' to={'/account/login'}>Присоединиться</Link>
+                        <Link className='register-link' to={'/account/login'}>{this.props.lang.share.Sharelink}</Link>
                     </div>
 
                 </div>
@@ -31,8 +28,14 @@ class Share extends Component{
         );
     }
 }
+Share.propTypes = {
+    lang: PropTypes.object,
+    open: PropTypes.func,
+}
+
 const mapStateToProps = state => ({
     // some props
+    lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({
   // some action creators

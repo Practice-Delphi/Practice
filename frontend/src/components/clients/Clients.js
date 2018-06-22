@@ -4,6 +4,7 @@ import clin1 from './clin1.png';
 import clin2 from './clin2.png';
 import clin3 from './clin3.png';
 import clin4 from './clin4.png';
+import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -13,7 +14,7 @@ class Clients extends Component{
         return(
             <div className= "Clients">
                 <div className="form">
-                    <div id="Clients-head"><h1><strong>Партнеры и клиенты</strong></h1></div>
+                    <div id="Clients-head"><h1><strong>{this.props.lang.clients.head}</strong></h1></div>
                     <div className="Clients-list">
                         <div className="">
                             <a href="https://ambisafe.com/" target="_blank" rel='noopener noreferrer'><img className="Clin-item" src={clin1} alt=""/></a>
@@ -33,8 +34,14 @@ class Clients extends Component{
         );
     }
 }
+Clients.propTypes = {
+    lang: PropTypes.object,
+    open: PropTypes.func,
+}
+
 const mapStateToProps = state => ({
     // some props
+    lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({
   // some action creators

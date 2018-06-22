@@ -12,11 +12,14 @@
     padding: 10px;
 
 }
+.token-text{
+    width: 40%;
+}
 
 .token-img > img {
     width: 590px;
     height: 590px;
-    margin-left: 70px;
+    margin-left: 20px;
 }
 .token-text-img> img{
     height: 50px;
@@ -28,5 +31,8 @@
         width: 290px;
         height: 290px;
         margin-left: 15px;
+    }
+    .token-text{
+        width: 100%;
     }
 }

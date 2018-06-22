@@ -11,7 +11,7 @@ import capa8 from './capa8.png';
 import capa9 from './capa9.png';
 import capa10 from './capa10.png';
 import capa11 from './capa11.png';
-
+import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -26,21 +26,11 @@ class Capabilities extends Component {
                             <div className="text">
                                 <h1>
                                     <strong>
-                                Основные <br/>
-                                функциональные <br/>
-                                возможности Squeezer<br/>
+                                        {this.props.lang.capabilities.maintexthead}
                                     </strong>
                                 </h1>
                                 <p>
-                                Squeezer представляет собой платформу, которая
-                                помогает разработчикам ПО легко создавать 
-                                приложения без работы со всей инфраструктурой 
-                                блокчейн. Это также мощный инструмент для 
-                                обеспечения высококачественных компонентов ПО 
-                                блокчейн для крупных корпоративных 
-                                организаций. Squeezer использует платформы
-                                микроуслуг мирового класса, такие, как AWS 
-                                Lambda, Google Functions и Azure Functions.
+                                    {this.props.lang.capabilities.maintext}
                                 </p>
                             </div>
                             <div className="main-text-symbols">
@@ -67,99 +57,54 @@ class Capabilities extends Component {
                             <div className="symbol"> 
                                 <img className="" src={capa6} alt=""/>
                             </div>
-                            <strong>Нулевое <br/> администрирование</strong>
+                            <strong>{this.props.lang.capabilities.tip1head}</strong>
                             <p>
-                                Используйте ваш код без <br/>
-                                какой-либо <br/>
-                                продолжительной <br/>
-                                предварительной настройки <br/>
-                                или необходимости <br/>
-                                последующего управления <br/>
-                                чем-либо.<br/>
+                                {this.props.lang.capabilities.tip1text}
                             </p>
                       </div>
                       <div className="resize tip">
                             <div className="symbol"> 
                                 <img className="" src={capa7} alt=""/>
                             </div>
-                            <strong>Автомасштаб</strong>
+                            <strong>{this.props.lang.capabilities.tip2head}</strong>
                             <p>
-                            Позвольте вашим <br/>
-                            провайдерам услуг <br/>
-                            управлять задачами <br/>
-                            масштабирования. Нет <br/>
-                            необходимости настраивать<br/>
-                             оповещения или писать <br/>
-                             скрипты для увеличения <br/>
-                             или уменьшения масштаба. <br/>
-                             Будьте абсолютно спокойны <br/>
-                             в периоды высокого или <br/>
-                             низкого трафика.<br/>
+                                {this.props.lang.capabilities.tip2text}
                             </p>
                       </div>
                       <div className="payment tip">
                             <div className="symbol"> 
                                 <img className="" src={capa8} alt=""/>
                             </div>
-                            <strong>Оплата по мере <br/> использования</strong>
+                            <strong>{this.props.lang.capabilities.tip3head}</strong>
                             <p>
-                            Вычисления функции как <br/>
-                            услуги (FaaS) и удаленное <br/>
-                            управление, оплачиваемые <br/>
-                            на основе пользования, а не <br/>
-                            заранее предусмотренной <br/>
-                            производительности. Вы <br/>
-                            можете использовать все <br/>
-                            ваши ресурсы, не платя ни <br/>
-                            единого цента за время <br/>
-                            ожидания.<br/>
+                                {this.props.lang.capabilities.tip3text}
                             </p>
                       </div>
                       <div className="conditions tip">
                             <div className="symbol"> 
                                 <img className="" src={capa9} alt=""/>
                             </div>
-                            <strong>Условия разработки</strong>
+                            <strong>{this.props.lang.capabilities.tip4head}</strong>
                             <p>
-                            Моделируйте среду <br/>
-                            поставщика облачных <br/>
-                            сервисов на вашем <br/>
-                            локальном компьютере. Нет <br/>
-                            необходимости при каждой <br/>
-                            итерации использовать код. <br/>
-                            Ускорьте весь цикл <br/>
-                            разработки в 10 раз.<br/>
+                                {this.props.lang.capabilities.tip4text}
                             </p>
                       </div>
                       <div className="block tip">
                              <div className="symbol"> 
                                 <img className="" src={capa10} alt=""/>
                             </div>
-                            <strong>Блокчейн</strong>
+                            <strong>{this.props.lang.capabilities.tip5head}</strong>
                             <p>
-                                Будучи поистине <br/>
-                                революционной системой, <br/>
-                                Squeezer является первой <br/>
-                                платформой, которая <br/>
-                                объединяет мощь <br/>
-                                микроуслуг с <br/>
-                                неизменностью технологии <br/>
-                                блокчейн.<br/>
+                                {this.props.lang.capabilities.tip5text}
                             </p>
                       </div>
                       <div className="token tip">
                             <div className="symbol"> 
                                 <img className="" src={capa11} alt=""/>
                             </div>
-                            <strong>Токен</strong>
+                            <strong>{this.props.lang.capabilities.tip6head}</strong>
                             <p>
-                            Токен Squeezer (SQR) <br/>
-                            является основной <br/>
-                            утилитой, используемой <br/>
-                            разработчиками для <br/>
-                            создания и внедрения <br/>
-                            приложений на Платформе <br/>
-                            Squeezer.<br/>
+                                {this.props.lang.capabilities.tip6text}
                             </p>
                       </div>
                     </div>
@@ -169,9 +114,14 @@ class Capabilities extends Component {
         );
     }
 }
+Capabilities.propTypes = {
+    lang: PropTypes.object,
+    open: PropTypes.func,
+}
 
 const mapStateToProps = state => ({
     // some props
+    lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({
     // some action creators

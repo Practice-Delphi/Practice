@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Endregister.css';
 import uptime from './uptime.png';
+import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -14,75 +15,49 @@ class Endregister extends Component{
                 <div className= "Endregister">
                     <div className="form Endregister-form">
                         <div className="Endregister-left">
-                            <h3><strong>Не пропустите последние новости и обновления</strong></h3>
+                            <h3><strong>{this.props.lang.endregister.head1}</strong></h3>
                             <div className="emailfiller">
                             <input type="email" className="Endregister-input" placeholder="Email" onChange={() =>{}} />
-                            <Link className='Endregister-button' to={'/account/login'}><strong>Подписаться</strong></Link>
+                            <Link className='Endregister-button' to={'/account/login'}><strong>      {this.props.lang.endregister.button}</strong></Link>
                             </div>
                             <p>
-                            Программный интерфейс продажи токенов 
-                            полностью обеспечивается Системой Squeezer
+                                {this.props.lang.endregister.text1}
                             </p>
                             <img className="" src={uptime} alt=""/>
 
                         </div>
                         <div className="Endregister-right">
                             <h2><strong>
-                                ПРИСОЕДИНЯЙТЕСЬ К 
-                                РЕВОЛЮЦИИ БЛОКЧЕЙН-
-                                ПРИЛОЖЕНИЙ
+                                {this.props.lang.endregister.head2}
                                 </strong></h2>
                                 <br/>
                             <p>
-                                Первая в мире платформа для разработки 
-                                ПО, предлагающая микроуслуги для 
-                                блокчейн
+                                {this.props.lang.endregister.text2}
                             </p>
                             <br/>
                             
-                            <div className="End-register"><Link className='Endregister-account' to={'/account/login'}><strong>Войти</strong></Link></div>
-                            <div className="End-register"><Link className='Endregister-register' to={'/account/register'}><strong>Зарегистрироваться</strong></Link></div>
+                            <div className="End-register"><Link className='Endregister-account' to={'/account/login'}><strong>{this.props.lang.endregister.link1}</strong></Link></div>
+                            <div className="End-register"><Link className='Endregister-register' to={'/account/register'}><strong>{this.props.lang.endregister.link2}</strong></Link></div>
                         </div>
                     </div>
                 </div>
                 <div className="footer-text">
                     <div className="form footer-text-form">
-                    <div className="footer-text-article"><p>Отказ от ответственности</p></div>
+                    <div className="footer-text-article"><p>{this.props.lang.endregister.rejecthead}</p></div>
                     <div className="footer-text-item">
                         <p>
-                            Токены не представляют собой собственный капитал, 
-                            акции, доли, роялти или права на капитал, прибыль или 
-                            доход в платформе, ПО или организации, выдающей 
-                            токены, либо любой другой компании или 
-                            интеллектуальной собственности, связанной с платформой, 
-                            либо любым другим публичным или частным 
-                            предприятием, корпорацией, фондом или иным 
-                            юридическим лицом в любой юрисдикции.
+                            {this.props.lang.endregister.rejecttext1}
                         </p>
                         <p>
-                            Предлагая информацию, продукты или услуги посредством 
-                            данного веб-сайта, мы никому не навязываем 
-                            использование такой информации, продуктов или услуг в 
-                            какой-либо юрисдикции, где предоставление такой 
-                            информации, продуктов или услуг может быть запрещено 
-                            законом.
+                            {this.props.lang.endregister.rejecttext2}
                         </p>
                     </div>
                     <div className="footer-text-item">
                         <p>
-                            Вся информация, представленная на данном веб-сайте, 
-                            предназначена только для информационных целей и 
-                            может изменяться без уведомления. Данный веб-сайт не 
-                            предназначен для инвестиционных консультаций, 
-                            предложения или рекомендации покупки или продажи 
-                            какого-либо финансового инструмента или продукта.
+                            {this.props.lang.endregister.rejecttext3}
                         </p>                        
                         <p>
-                            Продажа токенов Squeezer подразумевает и относится к 
-                            разработке и использованию передовых и новых 
-                            экспериментальных технологий, которые могут не 
-                            оправдать ожиданий или не поставляться в комплектации, 
-                            предусмотренной технической документацией.
+                            {this.props.lang.endregister.rejecttext4}
                         </p>
                     </div>
                 </div>    
@@ -90,19 +65,25 @@ class Endregister extends Component{
                 <div className="footer-links">
                 <div className="form footer-form">
                     <div className="footer-links-3">
-                    <div className="">© 2018 Squeezer</div>
-                    <div className="">Белая Бумага</div>
-                    <div className="">Условия для токенов</div>
+                    <div className="">{this.props.lang.endregister.footertip1}</div>
+                    <div className="">{this.props.lang.endregister.footertip2}</div>
+                    <div className="">{this.props.lang.endregister.footertip3}</div>
                     </div>
-                    <div className="">Golden Data INC, New Horizon, Ground Floor, 3 1⁄2 Miles Philip S.W. Goldson Highway, Belize City, Belize</div>
+                    <div className="">{this.props.lang.endregister.footertip4}</div>
                 </div>
                 </div>
             </div>
         );
     }
 }
+Endregister.propTypes = {
+    lang: PropTypes.object,
+    open: PropTypes.func,
+}
+
 const mapStateToProps = state => ({
     // some props
+    lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({
   // some action creators

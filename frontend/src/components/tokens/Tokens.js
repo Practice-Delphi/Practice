@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Tokens.css';
 import token1 from './token1.png'
 import token2 from './token2.png'
+import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -12,26 +13,14 @@ class Tokens extends Component{
             <div className= "Tokens">
                 <div className="form token-form">
                     <div className="token-text">
-                        <h1><strong>Токены Squeezer</strong></h1>
+                        <h1><strong>{this.props.lang.tokens.artikle}</strong></h1>
                         <br/>
                         <br/>
                         <p>
-                            Платформа Squeezer основана на <br/>
-                            токенах SQR. Разработчики <br/>
-                            покупают подписку на платформу <br/>
-                            с использованием токенов для <br/>
-                            создания своих приложений. <br/>
-                            Кроме того, все консультативные <br/>
-                            услуги, предоставляемые <br/>
-                            командой Squeezer, оплачиваются <br/>
-                            токенами SQR.<br/>
+                            {this.props.lang.tokens.text1}
                         </p>
                         <p>    
-                            Каждые 6 месяцев мы будем <br/>
-                            использовать 25% нашей <br/>
-                            прибыли, чтобы выкупать и <br/>
-                            уничтожить SQR, пока мы не <br/>
-                            купим 40% всех SQR.<br/>
+                            {this.props.lang.tokens.text2}
                         </p>
                         <div className="token-text-img">
                                 <img className="" src={token1} alt=""/> 
@@ -45,8 +34,14 @@ class Tokens extends Component{
         );
     }
 }
+Tokens.propTypes = {
+    lang: PropTypes.object,
+    open: PropTypes.func,
+}
+
 const mapStateToProps = state => ({
     // some props
+    lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({
   // some action creators

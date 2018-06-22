@@ -16,18 +16,14 @@ class Connector extends Component{
                 <div className="form">
                     <div className="left">
                         <div className="left-text">
-                            <strong>Соединитель <br/>блокчейн <span >Squeezer</span ></strong>
+                            <strong>{this.props.lang.connector.artikle}</strong>
                         </div>
                         <div onClick={() => { this.props.open("https://www.youtube.com/embed/vobY-Fj6z0I") }}>
                             <img src={con2} className="left-video" alt="" />
                         </div>
                     </div>
                     <div className="right">
-                        Наше решение предназначено для создания <br/>
-                        простого интерфейса, который позволит<br/>
-                         разработчикам ПО проводить транзакции блокчейн <br/>
-                         без необходимости использования генезис кода <br/>
-                         блокчейн или создания сложных компонентов.<br/>
+                        {this.props.lang.connector.text}
                         <div className="connection-exeple">
                             <img className="" src={con1} alt=""/>
                         </div>
@@ -37,7 +33,7 @@ class Connector extends Component{
                                     <a href="https://i.pinimg.com/originals/0b/e5/40/0be540433c15a6f783fd06e91cb02c96.jpg" title="to git"><img className="" src={smart1} alt=""/></a>
                                 </div>
                                 <div className="text-link">
-                                    <a href="https://i.pinimg.com/originals/0b/e5/40/0be540433c15a6f783fd06e91cb02c96.jpg" title="to git"> See the code at GitHab</a>
+                                    <a href="https://i.pinimg.com/originals/0b/e5/40/0be540433c15a6f783fd06e91cb02c96.jpg" title="to git"> {this.props.lang.connector.link}</a>
                                 </div>
                        
                         </div>

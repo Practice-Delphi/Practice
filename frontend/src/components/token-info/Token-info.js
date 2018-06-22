@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Token-info.css';
-import infoimg1 from './infoimg.png'
 import infoimg2 from './infoimg2.png'
+import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -12,49 +12,43 @@ class Tokeninfo extends Component{
             <div className= "Tokeninfo">
                 <div className="form info-form">
                     <h2>
-                        Подробная информация о токенах
+                        {this.props.lang.tokeninfo.head}
                     </h2>
                     <div className="info-elements">
                         <div className="first">
-                            <strong>Тикер:</strong> SQR<br/>
-                            <strong> Цена:</strong> 1 SQR = $0.20<br/>
-                            <strong>Минимальный предел:</strong> <br/>
+                            <strong>{this.props.lang.tokeninfo.infoelementfirstTicker}</strong> SQR<br/>
+                            <strong>{this.props.lang.tokeninfo.infoelementfirstPrice}</strong> 1 SQR = $0.20<br/>
+                            <strong>{this.props.lang.tokeninfo.infoelementfirstSoftcap}</strong> <br/>
                                     9,375,000 SQR<br/>
-                            <strong>Максимальное значение:</strong> <br/>
+                            <strong>{this.props.lang.tokeninfo.infoelementfirstHardcap}</strong> <br/>
                                     75,000,000 SQR<br/>
                         </div>
                         <div className="second">
-                            <strong>Предпродажа:</strong> <br/>
-                                    Май 1, 2018 - Май 12, 2018<br/>
-                            <strong>Цель: </strong> 11,250,000 SQR<br/>
+                            <strong>{this.props.lang.tokeninfo.infoelementsecondPresale}</strong> <br/>
+                                    {this.props.lang.tokeninfo.infoelementsecondPresaletext}<br/>
+                            <strong>{this.props.lang.tokeninfo.infoelementsecondTarget} </strong> 11,250,000 SQR<br/>
                         </div>
                         <div className="third">
-                            <strong> Продажа токенов:</strong><br/>
-                                     Июнь 20, 2018 - Июнь 30, 2018<br/>
-                            <strong>Цель: </strong>63,750,000 SQR<br/>
+                            <strong> {this.props.lang.tokeninfo.infoelementthirdTokensale}</strong><br/>
+                                     {this.props.lang.tokeninfo.infoelementthirdTokensaletext}<br/>
+                            <strong> {this.props.lang.tokeninfo.infoelementthirdTarget}</strong>63,750,000 SQR<br/>
                         </div>
                         <div className="four">
-                            <strong>Совместимость:</strong> Ethereum ERC20<br/>
-                            <strong>Использование:</strong> Подписка на платформу; консультационные услуги<br/>
-                            <strong>Дата доставки токенов:</strong> 10 дней после завершения продажи токенов
-
-                            По окончании продажи токенов, все непроданные токены сгорят.
+                            <strong>{this.props.lang.tokeninfo.infoelementthirdCompatibility}</strong> Ethereum ERC20<br/>
+                            <strong>{this.props.lang.tokeninfo.infoelementthirdUsage}</strong> {this.props.lang.tokeninfo.infoelementthirdUsagetext}<br/>
+                            <strong>{this.props.lang.tokeninfo.infoelementthirdTokendeliverydate}</strong> {this.props.lang.tokeninfo.infoelementthirdTokendeliverydatetext}
                         </div>
                     </div>
                     <div className="distribution">
-                        <h1><strong>Распределение токенов</strong></h1>
+                        <h1><strong>{this.props.lang.tokeninfo.distributionhead}</strong></h1>
                             <div className="">
                                 <div>
                                     <div>    
                                         <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                                     </div>
                                     <div>
-                                    <strong>Продажа токенов:</strong><br/>
-                                    75,000,000 SQR (40%)
-                                    По окончании продажи 
-                                    токенов, все 
-                                    непроданные токены 
-                                    сгорят.
+                                    <strong>{this.props.lang.tokeninfo.distribution1article}</strong><br/>
+                                    {this.props.lang.tokeninfo.distribution1text}
                                     </div>
                                 </div>
                                 <div>
@@ -62,14 +56,8 @@ class Tokeninfo extends Component{
                                         <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                                     </div>
                                     <div>
-                                    <strong>Платформа Squeezer:</strong><br/>
-                                    56,250,000 SQR (30%)
-                                    Резерв, требуемый для 
-                                    обеспечения работы
-                                    платформы. Заперто в 
-                                    смарт-контракте с
-                                    ограничением платежей 
-                                    на 12 месяцев.
+                                    <strong>{this.props.lang.tokeninfo.distribution2article}</strong><br/>
+                                        {this.props.lang.tokeninfo.distribution2text}
                                     </div>
                                 </div>
                                 <div>    
@@ -77,12 +65,8 @@ class Tokeninfo extends Component{
                                         <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                                     </div>
                                     <div>
-                                    <strong>Команда:  </strong><br/>
-                                    37,500,000 SQR (20%)
-                                    Заперто в смарт-
-                                    контракте с 
-                                    ограничением платежей 
-                                    на 24 месяца.
+                                    <strong>{this.props.lang.tokeninfo.distribution3article}  </strong><br/>
+                                        {this.props.lang.tokeninfo.distribution3text}
                                     </div>
                                 </div>
                                 <div>
@@ -90,12 +74,8 @@ class Tokeninfo extends Component{
                                         <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                                     </div>
                                     <div>
-                                    <strong>Консультанты:   </strong><br/>
-                                    9,375,000 SQR (5%)  
-                                    Заперто в смарт-
-                                    контракте с 
-                                    ограничением платежей 
-                                    на 24 месяца.
+                                    <strong>{this.props.lang.tokeninfo.distribution4article}  </strong><br/>
+                                        {this.props.lang.tokeninfo.distribution4text}
                                     </div>
                                 </div>
                                 <div>
@@ -103,8 +83,8 @@ class Tokeninfo extends Component{
                                         <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                                     </div>
                                     <div>
-                                    <strong>Маркетинг и партнеры:</strong><br/>
-                                    9,375,000 SQR (5%)
+                                    <strong>{this.props.lang.tokeninfo.distribution5article} </strong><br/>
+                                        {this.props.lang.tokeninfo.distribution5text}
                                     </div>
                                 </div>
                         </div>  
@@ -115,13 +95,13 @@ class Tokeninfo extends Component{
                         </div>  
                     </div>
                     <div className="income">
-                        <h2><strong>Распределение токенов</strong></h2>
+                        <h2><strong>{this.props.lang.tokeninfo.incomehead}</strong></h2>
                         <div>
                             <div >
                                 <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                             </div>
                             <div>
-                            Техническая разработка: <strong>45%</strong>
+                            {this.props.lang.tokeninfo.incometext1} <strong>45%</strong>
                             </div>
                         </div>
                         <div>
@@ -129,7 +109,7 @@ class Tokeninfo extends Component{
                                 <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                             </div>
                             <div>
-                                Не технический персонал:<strong> 30%</strong>
+                            {this.props.lang.tokeninfo.incometext2}<strong> 30%</strong>
                             </div>
                         </div>
                         <div>
@@ -137,7 +117,7 @@ class Tokeninfo extends Component{
                                 <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                             </div>
                             <div>
-                                Расходы на маркетинг: <strong> 10%</strong>
+                            {this.props.lang.tokeninfo.incometext3} <strong> 10%</strong>
                             </div>
                         </div>
                         <div>
@@ -145,7 +125,7 @@ class Tokeninfo extends Component{
                                 <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                             </div>
                             <div>
-                                Расходы на инфраструктуру: <strong> 8%</strong>
+                            {this.props.lang.tokeninfo.incometext4} <strong> 8%</strong>
                             </div>
                         </div>
                         <div>                            
@@ -153,7 +133,7 @@ class Tokeninfo extends Component{
                                 <img className="dot" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Reddot.svg/1024px-Reddot.svg.png" alt=""/> 
                             </div>
                             <div>
-                                Другие операционные расходы :<strong> 7%</strong>
+                            {this.props.lang.tokeninfo.incometext5}<strong> 7%</strong>
                             </div>
                         </div>
                         <img className="info-img-line" src={infoimg2} alt=""/>
@@ -163,8 +143,14 @@ class Tokeninfo extends Component{
         );
     }
 }
+Tokeninfo.propTypes = {
+    lang: PropTypes.object,
+    open: PropTypes.func,
+}
+
 const mapStateToProps = state => ({
     // some props
+    lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({
   // some action creators

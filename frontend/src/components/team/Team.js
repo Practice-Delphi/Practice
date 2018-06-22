@@ -11,6 +11,7 @@ import team8 from './team8.png';
 import team9 from './team9.png';
 import team10 from './team10.png';
 import team11 from './team11.png';
+import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -22,7 +23,7 @@ class Team extends Component {
                 <div className="form">
                     <div className="Consultants">
                         <div className="Consul-head" >
-                            <h1><strong>Консультанты</strong></h1>
+                            <h1><strong>{this.props.lang.team.head1}</strong></h1>
                         </div>
 
                         <div className="Person">
@@ -53,7 +54,7 @@ class Team extends Component {
                     </div>
                     <div className="Teammates">
                         <div className="Consul-head" >
-                            <h1><strong>Команда Squeezer</strong></h1>
+                            <h1><strong>{this.props.lang.team.head2}</strong></h1>
                         </div>
                         <div className="Person">
                             <img src={team6} alt=""/>
@@ -91,8 +92,14 @@ class Team extends Component {
         );
     }
 }
+Team.propTypes = {
+    lang: PropTypes.object,
+    open: PropTypes.func,
+}
+
 const mapStateToProps = state => ({
     // some props
+    lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({
     // some action creators

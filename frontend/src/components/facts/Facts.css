@@ -4,12 +4,16 @@
     font-size: 120%;
     padding-bottom: 80px;
 }
+.fact-item {
+    width: 33%;
+}
 .fact-item > div{
     display: flex;
     flex-flow: row wrap;
 }
 .fact-item1{
     padding-top: 40px;
+    width: 33%;
 }
 .fact-item1 > div{
     display: flex;
@@ -17,6 +21,7 @@
 }
 .text-item{
     margin-top: 10px;
+    width: 70%;
 }
 .fact-item > div > div{
     display: flex;
@@ -43,5 +48,11 @@
     margin-right: 15px;
 }
 @media screen and (max-width:500px){
-    
+    .fact-item1{
+        
+        width: 100%;
+    }
+    .fact-item {
+        width: 100%;
+    }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Quote.css';
+import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -9,23 +10,24 @@ class Quote extends Component{
         return(
             <div className= "Quote">
                 <div className="Quate-text">
-                    Мне кажется, что у нас не хватает
-                    интересных инноваций, связанных с
-                    самой технологией блокчейна. Этот 
-                    проект обещает быть очень 
-                    интересным, если он будет успешно
-                    воплощен стараниями опытной и
-                    преданной команды.
+                    {this.props.lang.quote.text}
                 </div>
                 <div className= "Writer"> <p>
-                Игорь Каравев, советник и эксперт из топ-20 ICOBench.
+                    {this.props.lang.quote.writer}
                 </p></div>
             </div>
         );
     }
 }
+
+Quote.propTypes = {
+    lang: PropTypes.object,
+    open: PropTypes.func,
+}
+
 const mapStateToProps = state => ({
     // some props
+    lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({
   // some action creators

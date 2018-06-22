@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Benefits.css';
+import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
@@ -13,10 +14,9 @@ class Benefits extends Component {
             <div class="Benefits">
                 <div className="ben-form">
                     <div className="topic">
-                        <h1><strong><span className="problems">Проблемы</span> при <br/>
-                        создании <br/>
-                        блокчейн- <br/>
-                        приложений</strong></h1>
+                        <h1><strong><span className="problems">{this.props.lang.benefits.topik1span}</span> 
+                            {this.props.lang.benefits.topik1}
+                        </strong></h1>
                     </div>
                     <div className="tegs">
                         <div className="line">
@@ -24,10 +24,7 @@ class Benefits extends Component {
                                 <img className="" src={wrong} alt=""/>
                             </div>
                             <div className="text">
-                                Настройка среды разработки блокчейн является<br/>
-                                трудоемким процессом, при этом трудно <br/>
-                                поддерживать стабильность для тестируемых <br/>
-                                версий.<br/>
+                                {this.props.lang.benefits.text1}
                             </div>
                         </div>
                         <div className="line">
@@ -35,9 +32,7 @@ class Benefits extends Component {
                                 <img className="" src={wrong} alt="" />
                             </div>
                             <div className="text">
-                                Тысячи новых транзакций блокчейн, как правило,<br/> 
-                                будут давать сбой системы серверной части <br/>
-                                пользователя.<br/>
+                                {this.props.lang.benefits.text2}
                             </div>
                         </div>
                         <div className="line">
@@ -45,16 +40,12 @@ class Benefits extends Component {
                                 <img className="" src={wrong} alt="" />
                             </div>
                             <div className="text">
-                                Разработчики ПО, мало знакомые с технологией <br/>
-                                блокчейн, перед построением блокчейн-<br/>
-                                приложений должны ознакомиться с кодом генезис <br/>
-                                блока и создать сложные синтаксические <br/>
-                                анализаторы.<br/>
+                                {this.props.lang.benefits.text3}
                             </div>
                         </div>
                     </div>
                     <div className="topic">
-                        <h1><strong>Решение <span className="squeezer">Squeezer</span></strong></h1>
+                        <h1><strong>{this.props.lang.benefits.topik2} <span className="squeezer">{this.props.lang.benefits.topik2span}</span></strong></h1>
                     </div>
                     <div className="tegs">
                         <div className="line">
@@ -62,11 +53,7 @@ class Benefits extends Component {
                                 <img className="" src={correct} alt="" />
                             </div>
                             <div className="text">
-                                Создать единый универсальный соединитель <br/>
-                                блокчейн, который позволит разработчикам <br/>
-                                подключаться к любому блокчейну (такому, как BTC, <br/>
-                                ETH или LTC) и использовать песочницу для <br/>
-                                тестирования приложений.
+                                {this.props.lang.benefits.text4}
                             </div>
                         </div>
                         <div className="line">
@@ -74,12 +61,7 @@ class Benefits extends Component {
                                 <img className="" src={correct} alt="" />
                             </div>
                             <div className="text">
-                                Приложения Squeezer основаны на микроуслугах, <br/>
-                                что означает, что функция автомасштаба <br/>
-                                включается по умолчанию. Также микроуслуги <br/>
-                                поддерживают автоматическое восстановление и <br/>
-                                предусматривают бесшумное внедрение облачного <br/>
-                                сервиса.
+                                {this.props.lang.benefits.text5}
                             </div>
                         </div>
                         <div className="line">
@@ -87,9 +69,7 @@ class Benefits extends Component {
                                 <img className="" src={correct} alt="" />
                             </div>
                             <div className="text">
-                                Платформа Squeezer будет создавать и внедрять <br/>
-                                приложения на многочисленных этапах от GitHub <br/>
-                                или других репозиториев кодов.
+                                {this.props.lang.benefits.text6}
                             </div>
                         </div>
                     </div>
@@ -100,8 +80,15 @@ class Benefits extends Component {
     }
 }
 
+Benefits.propTypes = {
+    lang: PropTypes.object,
+    open: PropTypes.func,
+}
+
+
 const mapStateToProps = state => ({
     // some props
+    lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({
     // some action creators
