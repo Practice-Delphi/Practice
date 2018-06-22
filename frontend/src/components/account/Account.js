@@ -13,13 +13,15 @@ import Login from '../login/Login';
 import Langselect from '../langselect/Langselect';
 import Profile from '../profile/Profile';
 import Forgotpassword from '../forgotpassword/Forgotpassword';
+import Notfound from '../notfound/Notfound';
 
 // import assets
 import tokensale from '../../assets/tokensale.png';
 import logo2 from '../../assets/logo2.png';
+import Switch from 'react-router/Switch';
 
 class Account extends Component {
-  
+
   renderLoading() {
     if (this.props.userData.loading) {
       return (
@@ -32,7 +34,7 @@ class Account extends Component {
       return null;
     }
   }
-  
+
   render() {
     return (
       <div className="Account">
@@ -45,16 +47,19 @@ class Account extends Component {
             <div className="Account-button-container">
               <Langselect />
               <div className="Account-button-link">
-                <img src={tokensale} alt=""/>
+                <img src={tokensale} alt="" />
               </div>
             </div>
           </div>
         </header>
         <main className="Account-main">
-          <Route exact={true} path={"/account"} component={Profile} />
-          <Route exact={true} path={"/account/register"} component={Register} />
-          <Route exact={true} path={"/account/login"} component={Login} />
-          <Route exact={true} path={"/account/forgot_password"} component={Forgotpassword} />
+          <Switch>
+            <Route exact={true} path={"/account"} component={Profile} />
+            <Route exact={true} path={"/account/register"} component={Register} />
+            <Route exact={true} path={"/account/login"} component={Login} />
+            <Route exact={true} path={"/account/forgot_password"} component={Forgotpassword} />
+            <Route path={"*"} component={Notfound} />
+          </Switch>
         </main>
         <footer className="Account-footer">
           <div className="Account-footer-container">
