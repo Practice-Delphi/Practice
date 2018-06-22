@@ -10,5 +10,9 @@ namespace practice.ViewModels
         [Required(ErrorMessage = "Не указан пароль")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        public string EtheriumAddress { get; set; }
+        public int NumberOfReferals { get; set; }
+        public int Income { get; set; }
     }
 }
