@@ -32,18 +32,21 @@ namespace practice.Controllers
         }
 
         [HttpPost]
-         // ToDo: Подивитись чи воно взагалі підходить для даної функції.
-        public async Task<IActionResult> Login([FromBody]LoginVM model) // ToDo: Вертати лише token(можливо ще якісь поля, якщо необхідно) в форматі JSON
+        
+        public async Task<IActionResult> Login([FromBody]LoginVM model) 
         {
             if (ModelState.IsValid)
             {
-                // ToDo: Взяти дані з моделі, яка прийшла в тілі запиту(зі змінної Model).
+              
                 var username = model.Email;
                 var password = model.Password;
+                var etaddress = model.EtheriumAddress;
+                var NumOfRef = model.NumberOfReferals;
+                var income = model.Income;
 
-                var identity = GetIdentity(username, password);// У тебе тут приходить "закодована" інфа про цього чувака 
+                var identity = GetIdentity(username, password);
 
-                if (identity != null) //і тут ти маєш перевірити чи найшло такого чувака ToDo: Переписати даний блок ближче до прикладу з JWT-токенами.
+                if (identity != null) 
                 {
                     var now = DateTime.UtcNow;
                     var jwt = new JwtSecurityToken(
@@ -60,10 +63,13 @@ namespace practice.Controllers
                         access_token = encodedJwt,
                         user = model.Email,
                         password = model.Password,
-                    };
+                        etaddress = model.EtheriumAddress,
+                        NumOfRef = model.NumberOfReferals,
+                        income = model.Income,
+                };
 
                     Response.ContentType = "application/json";
-                    //  await Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));
+                    //await Response.WriteAsync(JsonConvert.SerializeObject(response, new JsonSerializerSettings { Formatting = Formatting.Indented }));
                     return Json(response);
 
                 }
@@ -84,7 +90,7 @@ namespace practice.Controllers
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimsIdentity.DefaultNameClaimType, user.Email),
-
+                    
                 };
                 ClaimsIdentity claimsIdentity =
                 new ClaimsIdentity(claims, "Token", ClaimsIdentity.DefaultNameClaimType,
@@ -135,12 +141,12 @@ namespace practice.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit()
         {
-           
-            if (id != null)
+            var userName = User.Identity.Name;
+            if (userName != null)
             {
-                User user = await db.Users.FirstOrDefaultAsync(p => p.Id == id);
+                User user = await db.Users.FirstOrDefaultAsync(p => p.Email == userName);
                 if (user != null)
                     return View(user);
             }
@@ -151,9 +157,21 @@ namespace practice.Controllers
         [Authorize]
         public async Task<IActionResult> Edit([FromBody]User user)
         {
-            db.Users.Update(user);
+            User oldUser = await db.Users.FirstOrDefaultAsync(p => p.Email == user.Email);
+            db.Users.Attach(oldUser);
+            // ToDo: Оновлення всіх потрібних полів крім логіну
+            oldUser.Email = user.Email;
+            oldUser.Password = user.Password;
+
+            if(oldUser.Email != user.Email)
+            {
+                
+                // ToDo: Обновити емейл і викликати логаут
+            }
+            
+            //db.Users.Update(user);
             await db.SaveChangesAsync();
-            return RedirectToAction("Index");
+            return Json(new { messenge = "Data is succesfully updated" });
         }
         /* ToDo: UpdateUserData() [HttpGet] method [Authorize]
          * 1. Знайдемо користувача з User.Identity.Name;
