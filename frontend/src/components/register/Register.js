@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './Register.css';
 import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
+
 // connect component to redux
 import { connect } from 'react-redux';
 import { register } from '../../actions/loginaction';
@@ -42,18 +44,19 @@ class Register extends Component {
         this.setState({ check2: event.target.checked });
     }
     submit() {
-        if (this.props.userData.loading) {
-            this.props.register(this.state.email, this.state.password);
+        if (!this.props.userData.loading) {
+            this.props.register(this.state.email, this.state.password, this.state.confirmpass);
         }
         // alert(`Sorry it's not work now\nYou enter: \n Email: ${this.state.email} \n Password: ${this.state.password} \n ConfirmPassword: ${this.state.confirmpass} \n Check1: ${this.state.check1} \n Check2: ${this.state.check2}`);
     }
     checkErrors() {
-        if (this.state.password !== this.state.confirmpass) {
-            this.setState({ errorType: "Password not confirmed" });
-        } else if (!this.state.check1) {
-            this.setState({ errorType: "Please check Check1" });
+        // if (this.state.password !== this.state.confirmpass) {
+        //     this.setState({ errorType: "Password not confirmed" });
+        // } else
+        if (!this.state.check1) {
+            this.setState({ errorType: "Check1" });
         } else if (!this.state.check2) {
-            this.setState({ errorType: "Please check Check2" });
+            this.setState({ errorType: "Check2" });
         } else if (this.props.userData.error) {
             this.setState({ errorType: this.props.userData.error });
         } else {
@@ -61,6 +64,7 @@ class Register extends Component {
         }
     }
     componentDidUpdate(prevProps, prevState) {
+        // console.log(this.props.userData.user);
         if (this.state.errorType !== prevState.errorType || this.props.userData !== prevProps.userData) {
             this.checkErrors();
         } else if(this.props.userData.user) {
@@ -71,7 +75,7 @@ class Register extends Component {
         if (this.state.errorType) {
             return (
                 <div className="Register-alert">
-                    {this.state.errorType}
+                    { this.props.lang.errors[this.state.errorType] }
                 </div>
             );
         } else {
@@ -105,7 +109,7 @@ class Register extends Component {
                         </div>
                     </form>
                     <div className="Register-loginlink">
-                        <a href="/account/login">{this.props.lang.register.gotologin}</a>
+                        <Link to={"/account/login"}>{this.props.lang.register.gotologin}</Link>
                     </div>
                 </div>
             </div>
@@ -128,7 +132,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
     // some action creators
-    register: (email, password) => { dispatch(register(email, password)) }
+    register: (email, password, confpass) => { dispatch(register(email, password, confpass)) }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register);

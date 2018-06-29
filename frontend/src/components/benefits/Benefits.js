@@ -11,7 +11,7 @@ import correct from './correct.svg';
 class Benefits extends Component {
     render() {
         return (
-            <div class="Benefits">
+            <div className="Benefits">
                 <div className="ben-form">
                     <div className="topic">
                         <h1><strong><span className="problems">{this.props.lang.benefits.topik1span}</span> 

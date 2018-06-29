@@ -4,15 +4,14 @@ namespace practice.ViewModels
 {
     public class LoginVM
     {
-        [Required(ErrorMessage = "Не указан Email")]
+        [Required(ErrorMessage = "Empty_Email")]
+        [DataType(DataType.EmailAddress)]
+        // [EmailAddress(ErrorMessage = "Email_Invalid")]
         public string Email { get; set; }
 
-        [Required(ErrorMessage = "Не указан пароль")]
+        [Required(ErrorMessage = "Empty_Password")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        public string EtheriumAddress { get; set; }
-        public int NumberOfReferals { get; set; }
-        public int Income { get; set; }
     }
 }

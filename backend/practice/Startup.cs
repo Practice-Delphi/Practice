@@ -24,6 +24,20 @@ namespace practice
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<UserContext>(options => options.UseSqlServer(connection));
 
+            // ToDo: Почитати про CORS
+            services.AddCors(
+                options => {
+                options.AddPolicy("AllowSpecificOrigin", 
+                builder => {
+                    // builder.AllowAnyOrigin()
+                    //     .AllowAnyMethod()
+                    //     .AllowAnyHeader();
+                    builder.WithOrigins("http://localhost:3000")
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
+
             // ToDo: Удалити всі російськомовні коментарі. Слава Україні!!!
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -68,7 +82,7 @@ namespace practice
             app.UseDefaultFiles();
 
             app.UseStaticFiles();
-
+            app.UseCors("AllowSpecificOrigin");
             app.UseAuthentication();
 
             app.UseMvc(routes =>

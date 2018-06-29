@@ -3,7 +3,8 @@ import './Profile.css';
 import PropTypes from 'prop-types';
 // connect component to redux
 import { connect } from 'react-redux';
-import { logout, updateETHAddress, updateUserEmailAndPassword } from '../../actions/loginaction';
+import { logout, updateETHAddress, updateUserEmailAndPassword, clearUpdateStatus } from '../../actions/loginaction';
+import { checkUserStatus } from '../../actions/loginaction';
 // import { checkUserStatus } from '../../actions/loginaction';
 
 //Import components
@@ -44,6 +45,10 @@ class Profile extends Component {
     }
   }
   componentDidMount() {
+    this.props.clearUpdateStatus();
+    if (!this.props.userData.user) {
+      this.props.checkUserStatus();
+    }
     if (!this.props.userData.user && !this.props.userData.loading) {
       this.props.history.replace('/account/login');
     }
@@ -72,15 +77,18 @@ class Profile extends Component {
     this.props.updateAddress(this.state.update.address);
   }
   changeToControlPanel() {
+    this.props.clearUpdateStatus();
     this.setState({ isControlPanel: true, isSettings: false });
   }
   changeToSettings() {
     this.setState({ isControlPanel: false, isSettings: true });
   }
   changeToAddress() {
+    this.props.clearUpdateStatus();
     this.setState({ isAddress: true, isProfile: false });
   }
   changeToProfile() {
+    this.props.clearUpdateStatus();
     this.setState({ isAddress: false, isProfile: true });
   }
   renderPatherLink() {
@@ -108,7 +116,7 @@ class Profile extends Component {
           <div className="Profile-title">{this.props.lang.profile.controlPanel.title1}:</div>
           <div className="Profile-tokens">
             <div className="Profile-tokens-field">
-              <p>{this.props.userData.user.tokens}</p><p> GGC</p>
+              <p>{this.props.userData.user.tokens}</p><p> SQR</p>
             </div>
             <div className="Profile-text"><span>{this.props.lang.profile.controlPanel.text1}</span></div>
           </div>
@@ -151,9 +159,9 @@ class Profile extends Component {
             <input type="text" className="Profile-input" placeholder={this.props.lang.profile.ethaddress} onChange={this.changeAddress.bind(this)} />
             {(() => {
               if (this.props.updateStatus.error) {
-                return (<div className="Profile-alert">{this.props.updateStatus.error}</div>);
+                return (<div className="Profile-alert">{this.props.lang.errors[this.props.updateStatus.error]}</div>);
               } else if (this.props.updateStatus.success) {
-                return (<div className="Profile-success">{this.props.updateStatus.success}</div>);
+                return (<div className="Profile-success">{this.props.lang.success[this.props.updateStatus.success]}</div>);
               } else {
                 return null;
               }
@@ -175,9 +183,9 @@ class Profile extends Component {
             <input type="password" className="Profile-input" placeholder={this.props.lang.confirmpass} onChange={this.changeUpdatePasswordConfirm.bind(this)} />
             {(() => {
               if (this.props.updateStatus.error) {
-                return (<div className="Profile-alert">{this.props.updateStatus.error}</div>);
+                return (<div className="Profile-alert">{this.props.lang.errors[this.props.updateStatus.error]}</div>);
               } else if (this.props.updateStatus.success) {
-                return (<div className="Profile-success">{this.props.updateStatus.success}</div>);
+                return (<div className="Profile-success">{this.props.lang.success[this.props.updateStatus.success]}</div>);
               } else {
                 return null;
               }
@@ -243,7 +251,8 @@ Profile.propTypes = {
   updateUser: PropTypes.func,
   updateAddress: PropTypes.func,
   updateStatus: PropTypes.object,
-  // checkUserStatus: PropTypes.func,
+  checkUserStatus: PropTypes.func,
+  clearUpdateStatus: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
@@ -258,7 +267,8 @@ const mapDispatchToProps = dispatch => ({
   logout: () => { dispatch(logout()) },
   updateAddress: (address) => { dispatch(updateETHAddress(address)) },
   updateUser: (email, pass, passconf) => { dispatch(updateUserEmailAndPassword(email, pass, passconf)) },
-  // checkUserStatus: () => { dispatch(checkUserStatus())}
+  checkUserStatus: () => { dispatch(checkUserStatus())},
+  clearUpdateStatus: () => { dispatch(clearUpdateStatus())},
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import './Home.css';
 import PropTypes from 'prop-types';
 import LazyLoad from 'react-lazyload';
+import qs from 'query-string';
 
 // connect component to redux
 import { connect } from 'react-redux';
+import { setReferal, deleteReferal } from '../../actions/referalaction';
 
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png';
@@ -147,7 +149,13 @@ class Home extends Component {
     // window.onscroll.bind(this);
   }
   componentDidMount() {
-    this.setState({header: document.getElementById('home-header')});
+    this.setState({ header: document.getElementById('home-header') });
+    const ref = qs.parse(this.props.location.search).ref;
+    if (ref) {
+      this.props.setReferal(ref);
+    } else {
+      this.props.deleteReferal();
+    }
   }
   // componentDidMount() {
   //   this.setState({
@@ -181,9 +189,9 @@ class Home extends Component {
         </div>
         <header id="home-header" className="Home-header">
           <nav className="Home-navbar">
-            <a href="/" className="Home-brand">
+            <Link to={"/"} className="Home-brand">
               <img src={logo} className="Home-logo" alt="logo" />
-            </a>
+            </Link>
             <div className="Home-links">
               <a href="#Benefits" className="Home-link shadow">{this.props.lang.header.solution}</a>
               <a href="#Capabilities" className="Home-link shadow">{this.props.lang.header.features}</a>
@@ -362,6 +370,9 @@ class Home extends Component {
 
 Home.propTypes = {
   lang: PropTypes.object,
+  setReferal: PropTypes.func,
+  deleteReferal: PropTypes.func,
+  location: PropTypes.object,
 }
 
 const mapStateToProps = state => ({
@@ -369,6 +380,8 @@ const mapStateToProps = state => ({
   lang: state.langData,
 });
 const mapDispatchToProps = dispatch => ({
+  setReferal: (ref) => { dispatch(setReferal(ref)) },
+  deleteReferal: () => { dispatch(deleteReferal()) },
   // some action creators
 });
 

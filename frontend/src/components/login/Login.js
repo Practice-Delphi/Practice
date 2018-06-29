@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 
 import { login, logout } from '../../actions/loginaction';
 
-// import { withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 //Import components
 
@@ -46,7 +46,7 @@ class Login extends Component {
         if (this.props.userData.error) {
             return (
                 <div className="Login-alert">
-                    {this.props.userData.error}
+                    {this.props.lang.errors[this.props.userData.error]}
                 </div>
             )
         } else {
@@ -69,8 +69,8 @@ class Login extends Component {
                         </div>
                     </form>
                     <div className="Login-links">
-                        <a href="/account/register">{this.props.lang.login.notmember}</a>
-                        <a href="/account/forgot_password">{this.props.lang.login.forgotpass}</a>
+                        <Link to={"/account/register"}>{this.props.lang.login.notmember}</Link>
+                        <Link to={"/account/forgot_password"}>{this.props.lang.login.forgotpass}</Link>
                     </div>
                 </div>
             </div>

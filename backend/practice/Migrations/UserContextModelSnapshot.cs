@@ -35,6 +35,8 @@ namespace practice.Migrations
 
                     b.Property<string>("Password");
 
+                    b.Property<int>("Tokens");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");

@@ -14,10 +14,10 @@ import { runTestAction } from '../actions/testaction';
 import Home from './home/Home';
 import Account from './account/Account';
 import Video from './video/Video';
-import Notfound from './notfound/Notfound';
+// import Notfound from './notfound/Notfound';
 
 import { addHistory } from '../actions/historyaction';
-import { checkUserStatus } from '../actions/loginaction';
+// import { checkUserStatus } from '../actions/loginaction';
 
 import Switch from 'react-router-dom/Switch';
 
@@ -32,7 +32,10 @@ class App extends Component {
   //   this.props.checkUserStatus();
   // }
   componentDidMount() {
-    this.props.checkUserStatus();
+    // this.props.checkUserStatus();
+    // if (!this.props.tokenData.token) {
+    //   this.props.checkUserStatus();
+    // }
     this.props.runTest("TestPassed");
   }
   render() {
@@ -55,18 +58,20 @@ class App extends Component {
 const mapStateToProps = state => ({
   test: state.isTestPass,
   history: state.historyData,
+  tokenData: state.tokenData,
 });
 const mapDispatchToProps = dispatch => ({
   runTest: (mess) => { dispatch(runTestAction(mess)) },
   addHistory: (history) => { dispatch(addHistory(history)) },
-  checkUserStatus: () => { dispatch(checkUserStatus()) },
+  // checkUserStatus: () => { dispatch(checkUserStatus()) },
 });
 
 App.propTypes = {
   runTest: PropTypes.func,
   addHistory: PropTypes.func,
   history: PropTypes.object,
-  checkUserStatus: PropTypes.func,
+  // checkUserStatus: PropTypes.func,
+  tokenData: PropTypes.object
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

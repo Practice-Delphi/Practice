@@ -246,6 +246,27 @@ export const EN = {
         footertip2:"White paper",
         footertip3:"Token terms",
         footertip4:"Golden Data INC, New Horizon, Ground Floor, 3 1⁄2 Miles Philip S.W. Goldson Highway, Belize City, Belize",
+    },
+    errors: {
+        Empty_Email: "Email is empty",
+        Empty_Password: "Password is empty",
+        Password_Not_Confirmed: "Password not confirmed",
+        Empty_Address: "Empty address",
+        Auth_Fail: "Authorization is failed",
+        Wrong_Email_Password: "Wrong email or password",
+        Bad_Request: "No internet connection",
+        Email_In_Use: "Email is already used",
+        Not_Authorize: "You are not authorize",
+        No_Empty_Strings: "One of strings must be not empty",
+        Check1: "Please certify that the beneficial owner is not a citizen of USA, China and Hong Kong",
+        Check2: "Please agree with the Token terms",
+        Email_Invalid: "Email format is invalid",
+        Pass_To_Short: "Password must have more than 5 symbols",
+        Pass_Invalid: "Password must contain at 3 of 4 of the following: upper case (A-Z), lower case (a-z), number (0-9) and special character (e.g. !@#$%^&*)",
+    },
+    success: {
+        Success_Update: "Update is successful",
+        Success_Eth: "Etherium address is successful update",
     }
 }
 
@@ -271,12 +292,12 @@ export const UA = {
         },
         settings: {
             settings: "Налаштування",
-            ethaddress: "Адресса Ethereum",
+            ethaddress: "Адреса Ethereum",
             profile: "Профіль",
-            text1: "Будьласка переконайтесь шо у вас є персональний ключ до вашої адресси ETH. Наш токен повність сумісний з гаманцями MyEtherWallet.com, Metamask або Mist.\n\n Примітка: Будь-ласка, не використовуйте депозитні адреси для обміну.",
+            text1: "Будьласка переконайтесь шо у вас є персональний ключ до вашої адреси ETH. Наш токен повність сумісний з гаманцями MyEtherWallet.com, Metamask або Mist.\n\n Примітка: Будь-ласка, не використовуйте депозитні адреси для обміну.",
             save: "Зберегти",
             update: "Обновити",
-            email: "адресса електронної пошти",
+            email: "Адреса електронної пошти",
             changepass: "Змінити пароль",
         }
     },
@@ -497,6 +518,27 @@ export const UA = {
         footertip2:"Біла Книга",
         footertip3:"Умови для токенів",
         footertip4:"Golden Data INC, New Horizon, Ground Floor, 3 1?2 Miles Philip S.W. Goldson Highway, Belize City, Belize",
+    },
+    errors: {
+        Empty_Email: "Введіть email",
+        Empty_Password: "Введіть пароль",
+        Password_Not_Confirmed: "Паролі мають збігатися",
+        Empty_Address: "Введіть адресу",
+        Auth_Fail: "Помилкова авторизація",
+        Wrong_Email_Password: "Невірний email або пароль",
+        Bad_Request: "Немає з'єднання",
+        Email_In_Use: "Даний email вже використовується",
+        Not_Authorize: "Ви не авторизовані",
+        No_Empty_Strings: "Заповніть хоча б одне поле",
+        Check1: "Будь ласка, підтвердіть, що фактичний власник не є громадянином США, Китаю та Гонконгу",
+        Check2: "Будь ласка, підтвердіть, що ви погоджуєтесь з Умовами токенів",
+        Email_Invalid: "Невірний формат адреси",
+        Pass_To_Short: "Пароль має мати більше 5 символів",
+        Pass_Invalid: "Пароль має виконувати 3 з 4 умов: великі літери (A-Z), малі літери (a-z), числа (0-9) і спец символи (напр. !@#$%^&*)",
+    },
+    success: {
+        Success_Update: "Оновлення завершене",
+        Success_Eth: "Адресу Etherium оновлено",
     }
 }
 
@@ -748,5 +790,26 @@ export const RU = {
         footertip2:"Белая Бумага",
         footertip3:"Условия для токенов",
         footertip4:"Golden Data INC, New Horizon, Ground Floor, 3 1⁄2 Miles Philip S.W. Goldson Highway, Belize City, Belize",
+    },
+    errors: {
+        Empty_Email: "Введите email",
+        Empty_Password: "Введите пароль",
+        Password_Not_Confirmed: "Пароли должны совпадать",
+        Empty_Address: "Введите адрес",
+        Auth_Fail: "Ошибка авторизации",
+        Wrong_Email_Password: "Неверный email или пароль",
+        Bad_Request: "Нет соединения",
+        Email_In_Use: "Такой email уже используется",
+        Not_Authorize: "Нужна авторизация",
+        No_Empty_Strings: "Нужно ввести хотя б одно поле",
+        Check1: "Пожалуйста, подтвердите, что фактический владелец не является гражданином США, Китая и Гонконга",
+        Check2: "Пожалуйста, подтвердите, что вы согласны с Условиями токенов",
+        Email_Invalid: "Неверный формат адреса",
+        Pass_To_Short: "Пароль должен иметь больше 5 символов",
+        Pass_Invalid: "Пароль должен выполнять 3 из 4 условий: большие буквы (A-Z), строчные буквы (a-z), числа (0-9) и спец символы (напр. !@#$%^&*)",
+    },
+    success: {
+        Success_Update: "Обновление завершено",
+        Success_Eth: "Адрес Etherium был обновлен",
     }
 }

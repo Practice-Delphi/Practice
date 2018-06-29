@@ -13,5 +13,6 @@ namespace practice.Models
         public string EtheriumAddress { get; set; }
         public int NumberOfReferals { get; set; }
         public int Income { get; set; }
+        public int Tokens { get; set; }
     }
 }

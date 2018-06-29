@@ -8,6 +8,9 @@ import PropTypes from 'prop-types';
 
 // import assets
 import arrow from '../../assets/arrow.svg';
+import EN from '../../assets/EN.svg';
+import UA from '../../assets/UA.svg';
+import RU from '../../assets/RU.svg';
 
 class Langselect extends Component {
   constructor(props) {
@@ -27,16 +30,16 @@ class Langselect extends Component {
     if (select) {
       return (
         <div className="Langselect-select">
-          <div className="Langselect-option"  onClick={ () => { this.props.changeLang("EN")} }>
-            <img src="https://unpkg.com/react-flag-kit/assets/GB.svg" alt="" />
+          <div className="Langselect-option" onClick={() => { this.props.changeLang("EN") }}>
+            <img src={EN} alt="" />
             {this.props.lang.lang.EN}
           </div>
-          <div className="Langselect-option"  onClick={ () => { this.props.changeLang("UA")} }>
-            <img src="https://unpkg.com/react-flag-kit/assets/UA.svg" alt="" />
+          <div className="Langselect-option" onClick={() => { this.props.changeLang("UA") }}>
+            <img src={UA} alt="" />
             {this.props.lang.lang.UA}
           </div>
-          <div className="Langselect-option"  onClick={ () => { this.props.changeLang("RU")} }>
-            <img src="https://unpkg.com/react-flag-kit/assets/RU.svg" alt="" />
+          <div className="Langselect-option" onClick={() => { this.props.changeLang("RU") }}>
+            <img src={RU} alt="" />
             {this.props.lang.lang.RU}
           </div>
         </div>
@@ -45,11 +48,30 @@ class Langselect extends Component {
       return null;
     }
   }
+  renderFlag() {
+    if (this.props.lang.type === 'EN') {
+      return (
+        <img src={EN} alt="" />
+      );
+    } else if (this.props.lang.type === 'UA') {
+      return (
+        <img src={UA} alt="" />
+      );
+    } else if (this.props.lang.type === 'RU') {
+      return (
+        <img src={RU} alt="" />
+      );
+    } else {
+      return (
+        <img src={EN} alt="" />
+      );
+    }
+  }
   render() {
     return (
       <div className='Langselect-button' onClick={this.changeLangSelect.bind(this)}>
-        <img src={arrow} alt=""/>
-        <img src={ (this.props.lang.type === "EN") ? "https://unpkg.com/react-flag-kit/assets/GB.svg" : `https://unpkg.com/react-flag-kit/assets/${this.props.lang.type}.svg`} alt="" />
+        <img src={arrow} alt="" />
+        {this.renderFlag()}
         {this.renderSelect(this.state.langselect)}
       </div>
     );
