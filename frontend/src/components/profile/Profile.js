@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logout, updateETHAddress, updateUserEmailAndPassword, clearUpdateStatus } from '../../actions/loginaction';
 import { checkUserStatus } from '../../actions/loginaction';
+import { sendVerificationLetter } from '../../actions/verifyemailaction'
 // import { checkUserStatus } from '../../actions/loginaction';
 
 //Import components
@@ -90,6 +91,44 @@ class Profile extends Component {
   changeToProfile() {
     this.props.clearUpdateStatus();
     this.setState({ isAddress: false, isProfile: true });
+  }
+  renderHeaderAlert() {
+    if (!this.props.userData.user.accountverificate) {
+      if (this.props.sendLetterStatus.error) {
+        return (
+          <div className="Profile-header-alert">
+            <div className="Profile-header-alert-text">
+              {this.props.lang.errors[this.props.sendLetterStatus.error]}.
+            </div>
+            <button className="Profile-button" onClick={this.props.sendLetter}>
+              {this.props.lang.send}
+            </button>
+          </div>
+        );
+      } else if (this.props.sendLetterStatus.success) {
+        return (
+          <div className="Profile-header-alert letter-success">
+            <div className="Profile-header-alert-text">
+              Letter is send to your email
+            </div>
+          </div>
+        );
+      } else {
+        return (
+          <div className="Profile-header-alert">
+            <div className="Profile-header-alert-text">
+              Your email {this.props.userData.user.email} isn't verificate. Please, click to send a letter.
+            </div>
+            <button className="Profile-button" onClick={this.props.sendLetter}>
+              Send
+              </button>
+          </div>
+        );
+      }
+
+    } else {
+      return null;
+    }
   }
   renderPatherLink() {
     if (!this.state.isPatherLinkActive) {
@@ -214,6 +253,7 @@ class Profile extends Component {
       return (
         <div className="Profile">
           <div className="Profile-header">
+            {this.renderHeaderAlert()}
             <div className="Profile-header-container">
               <div className="Profile-header-nav">
                 <div className={(this.state.isControlPanel) ? "Profile-nav-button active" : "Profile-nav-button"} onClick={this.changeToControlPanel}>
@@ -253,6 +293,8 @@ Profile.propTypes = {
   updateStatus: PropTypes.object,
   checkUserStatus: PropTypes.func,
   clearUpdateStatus: PropTypes.func,
+  sendLetter: PropTypes.func,
+  sendLetterStatus: PropTypes.object,
 }
 
 const mapStateToProps = state => ({
@@ -261,14 +303,16 @@ const mapStateToProps = state => ({
   history: state.historyData,
   lang: state.langData,
   updateStatus: state.updateProfileStatus,
+  sendLetterStatus: state.letterData,
 });
 const mapDispatchToProps = dispatch => ({
   // some action creators
   logout: () => { dispatch(logout()) },
   updateAddress: (address) => { dispatch(updateETHAddress(address)) },
   updateUser: (email, pass, passconf) => { dispatch(updateUserEmailAndPassword(email, pass, passconf)) },
-  checkUserStatus: () => { dispatch(checkUserStatus())},
-  clearUpdateStatus: () => { dispatch(clearUpdateStatus())},
+  checkUserStatus: () => { dispatch(checkUserStatus()) },
+  clearUpdateStatus: () => { dispatch(clearUpdateStatus()) },
+  sendLetter: () => { dispatch(sendVerificationLetter()) },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);

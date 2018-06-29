@@ -8,6 +8,27 @@
     padding: 0px 15px;
 }
 
+.Profile-header-alert {
+    max-width: 900px;
+    margin: auto;
+    margin-top: 5px;
+    padding: 15px 40px;
+    background-color: rgb(243, 85, 74);
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(255,255,255);
+    border-radius: 5px;
+    display: flex;
+}
+
+.letter-success {
+    background-color: rgb(28, 144, 243);
+}
+
+.Profile-header-alert-text {
+   flex-grow: 1;
+}
+
 .Profile-header-container {
     max-width: 900px;
     margin: auto;
@@ -282,5 +303,8 @@
     }
     .Profile-tokens {
         flex-flow: row wrap;
+    }
+    .Profile-header-alert {
+        flex-flow: column nowrap;
     }
 }

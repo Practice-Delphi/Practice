@@ -69,8 +69,8 @@ class Login extends Component {
                         </div>
                     </form>
                     <div className="Login-links">
-                        <Link to={"/account/register"}>{this.props.lang.login.notmember}</Link>
-                        <Link to={"/account/forgot_password"}>{this.props.lang.login.forgotpass}</Link>
+                        <Link to={"/account/register"} className="Login-link">{this.props.lang.login.notmember}</Link>
+                        <Link to={"/account/forgot_password"} className="Login-link">{this.props.lang.login.forgotpass}</Link>
                     </div>
                 </div>
             </div>

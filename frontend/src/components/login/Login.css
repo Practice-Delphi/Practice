@@ -77,20 +77,29 @@
     margin-bottom: 10px;
 }
 
+.Login-alert-success {
+    color: rgb(28, 144, 243);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .Login-links {
     text-align: center;
-    font-size: 18px;
     margin-top: 30px;
     display: flex;
     flex-flow: column nowrap;
 }
 
-.Login-links > a {
+.Login-link {
+    font-size: 18px;
     box-shadow: none;
     border-width: 0px;
     border-style: initial;
     border-color: initial;
     border-image: initial;
+    text-decoration: none;
+}
+.Login-link:hover {
     text-decoration: none;
 }
 

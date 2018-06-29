@@ -14,5 +14,6 @@ namespace practice.Models
         public int NumberOfReferals { get; set; }
         public int Income { get; set; }
         public int Tokens { get; set; }
+        public bool AccountVerificate { get; set; }
     }
 }

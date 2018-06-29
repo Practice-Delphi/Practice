@@ -37,6 +37,8 @@ namespace practice.Migrations
 
                     b.Property<int>("Tokens");
 
+                    b.Property<bool>("AccountVerificate");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");

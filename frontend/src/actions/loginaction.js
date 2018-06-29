@@ -111,6 +111,7 @@ export const checkUserStatus = () => (dispatch, getState) => {
                             tokens: data.tokens,
                             registers: data.numofref,
                             url: `${siteurl}?ref=${data.user}`,
+                            accountverificate: data.accountverificate,
                         }));
                     }
                 })
@@ -164,12 +165,13 @@ const loginFetch = (email, password) => (dispatch, getState) => {
                     tokens: data.tokens,
                     registers: data.numofref,
                     url: `${siteurl}?ref=${data.user}`,
+                    accountverificate: data.accountverificate,
                 }));
                 // console.log(getCurrUser);
                 // getCurrUser(getState);
             }
         })
-        .catch(error => {
+        .catch(() => {
             // console.log(error);
             dispatch(fetchError("Bad_Request"));
         });
@@ -227,7 +229,7 @@ export const register = (email, password, confpassword) => (dispatch, getState) 
                 dispatch(loginFetch(email, password));
             }
         })
-        .catch(error => {
+        .catch(() => {
             dispatch(fetchError("Bad_Request"));
         })
 
@@ -303,10 +305,11 @@ export const updateUserEmailAndPassword = (newemail, newpassword, newpasswordcon
                     tokens: data.tokens,
                     registers: data.numofref,
                     url: `${siteurl}?ref=${data.user}`,
+                    accountverificate: data.accountverificate,
                 }));
             }
         })
-        .catch(error => dispatch(fetchUpdateError("Bad_Request")));
+        .catch(() => dispatch(fetchUpdateError("Bad_Request")));
 
     // dispatch(fetchUpdateStart());
 

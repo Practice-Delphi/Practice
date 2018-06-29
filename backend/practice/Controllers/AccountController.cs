@@ -14,6 +14,8 @@ using Newtonsoft.Json;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 
 
 namespace practice.Controllers
@@ -33,7 +35,6 @@ namespace practice.Controllers
         }
 
         [HttpPost]
-        
         public async Task<IActionResult> Login([FromBody]LoginVM model) 
         {
             if (ModelState.IsValid)
@@ -60,7 +61,8 @@ namespace practice.Controllers
                 //     var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
                     User user = await db.Users.FirstOrDefaultAsync(x => x.Email == model.Email && x.Password == model.Password);
                     if (user != null) {
-                        var encodedJwt = await CreateToken(user); 
+                        var encodedJwt = await CreateToken(user, 0);
+                        // sendVerificationLetter(user);
                         if (encodedJwt != null) {
                         
                             var response = new
@@ -70,7 +72,8 @@ namespace practice.Controllers
                                 ethaddress = user.EtheriumAddress,
                                 numofref = user.NumberOfReferals,
                                 income = user.Income,
-                                tokens = user.Tokens
+                                tokens = user.Tokens,
+                                accountverificate = user.AccountVerificate,
                             };
                             return Json(response);
                         } else {
@@ -94,7 +97,6 @@ namespace practice.Controllers
         }
 
         [HttpPost]
-       
         public async Task<IActionResult> Register([FromBody] RegisterVM model, [FromQuery(Name = "ref")] string referal)
         { 
             System.Console.WriteLine(referal);
@@ -103,7 +105,9 @@ namespace practice.Controllers
                 User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
                 if (user == null)
                 {
-                    db.Users.Add(new User { Email = model.Email, Password = model.Password });
+                    User newuser = new User { Email = model.Email, Password = model.Password };
+                    db.Users.Add(newuser);
+                    sendVerificationLetter(newuser);
                     if (referal != null) {
                         User Referal = await db.Users.FirstOrDefaultAsync(u => u.Email == referal);
                         if (Referal != null) {
@@ -144,6 +148,7 @@ namespace practice.Controllers
                         numofref = user.NumberOfReferals,
                         income = user.Income,
                         tokens = user.Tokens,
+                        accountverificate = user.AccountVerificate,
                     };
                 return Json(response);
             } else {
@@ -193,18 +198,12 @@ namespace practice.Controllers
 
                         if (model.Email != null && model.Email != oldUser.Email) {
                             oldUser.Email = model.Email;
+                            oldUser.AccountVerificate = false;
                         }
-                    // ToDo: Оновлення всіх потрібних полів крім логіну
-                    
-                    // if(oldUser.Email != user.Email)
-                    // {
-                
-                    //     // ToDo: Обновити емейл і викликати логаут
-                    // }
             
                         db.Users.Update(oldUser);
                         await db.SaveChangesAsync();
-                        var encodedJwt = await CreateToken(oldUser);
+                        var encodedJwt = await CreateToken(oldUser, 0);
                         if (encodedJwt != null) {
                             var response = new
                             {
@@ -213,7 +212,8 @@ namespace practice.Controllers
                                 ethaddress = oldUser.EtheriumAddress,
                                 numofref = oldUser.NumberOfReferals,
                                 income = oldUser.Income,
-                                tokens = oldUser.Tokens
+                                tokens = oldUser.Tokens,
+                                accountverificate = oldUser.AccountVerificate
                             };
                             return Json(response);
                         } else {
@@ -267,8 +267,98 @@ namespace practice.Controllers
             return Json(new {Message = "Log out success"});//RedirectToAction("Login", "Account");
         }
 
-        private async Task<string> CreateToken(User user) {
-            
+        [HttpGet]
+        public async Task<IActionResult> VerifyEmail([FromQuery(Name="id")] int id) 
+        {
+            User user = await db.Users.FirstOrDefaultAsync(u => u.Id == id);
+            if (user != null) {
+                if (user.AccountVerificate) {
+                    return Json(new {Error = "This email is already verificate", ErrorType = "Email_Already_Verificate"});
+                } else {
+                     db.Users.Attach(user);
+                    user.AccountVerificate = true;
+                    db.Users.Update(user);
+                    await db.SaveChangesAsync();
+                    return Json(new { email = user.Email, verify = true});
+                } 
+            } else {
+                return Json(new { Error = "This user don't exist", ErrorType = "User_Dont_Exist"});
+            }
+            return Json(new { Error = "Bad request", ErrorType = "Bad_Request"});
+        }
+
+        [HttpGet]
+        [Authorize]
+        public async Task<IActionResult> SendLetter() 
+        {
+            var email = User.Identity.Name;
+            if (email != null) {
+                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == email);
+                if (user != null) {
+                    try {
+                        sendVerificationLetter(user);
+                        return Json(new { Message = "Letter send"});
+                    } catch (Exception ex) {
+                        return Json(new {Error = "Letter dont send", ErrorType="Error_Send"});
+                    }
+                } else {
+                    return Json(new { Error = "This email don't exist", ErrorType = "Email_Dont_Exist"});
+                } 
+            } else {
+                return Json(new { Error = "Not authorize", ErrorType = "Not_Authorize"});
+            }
+            return Json(new { Error = "Bad request", ErrorType = "Bad_Request"});
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SendResetLetter([FromBody] ResetPasswordEmailVM model)
+        {
+            if (ModelState.IsValid) {
+                var email = model.Email;
+                try {
+                    sendResetPasswordLetter(email);
+                    return Json(new {Message = "Letter is send"});
+                } catch (Exception ex) {
+                    return Json(new {Error = "Letter dont send", ErrorType="Error_Send"});
+                }
+            } else {
+                return Json(new { Error = "Error", ErrorType = ModelState.Values.First().Errors.First().ErrorMessage });
+            }
+            return Json(new { Error = "Bad request", ErrorType = "Bad_Request"});
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordVM model)
+        {
+            if (ModelState.IsValid) {
+                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+                if (user != null) {
+                    if (user.Password != model.Password) {
+                        db.Users.Attach(user);
+                        user.Password = model.Password;
+                        db.Users.Update(user);
+                        await db.SaveChangesAsync();
+                        return Json(new {Message = "Reset successfull"});
+                    } else {
+                        return Json(new { Error = "This password is already used", ErrorType = "Password_In_Use"});
+                    }
+                } else {
+                    return Json(new { Error = "This email don't exist", ErrorType = "Email_Dont_Exist"});
+                }
+            } else {
+                return Json(new { Error = "Error", ErrorType = ModelState.Values.First().Errors.First().ErrorMessage });
+            }
+            return Json(new { Error = "Bad request", ErrorType = "Bad_Request"});
+        }
+
+
+        private async Task<string> CreateToken(User user, int lifetime) {
+            int LifeTime = 0;
+            if (lifetime == 0) {
+                LifeTime = AuthOptions.LIFETIME;
+            } else {
+                LifeTime = lifetime;
+            }
             var identity = GetIdentity(user);
                 if (identity != null) 
                 {
@@ -278,7 +368,7 @@ namespace practice.Controllers
                             audience: AuthOptions.AUDIENCE,
                             notBefore: now,
                             claims: identity.Claims,
-                            expires: now.Add(TimeSpan.FromMinutes(AuthOptions.LIFETIME)),
+                            expires: now.Add(TimeSpan.FromMinutes(LifeTime)),
                             signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
                     var encodedJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
                     return encodedJwt;
@@ -305,6 +395,53 @@ namespace practice.Controllers
             // если пользователя не найдено
             return null;
         }
+
+    private void sendVerificationLetter(User user) {
+            SmtpClient client = getSmtpClient();
+            MailAddress from = new MailAddress("mail.practiceteam@gmail.com", "Practice Team");   
+            MailAddress to = new MailAddress(user.Email, "User");
+            MailMessage message = new MailMessage(from, to);
+            string url = "http://localhost:3000/account/verifyemail?id="+user.Id;
+            message.Body = "Please, verify your email. Click at this link \n <a href=" + url + ">Link</a>";
+            message.Subject = "Verification account email";
+            message.IsBodyHtml = true;
+            
+            try
+            {
+                client.Send(message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception is:" + ex.ToString());
+            }
+    }
+
+    private void sendResetPasswordLetter(string email) {
+         SmtpClient client = getSmtpClient();
+            MailAddress from = new MailAddress("mail.practiceteam@gmail.com", "Practice Team");   
+            MailAddress to = new MailAddress(email, "User");
+            MailMessage message = new MailMessage(from, to);
+            string url = "http://localhost:3000/account/newpassword?email="+email;
+            message.Body = "If you want to reset password, please, open this \n <a href=" + url + ">Link</a>";
+            message.Subject = "Reset account password";
+            message.IsBodyHtml = true;
+
+            try
+            {
+                client.Send(message);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception is:" + ex.ToString());
+            }
+    }
+
+    private SmtpClient getSmtpClient() {
+        SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+            client.EnableSsl = true;
+            client.Credentials = new NetworkCredential("mail.practiceteam@gmail.com", "PracticePassword", "");
+        return client;
+    }
        
         #region Working
         //[HttpGet]

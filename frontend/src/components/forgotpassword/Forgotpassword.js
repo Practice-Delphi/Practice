@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 // connect component to redux
 import { connect } from 'react-redux';
-
+import { sendResetLetter } from '../../actions/resetpasswordaction';
 //Import components
 
 class Forgotpassword extends Component {
@@ -20,7 +20,25 @@ class Forgotpassword extends Component {
         this.setState({ email: event.target.value });
     }
     submit() {
-        alert(`Sorry it's not work now\nYou enter: \n Email: ${this.state.email}\n`);
+        this.props.send(this.state.email);
+        // alert(`Sorry it's not work now\nYou enter: \n Email: ${this.state.email}\n`);
+    }
+    renderError() {
+        if (this.props.letterStatus.error) {
+            return (
+                <div className="Login-alert">
+                    {this.props.lang.errors[this.props.letterStatus.error]}
+                </div>
+            );
+        } else if (this.props.letterStatus.success) {
+            return (
+                <div className="Login-alert-success">
+                    Success
+                </div>
+            );
+        } else {
+            return null;
+        }
     }
     render() {
         return (
@@ -31,9 +49,7 @@ class Forgotpassword extends Component {
                     </div>
                     <form className="Login-form">
                         <input type="email" className="Login-input" placeholder={this.props.lang.email} onChange={this.changeEmail} />
-                        <div className="Login-alert">
-                            alert
-                        </div>
+                       {this.renderError()}
                         <div className="Login-form-submit">
                             <button type="button" onClick={this.submit}>{this.props.lang.forgotpass.send}</button>
                         </div>
@@ -46,15 +62,18 @@ class Forgotpassword extends Component {
 
 Forgotpassword.propTypes = {
     lang: PropTypes.object,
+    letterStatus: PropTypes.object,
+    send: PropTypes.func,
 }
 
 const mapStateToProps = state => ({
     // some props
     lang: state.langData,
-
+    letterStatus: state.letterResetData,
 });
 const mapDispatchToProps = dispatch => ({
     // some action creators
+    send: (email) => { dispatch(sendResetLetter(email)) }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Forgotpassword);

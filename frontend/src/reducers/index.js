@@ -9,6 +9,8 @@ import { langData } from './languagereducer';
 import { updateProfileStatus } from './updatereducer';
 import { videoStatus } from './videoreducer';
 import { refData } from './referalreducer';
+import { verifyData, letterData } from './verifyemailreducer';
+import { resetData, letterResetData } from './resetpasswordreducer';
 
 // Here be all reducers combine
 export default combineReducers({
@@ -20,4 +22,8 @@ export default combineReducers({
     updateProfileStatus,
     videoStatus,
     refData,
+    verifyData,
+    letterData,
+    resetData,
+    letterResetData
 });

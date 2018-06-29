@@ -15,6 +15,8 @@ import Langselect from '../langselect/Langselect';
 import Profile from '../profile/Profile';
 import Forgotpassword from '../forgotpassword/Forgotpassword';
 import Notfound from '../notfound/Notfound';
+import Verifyemail from '../verifyemail/Verifyemail';
+import ResetPassword from '../resetpassword/Resetpassword';
 // import Nigga from '../nigga/Nigga';
 
 // import assets
@@ -60,6 +62,8 @@ class Account extends Component {
               <Route exact={true} path={"/account/register"} component={Register} />
               <Route exact={true} path={"/account/login"} component={Login} />
               <Route exact={true} path={"/account/forgot_password"} component={Forgotpassword} />
+              <Route exact={true} path={"/account/verifyemail"} component={Verifyemail}/>
+              <Route exact={true} path={"/account/newpassword"} component={ResetPassword}/>
               {/* <Route exact={true} path={"/account/getto"} component={Nigga}/> */}
               <Route path={"*"} component={Notfound} />
             </Switch>
