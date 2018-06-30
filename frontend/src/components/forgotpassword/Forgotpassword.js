@@ -33,7 +33,7 @@ class Forgotpassword extends Component {
         } else if (this.props.letterStatus.success) {
             return (
                 <div className="Login-alert-success">
-                    Success
+                    {this.props.lang.success.Success_Send_Reset}
                 </div>
             );
         } else {

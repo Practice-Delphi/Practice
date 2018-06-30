@@ -12,7 +12,7 @@ class Resetpassword extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: null,
+            token: null,
             password: null,
             confpass: null,
         }
@@ -28,14 +28,14 @@ class Resetpassword extends Component {
     }
     submit() {
         if (!this.props.reset.loading) {
-            this.props.send(this.state.email, this.state.password, this.state.confpass);
+            this.props.send(this.state.token, this.state.password, this.state.confpass);
         }
     }
     componentDidMount() {
-        if (!this.state.email) {
-            const email = qs.parse(this.props.location.search).email;
-            if (email) {
-                this.setState({ email });
+        if (!this.state.token) {
+            const token = qs.parse(this.props.location.search).token;
+            if (token) {
+                this.setState({ token });
             } else {
                 this.props.history.replace('/account');
             }
@@ -95,7 +95,7 @@ const mapStateToProps = state => ({
 });
 const mapDispatchToProps = dispatch => ({
     // some action creators
-    send: (email, password, confpass) => { dispatch(resetPassword(email, password, confpass)) },
+    send: (token, password, confpass) => { dispatch(resetPassword(token, password, confpass)) },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Resetpassword);

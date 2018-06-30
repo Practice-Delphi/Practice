@@ -316,7 +316,8 @@ namespace practice.Controllers
             if (ModelState.IsValid) {
                 var email = model.Email;
                 try {
-                    sendResetPasswordLetter(email);
+                    string token = await CreateToken(new User { Email = email}, 10);
+                    sendResetPasswordLetter(email, token);
                     return Json(new {Message = "Letter is send"});
                 } catch (Exception ex) {
                     return Json(new {Error = "Letter dont send", ErrorType="Error_Send"});
@@ -328,10 +329,12 @@ namespace practice.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordVM model)
         {
             if (ModelState.IsValid) {
-                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == model.Email);
+                string email = User.Identity.Name;
+                User user = await db.Users.FirstOrDefaultAsync(u => u.Email == email);
                 if (user != null) {
                     if (user.Password != model.Password) {
                         db.Users.Attach(user);
@@ -416,12 +419,13 @@ namespace practice.Controllers
             }
     }
 
-    private void sendResetPasswordLetter(string email) {
+    private void sendResetPasswordLetter(string email, string token) {
          SmtpClient client = getSmtpClient();
             MailAddress from = new MailAddress("mail.practiceteam@gmail.com", "Practice Team");   
             MailAddress to = new MailAddress(email, "User");
             MailMessage message = new MailMessage(from, to);
-            string url = "http://localhost:3000/account/newpassword?email="+email;
+            System.Console.WriteLine(token);
+            string url = "http://localhost:3000/account/newpassword?token="+token;
             message.Body = "If you want to reset password, please, open this \n <a href=" + url + ">Link</a>";
             message.Subject = "Reset account password";
             message.IsBodyHtml = true;

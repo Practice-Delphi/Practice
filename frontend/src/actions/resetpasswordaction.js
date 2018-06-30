@@ -1,5 +1,3 @@
-import { logout } from './loginaction';
-
 export const RESET_PASSWORD_START = "RESET_PASSWORD_START";
 export const RESET_PASSWORD_SUCCESS = "RESET_PASSWORD_SUCCESS";
 export const RESET_PASSWORD_ERROR = "RESET_PASSWORD_ERROR";
@@ -37,36 +35,37 @@ const letterError = (error) => ({
 });
 
 
-export const resetPassword = (email, password, confpass) => (dispatch, getState) => {
+export const resetPassword = (token, password, confpass) => (dispatch, getState) => {
     dispatch(start());
     window.fetch(`${apiurl}/Account/ResetPassword`,{
         method: "POST",
         headers: new Headers({
             'Content-Type': `application/json`,
+            'Authorization': `Bearer ${token}`,
         }),
         body: JSON.stringify({
             Password: password,
             ConfirmPassword: confpass,
-            Email: email,
         }),
     })
         .then(res => {
             if (res.status === 200) {
                 return res.json();
+            } else if (res.status === 401) {
+                throw new Error("Reset_Not_Auth");
             } else {
-                throw new Error(`Error: ${res.statusText}`);
+                throw new Error('Bad_Request');
             }
         })
         .then(data => {
             if (data.error) {
-                console.log(data.errorType);
                 dispatch(error(data.errorType));
             } else {
                 dispatch(success());
             }
         })
-        .catch(() => {
-            dispatch(error("Bad_Request"));
+        .catch((er) => {
+            dispatch(error(er.message));
         });
 }
 
@@ -96,6 +95,4 @@ export const sendResetLetter = (email) => (dispatch, getState) => {
             }
         })
         .catch(() => dispatch(letterError("Bad_Request")));
-    dispatch(letterError("Bad_Request"));
-
 }

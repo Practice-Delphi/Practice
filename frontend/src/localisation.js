@@ -270,6 +270,7 @@ export const EN = {
         Error_Send: "Error send letter try again",
         Email_Dont_Exist: "This email don't used",
         Password_In_Use: "This is old password",
+        Reset_Not_Auth: "Time of letter link is over. Please, send new letter",
     },
     success: {
         Success_Update: "Update is successful",
@@ -555,6 +556,7 @@ export const UA = {
         Error_Send: "Помилка відправки листа, спробуйте ще раз",
         Email_Dont_Exist: "Цей email не використовується",
         Password_In_Use: "Це старий пароль",
+        Reset_Not_Auth: "Час існування посилання закінчився. Будь ласка, надішліть новий лист",
     },
     success: {
         Success_Update: "Оновлення завершене",
@@ -840,6 +842,7 @@ export const RU = {
         Error_Send: "Ошибка отправки письма, попробуйте еще раз",
         Email_Dont_Exist: "Этот email уже используется",
         Password_In_Use: "Это старый пароль",
+        Reset_Not_Auth: "Время существования ссылки закончилось. Пожалуйста, пришлите новое письмо",
     },
     success: {
         Success_Update: "Обновление завершено",
