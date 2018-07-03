@@ -164,11 +164,11 @@ export const EN = {
         distribution1article: "Token sale:",
         distribution1text: "75,000,000 SQR (40%) At the end of the token sale, all unsold tokens will be burned.",
         distribution2article: "The Squeezer Platform:",
-        distribution2text: "56,250,000 SQR (30%)The reserve required to ensure the operation of the platform. Locked in smart contract with sale restrictions for 12 months.",
+        distribution2text: "56,250,000 SQR (30%) The reserve required to ensure the operation of the platform. Locked in smart contract with sale restrictions for 12 months.",
         distribution3article: "Team:",
-        distribution3text: "37,500,000 SQR (20%)Locked in smart contract with sale restrictions for 24 months.",
+        distribution3text: "37,500,000 SQR (20%) Locked in smart contract with sale restrictions for 24 months.",
         distribution4article: "Advisors:",
-        distribution4text: "9,375,000 SQR (5%)Locked in smart contract with sale restrictions for 24 months.",
+        distribution4text: "9,375,000 SQR (5%) Locked in smart contract with sale restrictions for 24 months.",
         distribution5article: "Marketing & partners:",
         distribution5text: "9,375,000 SQR (5%)",
 
@@ -318,7 +318,7 @@ export const UA = {
     },
     login: {
         title: "Вхід",
-        notmember: "Ще не являєтесь членом?",
+        notmember: "Ще не є членом?",
         forgotpass: "Забули пароль",
     },
     account: {
@@ -734,13 +734,13 @@ export const RU = {
 
         distributionhead: "Распределение токенов",
         distribution1article: "Продажа токенов:",
-        distribution1text: "75,000,000 SQR (40%)По окончании продажи токенов, все непроданные токены сгорят.",
+        distribution1text: "75,000,000 SQR (40%) По окончании продажи токенов, все непроданные токены сгорят.",
         distribution2article: "Платформа Squeezer:",
-        distribution2text: "56,250,000 SQR (30%)Резерв, требуемый для обеспечения работы платформы. Заперто в смарт-контракте с ограничением платежей на 12 месяцев.",
+        distribution2text: "56,250,000 SQR (30%) Резерв, требуемый для обеспечения работы платформы. Заперто в смарт-контракте с ограничением платежей на 12 месяцев.",
         distribution3article: "Команда:",
-        distribution3text: "37,500,000 SQR (20%)Заперто в смарт-контракте с ограничением платежей на 24 месяца.",
+        distribution3text: "37,500,000 SQR (20%) Заперто в смарт-контракте с ограничением платежей на 24 месяца.",
         distribution4article: "Консультанты:",
-        distribution4text: "9,375,000 SQR (5%)Заперто в смарт-контракте с ограничением платежей на 24 месяца.",
+        distribution4text: "9,375,000 SQR (5%) Заперто в смарт-контракте с ограничением платежей на 24 месяца.",
         distribution5article: "Маркетинг и партнеры:",
         distribution5text: "9,375,000 SQR (5%)",
 

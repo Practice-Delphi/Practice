@@ -49,7 +49,7 @@ class Capabilities extends Component {
                             </div>
                         </div>
                         <div className="main-picture">                            
-                                <img className="" src={capa1} alt=""/>
+                                <img className=""  src={capa1} alt=""/>
                         </div>
                     </div>
                     <div className="secondary">

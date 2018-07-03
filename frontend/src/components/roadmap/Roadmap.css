@@ -15,7 +15,17 @@
     border-bottom: 2px blue solid;
     text-align: center;
     width: 360px;
+    font-weight: bold;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+
 }
+#header > h1{
+    text-align: center;
+    
+}
+
 #header-form{
     display: flex;
     flex-flow: row nowrap;
