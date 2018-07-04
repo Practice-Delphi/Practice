@@ -28,7 +28,10 @@ export const EN = {
             update: "Update",
             email: "Email address",
             changepass: "Change password",
-        }
+        },
+        letterWarn1: "Your email",
+        letterWarn2: "isn't verificate. Please, click to send a letter.",
+        letterSucc: "Letter is send to your email",
     },
     login: {
         title: "Login",
@@ -271,6 +274,7 @@ export const EN = {
         Email_Dont_Exist: "This email don't used",
         Password_In_Use: "This is old password",
         Reset_Not_Auth: "Time of letter link is over. Please, send new letter",
+        Letter_Error: "Please, try again",
     },
     success: {
         Success_Update: "Update is successful",
@@ -314,7 +318,10 @@ export const UA = {
             update: "Обновити",
             email: "Адреса електронної пошти",
             changepass: "Змінити пароль",
-        }
+        },
+        letterWarn1: "Ваш email",
+        letterWarn2: "не перевірений. Будь ласка, натисніть, щоб відправити листа.",
+        letterSucc: "Лист надіслано на ваш email",
     },
     login: {
         title: "Вхід",
@@ -557,6 +564,7 @@ export const UA = {
         Email_Dont_Exist: "Цей email не використовується",
         Password_In_Use: "Це старий пароль",
         Reset_Not_Auth: "Час існування посилання закінчився. Будь ласка, надішліть новий лист",
+        Letter_Error: "Будь ласка, спробуйте ще раз",
     },
     success: {
         Success_Update: "Оновлення завершене",
@@ -600,7 +608,10 @@ export const RU = {
             update: "Обновить",
             email: "Адрес электронной почты",
             changepass: "Сменить пароль",
-        }
+        },
+        letterWarn1: "Ваш email",
+        letterWarn2: "не проверен. Пожалуйста, нажмите, что бы отправить письмо.",
+        letterSucc: "Письмо отправлено на ваш email",
     },
     login: {
         title: "Вход",
@@ -843,6 +854,7 @@ export const RU = {
         Email_Dont_Exist: "Этот email уже используется",
         Password_In_Use: "Это старый пароль",
         Reset_Not_Auth: "Время существования ссылки закончилось. Пожалуйста, пришлите новое письмо",
+        Letter_Error: "Пожалуйста, попробуйте еще раз",
     },
     success: {
         Success_Update: "Обновление завершено",

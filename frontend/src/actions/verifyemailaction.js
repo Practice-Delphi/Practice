@@ -73,8 +73,10 @@ export const sendVerificationLetter = () => (dispatch, getState) => {
             .then(res => {
                 if (res.status === 200) {
                     return res.json();
+                } else if (res.status === 401){
+                    dispatch(logout());
                 } else {
-                    throw new Error(`Error: ${res.statusText}`);
+                    throw new Error(`Bad_Request`);
                 }
             })
             .then(data => {
@@ -84,7 +86,7 @@ export const sendVerificationLetter = () => (dispatch, getState) => {
                     dispatch(letterSuccess());
                 }
             })
-            .catch(() => dispatch(logout()));
+            .catch((er) => dispatch(letterError(er.message)));
     } else {
         dispatch(logout());
     }

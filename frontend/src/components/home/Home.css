@@ -47,6 +47,7 @@
     justify-content: flex-end;
   }
   .Home-link {
+    margin: auto 0;
     font-size: 18px;
     font-weight: bold;
     margin-left: 25px;

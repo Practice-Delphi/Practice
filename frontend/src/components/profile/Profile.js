@@ -54,6 +54,11 @@ class Profile extends Component {
       this.props.history.replace('/account/login');
     }
   }
+  send() {
+    if (!this.props.sendLetterStatus.loading) {
+      this.props.sendLetter();
+    }
+  }
   changePatherState() {
     if (!this.state.isPatherLinkActive) {
       this.setState({ isPatherLinkActive: true });
@@ -100,7 +105,7 @@ class Profile extends Component {
             <div className="Profile-header-alert-text">
               {this.props.lang.errors[this.props.sendLetterStatus.error]}.
             </div>
-            <button className="Profile-button" onClick={this.props.sendLetter}>
+            <button className="Profile-button" onClick={this.send.bind(this)}>
               {this.props.lang.send}
             </button>
           </div>
@@ -109,7 +114,7 @@ class Profile extends Component {
         return (
           <div className="Profile-header-alert letter-success">
             <div className="Profile-header-alert-text">
-              Letter is send to your email
+              {this.props.lang.profile.letterSucc}
             </div>
           </div>
         );
@@ -117,15 +122,26 @@ class Profile extends Component {
         return (
           <div className="Profile-header-alert">
             <div className="Profile-header-alert-text">
-              Your email {this.props.userData.user.email} isn't verificate. Please, click to send a letter.
+              {this.props.lang.profile.letterWarn1} {this.props.userData.user.email} {this.props.lang.profile.letterWarn2}
             </div>
             <button className="Profile-button" onClick={this.props.sendLetter}>
-              Send
-              </button>
+              {this.props.lang.send}
+            </button>
           </div>
         );
       }
 
+    } else if (this.props.sendLetterStatus.error) {
+      return (
+        <div className="Profile-header-alert">
+          <div className="Profile-header-alert-text">
+            {this.props.lang.errors[this.props.sendLetterStatus.error]} {this.props.lang.profile.letterWarn2}
+          </div>
+          <button className="Profile-button" onClick={this.props.sendLetter}>
+            {this.props.lang.send}
+          </button>
+        </div>
+      );
     } else {
       return null;
     }

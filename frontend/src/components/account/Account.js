@@ -34,7 +34,7 @@ class Account extends Component {
       return (
         <div className="Loading-container">
           <div className="Loading"></div>
-          <b>Load</b>
+          <b>Load</b>c
         </div>
       );
     } else {

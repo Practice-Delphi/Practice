@@ -4,6 +4,7 @@ import { VERIFY_EMAIL_START,
          SEND_LETTER_START,
          SEND_LETTER_SUCCESS,
          SEND_LETTER_ERROR } from '../actions/verifyemailaction';
+import { DELETE_USER } from '../actions/loginaction'; 
 
 const verifyData = (state = { loading: false, email: null, error: null }, action) => {
     switch (action.type) {
@@ -19,6 +20,7 @@ const letterData = (state = { loading: false, success: false, error: null }, act
         case SEND_LETTER_START: return { loading: true, success: false, error: null };
         case SEND_LETTER_SUCCESS: return { loading: false, success: true, error: null };
         case SEND_LETTER_ERROR: return { loading: false, success: false, error: action.error };
+        case DELETE_USER: return { loading: false, success: false, error: null};
         default: return state;
     }
 }

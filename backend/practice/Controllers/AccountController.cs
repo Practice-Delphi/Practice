@@ -404,7 +404,8 @@ namespace practice.Controllers
             MailAddress from = new MailAddress("mail.practiceteam@gmail.com", "Practice Team");   
             MailAddress to = new MailAddress(user.Email, "User");
             MailMessage message = new MailMessage(from, to);
-            string url = "http://localhost:3000/account/verifyemail?id="+user.Id;
+            System.Console.WriteLine(user.Id);
+            string url = "http://localhost:3000/account/verifyemail?id="+user.Id.ToString();
             message.Body = "Please, verify your email. Click at this link \n <a href=" + url + ">Link</a>";
             message.Subject = "Verification account email";
             message.IsBodyHtml = true;
